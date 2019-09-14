@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="img/favicon.ico" />
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/img/favicon.ico" />
     <title>Murah Tiketnya - Beli Tiket Murah Ya Disini Tempatnya.</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bulma.css">
@@ -67,180 +67,254 @@
     </div>
 
     <!-- Hero image -->
-    <div id="home" class="hero-body is-clean">
-        <div class="container has-text-centered">
-            <div class="columns is-vcentered">
-                <div class="column is-5 caption-column has-text-left">
-                    <h1 class="clean-title light-text">
-                        Murah Tiketnya.
-                    </h1>
-                    <div class="subtitle is-5 light-text no-margin">
-                        Beli tiket murah, ya disini tempatnya !!
-                    </div>
-                    <div class="cta-wrapper has-text-left">
-                        <a href="#product" class="button button-cta btn-align btn-outlined is-bold light-btn">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-                <div class="column is-9 is-offset-1">
-                    <figure class="image is-3by2">
-                        <img class="clean-hero-mockup mt-80 z-index-2" src="<?php echo base_url() ?>assets/img/macbook-app.png" alt="">
-                    </figure>
-                </div>
+            <div id="home" class="hero-body is-clean">
+                <div class="container has-text-centered">
+                    <div class="columns is-vcentered">
+                        <div class="column is-5 caption-column has-text-left">
+                            <h1 class="clean-title light-text">
+                                Murah Tiketnya.
+                            </h1>
+                            <div class="subtitle is-5 light-text no-margin">
+                                Beli tiket murah, ya disini tempatnya !!
+                            </div>
+                            <div class="cta-wrapper has-text-left">
+                                <a href="#product" class="button button-cta btn-align btn-outlined is-bold light-btn">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+                        <div class="column is-9 is-offset-1">
+                            <figure class="image is-3by2">
+                                <img class="clean-hero-mockup mt-80 z-index-2" src="<?php echo base_url() ?>assets/img/macbook-app.png" alt="">
+                            </figure>
+                        </div>
 
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- /Hero image -->
+            <!-- /Hero image -->
     </div>
     <!-- /Hero and nav -->
 
     <a id="booking"></a>
     <!--Booking-->
-    <section class="section section-feature-grey">
+    <section class="section section-feature-grey is-medium">
         <div class="section-title-wrapper has-text-centered">
             <h2 class="title section-title has-text-centered dark-text text-bold">
-                Your Booking
+                Booking Tiket
             </h2>
         </div>
 
         <div class="columns is-vcentered">
             <div class="column is-4 is-offset-4">
                 <div class="info-block has-text-centered">
-                    <i>Isi data diri anda dan review pemesanan anda.</i>
+                    <i>Cari tiket keberangkatan kereta anda.</i>
                 </div>
             </div>
         </div>
 
         <!-- 2 columns -->
-        <div class="columns">
-            <div class="column is-4  is-offset-3 is-flex-mobile">
+        <div class="columns is-vcentered">
+            <div class="column is-6 is-offset-3 is-flex-mobile">
                 <div class="flex-card light-bordered light-raised">
                     <ul class="card-body">
-                        <form>
-                            <h2 class="title is-4 mb-20">Kontak Pemesan</h2>
-                            <div class="columns">
-                                <div class="column">
-                                    <div class="control">
-                                        <label>Full Name</label>
-                                        <input class="input is-secondary-focus mt-5" type="text">
-                                        <small style="color: #bdbdbd;">As on ID Card/passport/driving license (without degree or special characters)</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="columns">
-                                <div class="column">
-                                    <div class="control">
-                                        <label>Mobile Number</label>
-                                        <input class="input is-secondary-focus mt-5" type="text">
-                                        <small style="color: #bdbdbd;">e.g. +62812345678</small>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="control">
-                                        <label>Email</label>
-                                        <input class="input is-secondary-focus mt-5" type="text">
-                                        <small style="color: #bdbdbd;">e.g. email@example.com</small>
-                                    </div>
-                                </div>         
-                            </div>
-
-                            <h2 class="title is-4">Data Penumpang</h2>
-                            <h2 class="title is-5 mb-20">Penumpang Dewasa 1</h2>
-                            <div class="columns">
+                        <h2 class="title is-4 mb-20">Cari Keberangkatan Anda.</h2>
+                         <form>
+                                <div class="columns mt-50">
                                     <div class="column">
-                                        <label>Pilih Penumpang</label>
-                                        <div class="select is-fullwidth">
-                                            <select class="is-hovered">
-                                                <option name=""></option>
-                                            </select>
+                                        <div class="control">
+                                            <label>Asal Keberangkatan</label>
+                                            <input class="input is-secondary-focus mt-5" type="text">
                                         </div>
-                                    </div>       
-                                </div>  
-                            <div class="columns">
-                                <div class="column">
-                                    <label>Title</label>
-                                    <div class="select is-fullwidth">
-                                        <select class="is-hovered">
-                                            <option name="">Mr</option>
-                                            <option name="">Mrs</option>
-                                            <option name="3">Miss</option>
-                                            <option name="4">Ms</option>
-                                            <option name="4">Dr</option>
-                                        </select>
+                                        <div class="field mb-20">
+                                            <div class="control">
+                                              <label>Tanggal Berangkat</label>
+                                                <input type="date" class="input is-secondary-focus mt-5">
+                                            </div>
+                                        </div>
+																		</div>
+																		
+                                    <div class="column">
+                                        <div class="control">
+                                            <label>Tujuan Keberangkatan</label>
+                                            <input class="input is-secondary-focus mt-5" type="text">
+																				</div>
+																				<div class="control">
+																						<label class="checkbox-wrap is-medium" style="line-height: 6;">
+																								<input id="myCheck" type="checkbox" class="d-checkbox" onclick="myFunction()">
+																								<span></span>
+																								Tiket Pulang Pergi
+																						</label>
+																				</div>
                                     </div>
-                                </div>
-                                <div class="column">
-                                    <label>Jenis Kelamin</label>
-                                    <div class="select is-fullwidth">
-                                        <select class="is-hovered">
-                                            <option name="1">Laki-laki</option>
-                                            <option name="2">Perempuan</option>
-                                        </select>
-                                    </div>  
-                                </div>         
-                            </div>  
-                            <div class="columns">
-                                <div class="column">
-                                    <div class="control">
-                                        <label>Name</label>
-                                        <input class="input is-secondary-focus mt-5" type="text">
-                                        <small style="color: #bdbdbd;">Tanpa title dan tanda baca</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-30">  
-                                <button class="button btn-align no-lh raised primary-btn">Submit</button>
-                                <button class="button is-link no-lh">Cancel</button>
-                            </div>
-                        </form>
-                    </ul>
-                </div>
-            </div>
+																	</div>
 
-            <div class="column is-2 is-flex-mobile">
-                <div class="flex-card light-bordered light-raised">
-                    <ul class="card-body">
-                        <form>
-                            <h2 class="title is-4 mb-20"><i class="fas fa-plane fa-sm"></i> Surabaya → Jakarta</h2>
-                            <div class="columns">
-                                <div class="column">
-                                    <div class="control">
-                                        <label>Full Name</label>
-                                        <input class="input is-secondary-focus mt-5" type="text">
-                                        <small style="color: #bdbdbd;">As on ID Card/passport/driving license (without degree or special characters)</small>
-                                    </div>
+																	<div class="columns">
+																		<div class="column">
+																				<div class="control" id="show" style="display: none;">
+                                            <label>Pulang Pergi</label>
+                                            <input type="date" class="input is-secondary-focus mt-5">
+																				</div>
+																		</div>
+																	</div>
+																	
+                                  <div class="columns">
+                                      <div class="column">
+                                        <label>Dewasa</label>
+                                         <div class="select is-fullwidth">
+                                          <select class="is-hovered">
+                                              <option name="1">1</option>
+                                              <option name="2">2</option>
+                                              <option name="3">3</option>
+                                              <option name="4">4</option>
+                                          </select>
+                                          </div>
+                                          <small style="color: #bdbdbd;">3 tahun ke atas*</small>
+                                      </div>
+                                  </div>
+
+                                  <div class="columns">
+                                      <div class="column">
+                                        <label>Bayi</label>
+                                         <div class="select is-fullwidth">
+                                          <select class="is-hovered">
+                                              <option value="0">0</option>
+                                              <option name="1">1</option>
+                                          </select>
+                                          </div>
+                                          <small style="color: #bdbdbd;">3 tahun ke bawah*</small>
+                                      </div>
+                                  </div>
+                                    
+
+                                <div class="mt-30">  
+                                    <button class="button btn-align no-lh raised primary-btn">Submit</button>
+                                    <button class="button is-link no-lh">Cancel</button>
                                 </div>
-                            </div>
-                            <div class="columns">
-                                <div class="column">
-                                    <div class="control">
-                                        <label>Mobile Number</label>
-                                        <input class="input is-secondary-focus mt-5" type="text">
-                                        <small style="color: #bdbdbd;">e.g. +62812345678</small>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="control">
-                                        <label>Email</label>
-                                        <input class="input is-secondary-focus mt-5" type="text">
-                                        <small style="color: #bdbdbd;">e.g. email@example.com</small>
-                                    </div>
-                                </div>         
-                            </div>
-                        </form>
-                    </ul>
+                         </form>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- 2 columns -->
+        </section>
+</div>
+
+    <a id="adventage"></a>
+    <!-- Keuntungan -->
+    <section id="adventage" class="section is-medium is-skewed-sm">
+        <div class="container is-reverse-skewed-sm">
+            <div class="section-title-wrapper has-text-centered">
+                <div class="clean-bg-symbol"><i class="fas fa-percent    "></i></div>
+                    <div>
+                        <h2 class="clean-section-title">Keuntungan.</h2>
+                        <h3 class="subtitle is-5 pt-10">
+                            Mengapa memesan di Murahtiketnya
+                        </h3>
+                    </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="columns is-vcentered">
+                    <div class="column is-4 offset-1">
+                        <!--Title-->
+                        <div class="title quick-feature">
+                            <h2 class="title is-3 clean-text">Harga Jujur</h2>
+                        </div>
+                        <!-- /Title -->
+                        <div class="title-divider"></div>
+                        <span class="section-feature-description">Bebas biaya transaksi. Tanpa biaya tersembunyi.</span>
+                    </div>
+
+                    <div class="column is-6 is-offset-1">
+                        <img src="<?php echo base_url() ?>assets/img/1-people.JPG" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Feature -->
+    <section class="section is-medium is-skewed-sm">
+        <div class="container is-reverse-skewed-sm">
 
+            <div class="columns is-vcentered">
 
-    <a id="jadwal"></a>
-    <!-- Jadwal -->
+                <div class="column is-6">
+                    <!-- Featured illustration -->
+                    <img src="<?php echo base_url() ?>assets/img/2-people.JPG" alt="">
+                    <!-- /Featured illustration -->
+                </div>
+
+                <div class="column is-4 is-offset-1">
+                    <!-- Title -->
+                    <div class="title quick-feature">
+                        <h2 class="clean-text">Berbagai Pilihan Pembayaran</h2>
+                    </div>
+                    <!-- /Title -->
+                    <div class="title-divider"></div>
+                    <span class="section-feature-description">Pembelian voucher menjadi semakin fleksibel dengan berbagai pilihan pembayaran, dari Transfer ATM, Kartu Kredit, hingga Internet Banking.</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- /Feature -->
+
+    <!-- Feature -->
+    <section class="section is-medium is-skewed-sm">
+        <div class="container is-reverse-skewed-sm">
+
+                <div class="columns is-vcentered">
+
+                    <div class="column is-4 is-offset-1">
+                        <!-- Title -->
+                        <div class="title quick-feature">
+                            <h2 class="clean-text">Best Price Guarantee</h2>
+                        </div>
+                        <!-- /Title -->
+                        <div class="title-divider"></div>
+                        <span class="section-feature-description">Harga kompetitif dengan jaminan harga terbaik.</span>
+                    </div>
+
+                    <div class="column is-6 is-offset-1">
+                        <!-- Featured illustration -->
+                        <img src="<?php echo base_url() ?>assets/img/3-people.jpg" alt="">
+                        <!-- /Featured illustration -->
+                    </div>
+
+                </div>
+        </div>
+    </section>
+    <!-- /Feature -->
+
+    <!-- Feature -->
+    <section class="section is-medium is-skewed-sm">
+        <div class="container is-reverse-skewed-sm">
+    
+                <div class="columns is-vcentered">
+    
+                    <div class="column is-6">
+                        <!-- Featured illustration -->
+                        <img src="<?php echo base_url() ?>assets/img/4-people.jpg" alt="">
+                        <!-- /Featured illustration -->
+                    </div>
+    
+                    <div class="column is-4 is-offset-1">
+                        <!-- Title -->
+                        <div class="title quick-feature">
+                            <h2 class="clean-text">Review Tamu Asli</h2>
+                        </div>
+                        <!-- /Title -->
+                        <div class="title-divider"></div>
+                        <span class="section-feature-description">Ulasan terpercaya dari tamu hotel akan membantu Anda dalam menentukan pilihan.</span>
+                    </div>
+    
+                </div>
+            </div>
+    </section>
+    <!-- /Feature -->
+<a id="jadwal"></a>
+<!-- Jadwal -->
     <section id="jadwal" class="section is-medium is-skewed-sm">
         <div class="container is-reverse-skewed-sm">
             <div class="section-title-wrapper has-text-centered">
@@ -335,7 +409,56 @@
                 </div>
         </div>
     </section>
+
+    <a id="testimoni"></a>
+    <!--Testimoni-->
+    <section id="testimoni" class="section section-feature-grey is-medium is-skewed-sm">
+        <div class="container is-reverse-skewed-sm">
+                <div class="section-title-wrapper has-text-centered">
+                    <div class="clean-bg-symbol"><i class="fab fa-servicestack    "></i></div>
+                        <div>
+                            <h2 class="clean-section-title">Service Kami.</h2>
+                            <h3 class="subtitle is-5 pt-10">
+                                Service yang ditawarkan.
+                            </h3>
+                        </div>
+                </div>
+
+                <div class="content-wrapper">
+                    <div class="columns is-vcentered">
+                        <!--Floating Icons-->
+                        <div class="column is-4">
+                                <div class="floating-circle levitate is-icon-reveal">
+                                    <img src="<?php echo base_url() ?>assets/img/icons/fast-delivery.svg" alt="Respond Cepat">
+                                </div>
+                                <div class="has-text-centered mt-20">
+                                    <span class="clean-text">Respond Cepat</span>
+                                </div>
+                        </div>
+                        <!--Floating Icons-->
+                        <div class="column is-4">
+                                <div class="floating-circle levitate is-icon-reveal">
+                                    <img src="<?php echo base_url() ?>assets/img/icons/price-tag.svg" alt="Harga Terjangkau">
+                                </div>
+                                <div class="has-text-centered mt-20">
+                                    <span class="clean-text">Biaya Terjangkau</span>
+                                </div>
+                        </div>
+                        <!--Floating Icons-->
+                        <div class="column is-4">
+                                <div class="floating-circle levitate is-icon-reveal">
+                                    <img src="<?php echo base_url() ?>assets/img/icons/shield.svg" alt="Barang Aman Sampai Tujuan">
+                                </div>
+                                <div class="has-text-centered mt-20">
+                                    <span class="clean-text">Barang Aman Sampai Tujuan</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
     
+
     <!-- Testimonials section -->
     <section id="card-testimonials" class="section section-feature-grey is-medium is-skewed-sm">
         <div class="container is-reverse-skewed-sm">
@@ -477,7 +600,7 @@
               <div class="column is-half-mobile">
                   <div class="footer-column">
                       <div class="footer-logo">
-                          <img src="assetss/images/logos/bulkit-logo-green.png" alt="">
+                          <img src="assets/images/logos/bulkit-logo-green.png" alt="">
                       </div>
                       <div class="footer-header"><nav class="level is-mobile">
                           <div class="level-left level-social">

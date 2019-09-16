@@ -176,7 +176,21 @@
                 show.style.display = "none";
             }
         }
+
+        function swapValues(){
+            var tmp = document.getElementById("asal").value;
+            document.getElementById("asal").value = document.getElementById("berangkat").value;
+            document.getElementById("berangkat").value = tmp;     
+        }
+
+        $(document).ready(function() {
+            $("#button_search").click(function() {
+                $("#form_search").toggle();
+            });
+        });
     </script>
+
+
 
     <!-- Core js -->
     <script src="<?php echo base_url() ?>assets/js/core/jquery.min.js"></script>

@@ -173,7 +173,7 @@
                         <div class="mcard-actions ml-auto">
                             <span><i class="material-icons">work</i></span>
                             <span><i class="material-icons">local_dining</i></span>&nbsp;&nbsp;
-                            <a class="button button-cta primary-btn">Pesan Sekarang</a>
+                            <a href="<?=base_url('Booking/booking_pesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -223,8 +223,6 @@
                       </div>
                     </div>
 
-                    
-                    
                     <div class="mcard-controls">
                         <div class="mcard-avatar">
                             <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
@@ -236,7 +234,7 @@
                         <div class="mcard-actions ml-auto">
                             <span><i class="material-icons">work</i></span>
                             <span><i class="material-icons">local_dining</i></span>&nbsp;&nbsp;
-                            <a class="button button-cta primary-btn">Pesan Sekarang</a>
+                            <a href="<?=base_url('booking')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -299,7 +297,7 @@
                         <div class="mcard-actions ml-auto">
                             <span><i class="material-icons" title="Bagasi 20 kg">work</i></span>
                             <span><i class="material-icons" title="Makanan di pesawat">local_dining</i></span>&nbsp;&nbsp;
-                            <a class="button button-cta primary-btn">Pesan Sekarang</a>
+                            <a href="<?=base_url('booking')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>

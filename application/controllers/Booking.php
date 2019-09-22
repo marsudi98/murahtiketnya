@@ -60,7 +60,19 @@ class Booking extends CI_Controller {
 			'data' => array()
 		];
 		$this->load->view('layouts/template',$data);
-    }
+	}
+	
+	public function konfirmasi(){
+		$data=[
+			'title'=>"SAI Maintenance",
+			'ctrlname' => $this->ctrlname,
+			// 'headers' => "dashboard/header",
+			'contents' => "konfirmasipesawat_view",
+			// 'footers' => "dashboard/footer",
+			'data' => array()
+		];
+		$this->load->view('layouts/template',$data);
+	}
 
 }
 

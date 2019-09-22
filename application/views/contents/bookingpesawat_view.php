@@ -21,7 +21,7 @@
         <div class="column is-4  is-offset-3 is-flex-mobile">
             <div class="flex-card light-bordered light-raised">
                 <ul class="card-body">
-                    <form>
+                    <form action="<?=base_url('Booking/detailbooking_pesawat')?>">
                         <h2 class="title is-4 mb-20">Kontak Pemesan</h2>
                         <div class="columns">
                             <div class="column">

@@ -23,6 +23,45 @@ class Booking extends CI_Controller {
 		$this->load->view('layouts/template',$data);
     }
 
+    public function booking_pesawat()
+    {
+        $data=[
+			'title'=>"SAI Maintenance",
+			'ctrlname' => $this->ctrlname,
+			// 'headers' => "dashboard/header",
+			'contents' => "bookingpesawat_view",
+			// 'footers' => "dashboard/footer",
+			'data' => array()
+		];
+		$this->load->view('layouts/template',$data);
+    }
+
+    public function detailbooking_pesawat()
+    {
+        $data=[
+			'title'=>"SAI Maintenance",
+			'ctrlname' => $this->ctrlname,
+			// 'headers' => "dashboard/header",
+			'contents' => "detailbookingpesawat_view",
+			// 'footers' => "dashboard/footer",
+			'data' => array()
+		];
+		$this->load->view('layouts/template',$data);
+    }
+
+    public function booking_kereta()
+    {
+        $data=[
+			'title'=>"SAI Maintenance",
+			'ctrlname' => $this->ctrlname,
+			// 'headers' => "dashboard/header",
+			'contents' => "bookingkereta_view",
+			// 'footers' => "dashboard/footer",
+			'data' => array()
+		];
+		$this->load->view('layouts/template',$data);
+    }
+
 }
 
 /* End of file Controllername.php */

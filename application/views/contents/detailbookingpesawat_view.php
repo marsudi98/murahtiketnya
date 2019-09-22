@@ -18,7 +18,7 @@
 
     <!-- 2 columns -->
     <div class="columns">
-        <div class="column is-4  is-offset-3 is-flex-mobile">
+        <div class="column is-4 is-offset-3 is-flex-mobile">
             <div class="flex-card light-bordered light-raised">
                 <ul class="card-body">
                     <h2 class="title is-5 text-bold mb-20">Data Pemesanan</h2>

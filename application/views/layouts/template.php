@@ -20,6 +20,39 @@
     <!-- Icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/icons.min.css">
+    <style>
+        .jst-hours {
+            float: left;
+            font-size: 40px;
+        }
+        .jst-minutes {
+            float: left;
+            font-size: 40px;
+        }
+        .jst-seconds {
+            float: left;
+            font-size: 40px;
+        }
+        .jst-clearDiv {
+            clear: both;
+        }
+
+        .bodyTimeoutBackground {
+         background: white;
+        }
+
+        .timeout {
+            color: red;
+            -webkit-animation-name: blinker;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+            -webkit-animation-duration: 1s;
+            }
+            @-webkit-keyframes blinker {
+            from { opacity: 1.0; }
+            to { opacity: 0.0; }
+        }
+    </style>
     <!-- Javascript -->
     <script src="<?php echo base_url() ?>assets/js/core/jquery.min.js"></script>
 </head>
@@ -206,6 +239,15 @@
                 $("#form_search").toggle();
             });
         });
+
+        $(function(){
+
+            $('.timer').startTimer();
+
+      
+         
+        })             
+
     </script>
 
 
@@ -218,6 +260,7 @@
     <script src="<?php echo base_url() ?>assets/js/scrollreveal/scrollreveal.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/datepicker/datepicker.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/easyAutocomplete/jquery.easy-autocomplete.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/jquery.simple.timer.js"></script>
     <!-- Bulkit js -->
     <script src="<?php echo base_url() ?>assets/js/main.js"></script>
     <!-- Page specific JS -->

@@ -18,7 +18,7 @@
 
     <!-- 2 columns -->
     <div class="columns">
-        <div class="column is-8 is-offset-2 is-flex-mobile">
+        <div class="column is-4 is-offset-2 is-flex-mobile">
             <div class="flex-card light-bordered light-raised">
                 <ul class="card-body">
                     <form action="<?=base_url('Booking/detailbooking_pesawat')?>">
@@ -72,6 +72,17 @@
                             <button class="button btn-align no-lh raised primary-btn">Konfirmasi</button>
                             <button class="button is-link no-lh">Cancel</button>
                         </div>
+                </ul>
+            </div>
+        </div>
+        <div class="column is-3 is-flex-mobile">
+            <div class="flex-card light-bordered light-raised">
+                <ul class="card-body">
+                    <h2 class="title is-5 text-bold mb-20">Time Limit</h2>
+                    <hr>
+                      <div class="column is-10 is-offset-3">
+                         <h2 class="timer is-4" data-minutes-left="180"></h2>
+                      </div>
                 </ul>
             </div>
         </div>

@@ -19,7 +19,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/ggpopover/ggtooltip.css">
     <!-- Icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/icons.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/icons.min.css">
+    <!-- Javascript -->
+    <script src="<?php echo base_url() ?>assets/js/core/jquery.min.js"></script>
 </head>
 <body>
     <!-- Page Loader -->
@@ -167,7 +169,7 @@
 
     <div id="backtotop"><a href="#"></a></div>
     <script>
-        function myFunction() {
+        function myKereta() {
             var checkBox = document.getElementById("myCheck");
             var show = document.getElementById("show");
             if (checkBox.checked == true){
@@ -177,10 +179,26 @@
             }
         }
 
+        function myPesawat() {
+            var checkBox = document.getElementById("myPswt");
+            var showPswt = document.getElementById("showPswt");
+            if (checkBox.checked == true){
+                showPswt.style.display = "block";
+            } else {
+                showPswt.style.display = "none";
+            }
+        }
+
         function swapValues(){
             var tmp = document.getElementById("asal").value;
             document.getElementById("asal").value = document.getElementById("berangkat").value;
             document.getElementById("berangkat").value = tmp;     
+        }
+
+        function swapPesawat(){
+            var tmp = document.getElementById("asalPesawat").value;
+            document.getElementById("asalPesawat").value = document.getElementById("berangkatPesawat").value;
+            document.getElementById("berangkatPesawat").value = tmp;     
         }
 
         $(document).ready(function() {
@@ -193,7 +211,6 @@
 
 
     <!-- Core js -->
-    <script src="<?php echo base_url() ?>assets/js/core/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/core/modernizr.min.js"></script>
     <!-- Plugins js -->
     <script src="<?php echo base_url() ?>assets/js/slick-carousel/slick.min.js"></script>

@@ -13,7 +13,7 @@
         </div>
 
         <div class="content-wrapper">
-          <h3 class="title text-bold is-5">JKT (Semua Bandara) → DPS (Ngurah Rai International Airport)</h3>
+          <h3 class="title text-bold is-5">JKT (Semua Bandara) → MLG (Abdurahman Saleh Airport)</h3>
           <div class="columns">
             <div class="column is-6">
               <h3 class="subtitle is-6 pt-10">
@@ -127,75 +127,192 @@
         </div>
 
         <div class="content-wrapper">
-            <div class="fancy-pricing">
-                <div class="columns is-vcentered">
-                    <div class="column is-4">
-                      <!-- Pricing table -->
-                      <div class="flex-card fancy-pricing-card light-bordered hover-inset secondary">
-                          <h3 class="plan-name">Lion Air</h3>
-                          <div class="plan-icon">
-                            <img class="is-5" src="img/logo-pesawat/lion-air.png" width="50px" height="50px">
-                          </div>
-                          <div class="plan-price">
-                            <small>Rp.</small> 850.000 <small>/ org</small>
-                          </div>
-                          <ul class="plan-features">
-                            <li><span class="feature-count-text">04.30 - Jakarta (CGK)</span></li>
-                            <li><span class="feature-count-text">07.20 - Bali (DPS)</span></li>
-                            <li><span class="feature-count-text">1j 50m - Langsung</span></li>
-                          </ul>
-                          <div class="pt-20 pb-20">
-                              <a class="button button-cta btn-align rounded raised secondary-btn btn-outlined is-bold">Pesan Sekarang</a>
+          <div class="flex-card media-card media-card-right light-bordered light-raised">
+            <div class="columns is-gapless is-desktop">
+                <div class="column content-column">
+                    <div class="columns">
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                              <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
                           </div>
                       </div>
-                      <!-- /Pricing table -->
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                              <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                          </div>
                       </div>
-  
-                    <div class="column is-4">
-                        <!-- Pricing table -->
-                        <div class="flex-card fancy-pricing-card light-bordered hover-inset secondary">
-                            <h3 class="plan-name">Lion Air</h3>
-                            <div class="plan-icon">
-                                <img class="is-3" src="img/logo-pesawat/lion-air.png" width="50px" height="50px">
-                            </div>
-                            <div class="plan-price">
-                                <small>Rp.</small> 850.000 <small>/ org</small>
-                            </div>
-                            <ul class="plan-features">
-                                <li><span class="feature-count-text">04.30 - Jakarta (CGK)</span></li>
-                                <li><span class="feature-count-text">07.20 - Bali (DPS)</span></li>
-                                <li><span class="feature-count-text">1j 50m - Langsung</span></li>
-                            </ul>
-                            <div class="pt-20 pb-20">
-                                <a class="button button-cta btn-align rounded raised secondary-btn btn-outlined is-bold">Pesan Sekarang</a>
-                            </div>
-                        </div>
-                        <!-- /Pricing table -->
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                              <p class="mcard-description is-hidden-touch">Langsung</p>
+                          </div>
+                      </div>
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rp. 725.600</a></h3>
+                              <p class="mcard-description is-hidden-touch">/ orang</smalclass="mcard-description>
+                          </div>
+                      </div>
                     </div>
-  
-                    <div class="column is-4">
-                      <!-- Pricing table -->
-                      <div class="flex-card fancy-pricing-card light-bordered hover-inset secondary">
-                          <h3 class="plan-name">Lion Air</h3>
-                          <div class="plan-icon">
-                            <img src="img/logo-pesawat/lion-air.png" width="50px" height="50px">
-                          </div>
-                          <div class="plan-price">
-                            <small>Rp.</small> 850.000 <small>/ org</small>
-                          </div>
-                          <ul class="plan-features">
-                            <li><span class="feature-count-text">04.30 - Jakarta (CGK)</span></li>
-                            <li><span class="feature-count-text">07.20 - Bali (DPS)</span></li>
-                            <li><span class="feature-count-text">1j 50m - Langsung</span></li>
-                          </ul>
-                          <div class="pt-20 pb-20">
-                            <a class="button button-cta btn-align rounded raised secondary-btn btn-outlined is-bold">Pesan Sekarang</a>
-                          </div>
-                      </div>
-                      <!-- /Pricing table -->
-                    </div>
+
                     
-                  </div>
+                    
+                    <div class="mcard-controls">
+                        <div class="mcard-avatar">
+                            <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                        </div>
+                        <div class="mcard-info">
+                            <span><a href="#">Lion Air</a></span> 
+                            <div><span>20 September 2019</span><span>  |  Ekonomi</span></div>
+                        </div>
+                        <div class="mcard-actions ml-auto">
+                            <span><i class="material-icons">work</i></span>
+                            <span><i class="material-icons">local_dining</i></span>&nbsp;&nbsp;
+                            <a class="button button-cta primary-btn">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4 media-stretch">
+                    <div class="mcard-content">
+                        <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
+                        <br>
+                        <p class="mcard-description is-hidden-touch">Jakarta (CGK) - Soekarno Hatta Airport → Malang (MLG) Abdurahman  </p>
+                        <p class="mcard-description is-hidden-touch">Pesawat Boeing 737</p>
+                        <p class="mcard-description is-hidden-touch">Tata Kursi 3-3</p>
+                        <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-card media-card media-card-right light-bordered light-raised">
+            <div class="columns is-gapless is-desktop">
+                <div class="column content-column">
+                    <div class="columns">
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                              <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                          </div>
+                      </div>
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                              <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                          </div>
+                      </div>
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                              <p class="mcard-description is-hidden-touch">Langsung</p>
+                          </div>
+                      </div>
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rp. 725.600</a></h3>
+                              <p class="mcard-description is-hidden-touch">/ orang</smalclass="mcard-description>
+                          </div>
+                      </div>
+                    </div>
+
+                    
+                    
+                    <div class="mcard-controls">
+                        <div class="mcard-avatar">
+                            <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
+                        </div>
+                        <div class="mcard-info">
+                            <span><a href="#">Garuda Indonesia</a></span> 
+                            <div><span>20 September 2019</span><span>  |  Ekonomi</span></div>
+                        </div>
+                        <div class="mcard-actions ml-auto">
+                            <span><i class="material-icons">work</i></span>
+                            <span><i class="material-icons">local_dining</i></span>&nbsp;&nbsp;
+                            <a class="button button-cta primary-btn">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4 media-stretch">
+                    <div class="mcard-content">
+                        <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
+                        <br>
+                        <p class="mcard-description is-hidden-touch">Jakarta (CGK) - Soekarno Hatta Airport → Malang (MLG) Abdurahman  </p>
+                        <p class="mcard-description is-hidden-touch">Pesawat Boeing 737</p>
+                        <p class="mcard-description is-hidden-touch">Tata Kursi 3-3</p>
+                        <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-card media-card media-card-right light-bordered light-raised">
+            <div class="columns is-gapless is-desktop">
+                <div class="column content-column">
+                    <div class="columns">
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                              <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                          </div>
+                      </div>
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                              <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                          </div>
+                      </div>
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                              <p class="mcard-description is-hidden-touch">Langsung</p>
+                          </div>
+                      </div>
+
+                      <div class="column is-3">
+                          <div class="mcard-content">
+                              <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rp. 725.600</a></h3>
+                              <p class="mcard-description is-hidden-touch">/ orang</smalclass="mcard-description>
+                          </div>
+                      </div>
+                    </div>
+
+                    
+                    
+                    <div class="mcard-controls">
+                        <div class="mcard-avatar">
+                            <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                        </div>
+                        <div class="mcard-info">
+                            <span><a href="#">Lion Air</a></span> 
+                            <div><span>20 September 2019</span>  |  <span>Ekonomi</span></div>
+                        </div>
+                        <div class="mcard-actions ml-auto">
+                            <span><i class="material-icons" title="Bagasi 20 kg">work</i></span>
+                            <span><i class="material-icons" title="Makanan di pesawat">local_dining</i></span>&nbsp;&nbsp;
+                            <a class="button button-cta primary-btn">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4 media-stretch">
+                    <div class="mcard-content">
+                        <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
+                        <br>
+                        <p class="mcard-description is-hidden-touch">Jakarta (CGK) - Soekarno Hatta Airport → Malang (MLG) Abdurahman  </p>
+                        <p class="mcard-description is-hidden-touch">Pesawat Boeing 737</p>
+                        <p class="mcard-description is-hidden-touch">Tata Kursi 3-3</p>
+                        <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
+                        
+                    </div>
                 </div>
             </div>
         </div>

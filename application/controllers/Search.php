@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Landing extends CI_Controller {
+class Search extends CI_Controller {
     
     public function __construct()
     {
@@ -14,7 +14,7 @@ class Landing extends CI_Controller {
     public function index()
     {
         $data=[
-			'title'=>"SAI Maintenance",
+			'title'=>"Search Murahtiketnya",
 			'ctrlname' => $this->ctrlname,
 			// 'headers' => "dashboard/header",
 			'contents' => "search_view",

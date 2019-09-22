@@ -48,6 +48,19 @@
                                 </div>
                             </div>         
                         </div>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="control">
+                                    <label>Asuransi *)</label>
+                                    <div class="select is-fullwidth">
+                                        <select class="is-hovered">
+                                            <option name="">Tidak, Terima Kasih</option>
+                                            <option name="">Ya</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
                 </ul>
             </div>
             <div class="flex-card light-bordered light-raised">

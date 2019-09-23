@@ -30,7 +30,7 @@
                                                                 <div class="flex-card light-bordered light-raised">
                                                                         <div class="card-body">
                                                                                 <h2 class="title is-4 text-bold mb-20">Cari Tiket Kereta Api</h2>
-                                                                                <form action="<?=base_url('search')?>">
+                                                                                <form action="<?=base_url('Search')?>">
                                                                                         <div class="columns mt-50">
                                                                                                 <div class="column">
                                                                                                         <div class="control">
@@ -111,7 +111,7 @@
                                                                 <div class="flex-card light-bordered light-raised">
                                                                         <div class="card-body">
                                                                                 <h2 class="title is-4 text-bold mb-20">Cari Tiket Pesawat Terbang</h2>
-                                                                                <form>
+                                                                                <form action="<?=base_url('Search')?>">
                                                                                         <div class="columns mt-50">
                                                                                                 <div class="column">
                                                                                                         <div class="control">

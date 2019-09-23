@@ -21,13 +21,13 @@
         <div class="column is-4  is-offset-3 is-flex-mobile">
             <div class="flex-card light-bordered light-raised">
                 <ul class="card-body">
-                    <form action="<?=base_url('Booking/detailbooking_pesawat')?>">
+                    <form action="<?=base_url('DetailBooking_pesawat')?>">
                         <h2 class="title is-4 mb-20">Kontak Pemesan</h2>
                         <div class="columns">
                             <div class="column">
                                 <div class="control">
                                     <label>Full Name</label>
-                                    <input class="input is-secondary-focus mt-5" type="text">
+                                    <input class="input is-secondary-focus mt-5" type="text" required>
                                     <small style="color: #bdbdbd;">As on ID Card/passport/driving license (without degree or special characters)</small>
                                 </div>
                             </div>
@@ -36,14 +36,14 @@
                             <div class="column">
                                 <div class="control">
                                     <label>Mobile Number</label>
-                                    <input class="input is-secondary-focus mt-5" type="text">
+                                    <input class="input is-secondary-focus mt-5" type="text" required>
                                     <small style="color: #bdbdbd;">e.g. +62812345678</small>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="control">
                                     <label>Email</label>
-                                    <input class="input is-secondary-focus mt-5" type="text">
+                                    <input class="input is-secondary-focus mt-5" type="text" required>
                                     <small style="color: #bdbdbd;">e.g. email@example.com</small>
                                 </div>
                             </div>         
@@ -53,7 +53,7 @@
                                 <div class="control">
                                     <label>Asuransi *)</label>
                                     <div class="select is-fullwidth">
-                                        <select class="is-hovered">
+                                        <select class="is-hovered" required>
                                             <option name="">Tidak, Terima Kasih</option>
                                             <option name="">Ya</option>
                                         </select>
@@ -81,7 +81,7 @@
                         <div class="column">
                             <label>Title</label>
                             <div class="select is-fullwidth">
-                                <select class="is-hovered">
+                                <select class="is-hovered" required>
                                     <option name="">Mr</option>
                                     <option name="">Mrs</option>
                                     <option name="3">Miss</option>
@@ -93,7 +93,7 @@
                         <div class="column">
                             <label>Jenis Kelamin</label>
                             <div class="select is-fullwidth">
-                                <select class="is-hovered">
+                                <select class="is-hovered" required>
                                     <option name="1">Laki-laki</option>
                                     <option name="2">Perempuan</option>
                                 </select>
@@ -104,7 +104,7 @@
                         <div class="column">
                             <div class="control">
                                 <label>Name</label>
-                                <input class="input is-secondary-focus mt-5" type="text">
+                                <input class="input is-secondary-focus mt-5" type="text" required>
                                 <small style="color: #bdbdbd;">Tanpa title dan tanda baca</small>
                             </div>
                         </div>

@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                        <a href="<?=base_url('Booking/konfirmasi')?>" class="button button-cta primary-btn">Konfirmasi Pembayaran</a>
+                        <a href="<?=base_url('KonfirmasiBooking_pesawat')?>" class="button button-cta primary-btn">Konfirmasi Pembayaran</a>
                 </ul>
             </div>
         </div>

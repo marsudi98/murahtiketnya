@@ -436,28 +436,28 @@
                         <!--Floating Icons-->
                         <div class="column is-4">
                                 <div class="floating-circle levitate is-icon-reveal">
-                                  <img src="<?php echo base_url() ?>assets/img/icons/fast-delivery.svg" alt="Respond Cepat">
+                                  <img src="<?php echo base_url() ?>assets/img/icons/speed.svg" alt="Pelayanan Cepat">
                                 </div>
                                 <div class="has-text-centered mt-20">
-                                    <span class="clean-text">Respond Cepat</span>
+                                    <span class="clean-text">Pelayanan Cepat</span>
                                 </div>
                         </div>
                         <!--Floating Icons-->
                         <div class="column is-4">
                                 <div class="floating-circle levitate is-icon-reveal">
-                                  <img src="<?php echo base_url() ?>assets/img/icons/price-tag.svg" alt="Harga Terjangkau">
+                                  <img src="<?php echo base_url() ?>assets/img/icons/tag.svg" alt="Harga Terjangkau">
                                 </div>
                                 <div class="has-text-centered mt-20">
-                                    <span class="clean-text">Biaya Terjangkau</span>
+                                    <span class="clean-text">Harga Terjangkau</span>
                                 </div>
                         </div>
                         <!--Floating Icons-->
                         <div class="column is-4">
                                 <div class="floating-circle levitate is-icon-reveal">
-                                  <img src="<?php echo base_url() ?>assets/img/icons/shield.svg" alt="Barang Aman Sampai Tujuan">
+                                  <img src="<?php echo base_url() ?>assets/img/icons/shield.svg" alt="Keamanan Terjamin">
                                 </div>
                                 <div class="has-text-centered mt-20">
-                                    <span class="clean-text">Barang Aman Sampai Tujuan</span>
+                                    <span class="clean-text">Keamanan Terjamin</span>
                                 </div>
                         </div>
                     </div>

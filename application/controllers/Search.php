@@ -21,7 +21,7 @@ class Search extends CI_Controller {
 			// 'footers' => "dashboard/footer",
 			'data' => array()
 		];
-		$this->load->view('layouts/template',$data);
+		$this->load->view('layouts/template-tiketnya',$data);
     }
 
 }

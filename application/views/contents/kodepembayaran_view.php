@@ -57,27 +57,28 @@
     <script src="<?php echo base_url() ?>assets/js/core/jquery.min.js"></script>
 </head>
 <body>
-    <!-- Page Loader -->
+    <!--Page Loader-->
     <div class="pageloader"></div>
     <div class="infraloader is-active"></div>
-    <!-- Hero (Parallax) and nav -->
-    <div class="hero parallax is-cover is-relative is-default is-bold" data-background="https://images.unsplash.com/photo-1520779708000-dfd7d8f7f9d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=626&q=80" data-color="#66bb6a" data-color-opacity="0.93">
-        <div class="navbar-wrapper navbar-fade navbar-light">
-            <div class="hero-head">
-            <!-- Nav -->
+
+    <!-- Hero and nav -->
+    <div class="hero is-light-grey is-fullheight">
+            <div class="navbar-wrapper navbar-sticky">
+                <div class="hero-head">
+
+                <!-- Nav -->
             <div class="container">
                 <nav class="nav">
                     <div class="container big">
                         <div class="nav-left" style="overflow: visible;">
                             <a class="nav-item" href="#" target="_blank">
-                                <img class="light-logo" src="<?php echo base_url() ?>assets/images/logos/bulkit-w.png" alt="Logo">
+                                <img src="<?php echo base_url() ?>assets/images/logos/bulkit-logo-green.png" alt="Logo">
                             </a>
                             <a href="#home" class="nav-item is-tab nav-inner is-not-mobile">Home</a>
                             <a href="#booking" class="nav-item is-tab nav-inner is-not-mobile">Booking</a>
                             <a href="#adventage" class="nav-item is-tab nav-inner is-not-mobile">Adventage</a>
                             <a href="#jadwal" class="nav-item is-tab nav-inner is-not-mobile">Jadwal</a>
                             <a href="#testimoni" class="nav-item is-tab nav-inner is-not-mobile">Testimoni</a>
-                            
                         </div>
                         <!-- Responsive toggle -->
                         <span class="nav-toggle">
@@ -91,52 +92,60 @@
                             <a href="#adventage" class="nav-item is-tab nav-inner is-menu-mobile">Adventage</a>
                             <a href="#jadwal" class="nav-item is-tab nav-inner is-menu-mobile">Destinasi</a>
                             <a href="#testimoni" class="nav-item is-tab nav-inner is-menu-mobile">Testimoni</a>
-                            <span class="nav-item">
-                                <a href="<?=base_url('KodePembayaran')?>"><div class="button button-cta btn-align btn-outlined is-bold light-btn centered">Kode Pembayaran </div></a>
-                            </span>
+                            <!-- <span class="nav-item">
+                                <a href="signup.html"><div id="signup-btn" class="button button-cta btn-align btn-outlined is-bold light-btn centered">Join Distributor </div></a>
+                            </span> -->
                         </div>
                     </div>
                 </nav>
             </div>
             <!--/Nav-->
-        </div>
-    </div>
 
-    <!-- Hero image -->
-    <div id="home" class="hero-body is-clean">
+                </div>
+            </div>
+
+<!-- Hero image -->
+<div id="main-hero" class="hero-body">
         <div class="container has-text-centered">
-            <div class="columns is-vcentered">
-                <div class="column is-5 caption-column has-text-left">
-                    <h1 class="clean-title light-text">
-                        Murah Tiketnya.
-                    </h1>
-                    <div class="subtitle is-5 light-text no-margin">
-                        Beli tiket murah, ya disini tempatnya !!
-                    </div>
-                    <div class="cta-wrapper has-text-left">
-                        <a href="#product" class="button button-cta btn-align btn-outlined is-bold light-btn">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-                <div class="column is-9 is-offset-1">
-                    <figure class="image is-3by2">
-                        <img class="clean-hero-mockup mt-80 z-index-2" src="<?php echo base_url() ?>assets/img/macbook-app.png" alt="">
-                    </figure>
-                </div>
+            <div class="columns is-vcentered mt-80 mb-80">
+                <div class="column is-6 is-offset-3">
+                    <!-- Login form -->
+                    <div id="login-card" class="animated preFadeInLeft fadeInLeft">
+                        <div class="flex-card clean-login-card">
+                            <h2>Konfirmasi Pembayaran</h2>
+                            <form action="<?=base_url('KonfirmasiBooking_pesawat')?>">
+                                <div class="control-material has-icon">      
+                                    <input class="material-input" type="text" placeholder="Kode Pembayaran" required>
+                                    <span class="material-highlight"></span>
+                                    <i class="material-icons">smartphone</i>
+                                    <span class="bar"></span>
+                                </div>
+                                <div class="control-material has-icon">      
+                                    <input class="material-input" type="text" placeholder="No. Handphone" required>
+                                    <span class="material-highlight"></span>
+                                    <i class="material-icons">visibility</i>
+                                    <span class="bar"></span>
+                                </div>
 
+                                <div class="mt-20">
+                                    <button class="button button-cta btn-align primary-btn is-fullwidth raised no-lh">Submit</button>
+                                </div
+                            </form>
+                          </div>
+
+                        <p class="has-text-centered mt-30">
+                            <a class="no-account  primary-text" href="#">Back to Home</a>
+                        </p>
+                    </div>
+                    <!-- /Login form -->    
+                </div>
             </div>
         </div>
     </div>
     <!-- /Hero image -->
-    </div>
-    <!-- /Hero and nav -->
-
-    <!-- Content -->
-    <?php $this->load->view('contents/'.$contents); ?>
-
-    <!--Footer-->
-    <footer class="footer footer-light">
+</div>
+<!--Footer-->
+<footer class="footer footer-light">
         <div class="container">
             <div class="columns footer-columns is-flex-mobile">
                 <div class="column is-half-mobile">
@@ -158,7 +167,7 @@
                             <h3>Company</h3>
                         </div>
                         <ul class="link-list">
-                            <li><a href="">Help Center</a></li>
+                            <li><a href=""> Help Center</a></li>
                             <li><a href="">Privacy policy</a></li>
                             <li><a href="">Terms of service</a></li>
                         </ul>

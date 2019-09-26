@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class DetailBooking_pesawat extends CI_Controller {
+class KodePembayaran extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
@@ -13,14 +13,14 @@ class DetailBooking_pesawat extends CI_Controller {
     public function index()
     {
         $data=[
-			'title'=>"SAI Maintenance",
+			'title'=>"Kode Pembayaran",
 			'ctrlname' => $this->ctrlname,
 			// 'headers' => "dashboard/header",
-			'contents' => "detailbookingpesawat_view",
+			'contents' => "kodepembayaran_view",
 			// 'footers' => "dashboard/footer",
 			'data' => array()
 		];
-		$this->load->view('layouts/template-tiketnya',$data);
+		$this->load->view('contents/kodepembayaran_view');
     }
 
 }

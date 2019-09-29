@@ -2,6 +2,46 @@
     <a id="booking"></a>
     <!--Booking-->
     <section class="section section-feature-grey">
+
+    <!-- steps progress -->
+    <ul class="steps is-narrow is-medium is-centered has-content-centered mt-60">
+      <li class="steps-segment is-active has-gaps">
+        <a href="#" class="has-text-dark">
+          <span class="steps-marker">
+            <i class="fas fa-plane fa-sm"></i>
+          </span>
+          <div class="steps-content">
+            <p class="heading">Booking</p>
+          </div>
+        </a>
+      </li>
+      <li class="steps-segment has-gaps">
+        <span class="steps-marker">
+        <i class="fas fa-plane fa-sm"></i>
+        </span>
+        <div class="steps-content">
+        <p class="heading">Detail</p>
+        </div>
+      </li>
+      <li class="steps-segment has-gaps">
+        <span class="steps-marker">
+            <i class="fas fa-plane fa-sm"></i>
+        </span>
+        <div class="steps-content">
+        <p class="heading">Confirmation</p>
+        </div>
+      </li>
+      <li class="steps-segment">
+        <span class="steps-marker">
+            <i class="fas fa-plane fa-sm"></i>
+        </span>
+        <div class="steps-content">
+          <p class="heading">Confirmation</p>
+        </div>
+      </li>
+    </ul>
+    <!-- end of steps progress -->
+
     <div class="section-title-wrapper has-text-centered">
         <h2 class="title section-title has-text-centered dark-text text-bold">
             Your Booking
@@ -15,10 +55,10 @@
             </div>
         </div>
     </div>
-
+    
     <!-- 2 columns -->
     <div class="columns">
-        <div class="column is-4  is-offset-3 is-flex-mobile">
+        <div class="column is-4 is-offset-3 is-flex-mobile">
             <div class="flex-card light-bordered light-raised">
                 <ul class="card-body">
                     <form action="<?=base_url('DetailBooking_pesawat')?>">
@@ -125,7 +165,7 @@
                     <div class="columns">
                         <div class="column">
                             <div class="control">
-                                <p class=""><i class="fas fa-plane fa-sm"></i> Surabaya → Jakarta</p>
+                                <label>Surabaya <i class="fas fa-plane fa-sm"></i> Jakarta</label>
                             </div>
                         </div>
                     </div>

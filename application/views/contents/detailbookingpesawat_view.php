@@ -2,6 +2,48 @@
     <a id="booking"></a>
     <!--Booking-->
     <section class="section section-feature-grey">
+
+    <!-- steps progress -->
+    <ul class="steps is-narrow is-medium is-centered has-content-centered mt-60">
+      <li class="steps-segment has-gaps">
+        <a href="#" class="has-text-dark">
+          <span class="steps-marker">
+            <i class="fas fa-plane fa-sm"></i>
+          </span>
+          <div class="steps-content">
+            <p class="heading">Booking</p>
+          </div>
+        </a>
+      </li>
+      <li class="steps-segment is-active has-gaps">
+        <a href="#" class="has-text-dark">
+            <span class="steps-marker">
+            <i class="fas fa-plane fa-sm"></i>
+            </span>
+            <div class="steps-content">
+            <p class="heading">Detail</p>
+            </div>
+        </a>
+      </li>
+      <li class="steps-segment has-gaps">
+        <span class="steps-marker">
+            <i class="fas fa-plane fa-sm"></i>
+        </span>
+        <div class="steps-content">
+        <p class="heading">Confirmation</p>
+        </div>
+      </li>
+      <li class="steps-segment">
+        <span class="steps-marker">
+            <i class="fas fa-plane fa-sm"></i>
+        </span>
+        <div class="steps-content">
+          <p class="heading">Confirmation</p>
+        </div>
+      </li>
+    </ul>
+    <!-- end of steps progress -->
+
     <div class="section-title-wrapper has-text-centered">
         <h2 class="title section-title has-text-centered dark-text text-bold">
             Detail Booking

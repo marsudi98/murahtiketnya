@@ -8,6 +8,7 @@
     <title>Murah Tiketnya - Beli Tiket Murah Ya Disini Tempatnya.</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bulma.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bulma-steps.sass">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/core_green.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">

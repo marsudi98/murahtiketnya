@@ -65,7 +65,7 @@
         <div class="column is-4 is-offset-2 is-flex-mobile">
             <div class="flex-card light-bordered light-raised">
                 <ul class="card-body">
-                    <form action="<?=base_url('Booking/detailbooking_pesawat')?>">
+                    <form action="<?=base_url('Booking/kirimEmail')?>">
                         <div class="columns">
                             <div class="column">
                                 <div class="control">
@@ -73,7 +73,7 @@
                                     <div class="columns">
                                         <div class="column">
                                             <div class="control">
-                                            <h2 class="title is-5 mb-20">1568604755</h2>
+                                                <h2 class="title is-5 mb-20">1568604755</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -84,15 +84,13 @@
                             <div class="column">
                                 <div class="control">
                                     <label>Nama Pengirim</label>
-                                    <input class="input is-secondary-focus mt-5" type="text">
-                                    <small style="color: #bdbdbd;">*Nama Pengirim Anda</small>
+                                    <p style="color: #bdbdbd;">Misbahudin.</p>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="control">
                                     <label>Nominal Transfer</label>
-                                    <input class="input is-secondary-focus mt-5" type="text">
-                                    <small style="color: #bdbdbd;">*Rp. 1.500.000</small>
+                                    <p style="color: #bdbdbd;">Rp. 1.500.000</p>
                                 </div>
                             </div>         
                         </div>

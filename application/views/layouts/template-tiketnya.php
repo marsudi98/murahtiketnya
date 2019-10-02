@@ -74,7 +74,7 @@
                             <a class="nav-item" href="#" target="_blank">
                                 <img src="<?php echo base_url() ?>assets/images/logos/bulkit-logo-green.png" alt="Logo">
                             </a>
-                            <a href="#home" class="nav-item is-tab nav-inner is-not-mobile">Home</a>
+                            <a href="<?=base_url('Landing')?>" class="nav-item is-tab nav-inner is-not-mobile">Home</a>
                             <a href="#booking" class="nav-item is-tab nav-inner is-not-mobile">Booking</a>
                             <a href="#adventage" class="nav-item is-tab nav-inner is-not-mobile">Adventage</a>
                             <a href="#jadwal" class="nav-item is-tab nav-inner is-not-mobile">Jadwal</a>
@@ -175,7 +175,7 @@
 
     <div id="backtotop"><a href="#"></a></div>
     <script>
-        function myKereta() {
+                function myKereta() {
             var checkBox = document.getElementById("myCheck");
             var show = document.getElementById("show");
             if (checkBox.checked == true){
@@ -214,12 +214,48 @@
         });
 
         $(function(){
-
             $('.timer').startTimer();
+        });
 
-      
-         
-        })             
+        $(document).ready(function() {
+			var options = {
+				url: "assets/js/asalberangkatpesawat.json",
+
+				categories: [{
+					listLocation: "cengkareng",
+					header: "Jakarta - Cengkareng"
+				}, {
+					listLocation: "halim",
+					header: "Jakarta - Halim"
+			    }, {
+					listLocation: "malang",
+					header: "Malang"
+			    }]
+
+			};
+
+			$("#asal").easyAutocomplete(options);
+		});
+
+        $(document).ready(function() {
+			var options = {
+				url: "assets/js/asalberangkatpesawat.json",
+
+				categories: [{
+					listLocation: "cengkareng",
+					header: "Jakarta - Cengkareng"
+				}, {
+					listLocation: "halim",
+					header: "Jakarta - Halim"
+			    }, {
+					listLocation: "malang",
+					header: "Malang"
+			    }]
+
+			};
+
+			$("#berangkat").easyAutocomplete(options);
+		});    
 
     </script>
 

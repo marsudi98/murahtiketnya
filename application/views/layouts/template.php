@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bulma.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/core_green.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/easy-autocomplete.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <!-- Plugin CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/slick-carousel/slick.css">
@@ -92,7 +93,7 @@
                             <a href="#jadwal" class="nav-item is-tab nav-inner is-menu-mobile">Destinasi</a>
                             <a href="#testimoni" class="nav-item is-tab nav-inner is-menu-mobile">Testimoni</a>
                             <span class="nav-item">
-                                <a href="<?=base_url('KodePembayaran')?>"><div class="button button-cta btn-align btn-outlined is-bold light-btn centered">Kode Pembayaran </div></a>
+                                <a href="<?=base_url('KodePembayaran')?>"><div class="button button-cta btn-align is-bold light-btn centered">Kode Pembayaran </div></a>
                             </span>
                         </div>
                     </div>
@@ -242,12 +243,48 @@
         });
 
         $(function(){
-
             $('.timer').startTimer();
+        });
 
-      
-         
-        })             
+        $(document).ready(function() {
+			var options = {
+				url: "assets/js/asalberangkatpesawat.json",
+
+				categories: [{
+					listLocation: "cengkareng",
+					header: "Jakarta - Cengkareng"
+				}, {
+					listLocation: "halim",
+					header: "Jakarta - Halim"
+			    }, {
+					listLocation: "malang",
+					header: "Malang"
+			    }]
+
+			};
+
+			$("#asal").easyAutocomplete(options);
+		});
+
+        $(document).ready(function() {
+			var options = {
+				url: "assets/js/asalberangkatpesawat.json",
+
+				categories: [{
+					listLocation: "cengkareng",
+					header: "Jakarta - Cengkareng"
+				}, {
+					listLocation: "halim",
+					header: "Jakarta - Halim"
+			    }, {
+					listLocation: "malang",
+					header: "Malang"
+			    }]
+
+			};
+
+			$("#berangkat").easyAutocomplete(options);
+		});
 
     </script>
 

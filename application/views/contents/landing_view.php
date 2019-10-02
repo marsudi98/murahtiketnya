@@ -8,7 +8,7 @@
                             <div>
                                     <h2 class="clean-section-title">Booking</h2>
                                     <h3 class="subtitle is-5 pt-10">
-                                        <i>Cari tiket keberangkatan kereta anda.</i>
+                                        <i>Cari tiket keberangkatan Pesawat anda.</i>
                                     </h3>
                             </div>
             </div>
@@ -17,19 +17,19 @@
                 <div class="content-wrapper">
                         <div class="column">
                                 <div class="navigation-tabs outlined-pills animated-tabs mb-40">
-                                        <div class="tabs is-centered">
+                                        <!-- <div class="tabs is-centered">
                                                 <ul>
                                                         <li class="tab-link is-active" data-tab="step-1"><a>Kereta Api</a></li>
                                                         <li class="tab-link" data-tab="step-2"><a>Pesawat Terbang</a></li>
                                                 </ul>
-                                        </div>
+                                        </div> -->
                                         <!-- Pill content -->
                                         <div id="step-1" class="navtab-content pt-50 pb-50 is-active">
                                                 <div class="columns is-vcentered">
                                                         <div class="column is-8 is-offset-2">
                                                                 <div class="flex-card light-bordered light-raised">
                                                                         <div class="card-body">
-                                                                                <h2 class="title is-4 text-bold mb-20">Cari Tiket Kereta Api</h2>
+                                                                                <h2 class="title is-4 text-bold mb-20">Cari Tiket Pesawat Terbang</h2>
                                                                                 <form action="<?=base_url('Search')?>">
                                                                                         <div class="columns mt-50">
                                                                                                 <div class="column">
@@ -76,10 +76,26 @@
                                                                                                                             <option name="4">4</option>
                                                                                                                 </select>
                                                                                                                 </div>
-                                                                                                                <small style="color: #bdbdbd;">3 tahun ke atas*</small>
+                                                                                                                <small style="color: #bdbdbd;">12 tahun ke atas*</small>
                                                                                                         </div>
                                                                                                 </div>   
                                                                                         </div>
+
+                                                                                        <div class="columns">
+                                                                                                <div class="column">
+                                                                                                        <div class="control">
+                                                                                                                <label>Anak</label>
+                                                                                                                <div class="select is-fullwidth">
+                                                                                                                <select class="is-hovered">
+                                                                                                                            <option name="1">1</option>
+                                                                                                                            <option name="2">2</option>
+                                                                                                                </select>
+                                                                                                                </div>
+                                                                                                                <small style="color: #bdbdbd;">2 - 11 tahun *</small>
+                                                                                                        </div>
+                                                                                                </div>   
+                                                                                        </div>
+                                                                                        
                                                                                         <div class="columns">
                                                                                                 <div class="column">
                                                                                                         <div class="control">
@@ -90,7 +106,7 @@
                                                                                                                             <option name="1">1</option>
                                                                                                                 </select>
                                                                                                                 </div>
-                                                                                                                <small style="color: #bdbdbd;">Bawah 3 tahun*</small>
+                                                                                                                <small style="color: #bdbdbd;">Bawah 2 tahun*</small>
                                                                                                         </div>
                                                                                                 </div>   
                                                                                         </div>
@@ -104,7 +120,7 @@
                                                         </div>
                                                 </div>
                                         </div>
-                                        
+<!--                                         
                                         <div id="step-2" class="navtab-content pt-20 pb-20">
                                                 <div class="columns is-vcentered">
                                                         <div class="column is-8 is-offset-2">
@@ -195,7 +211,7 @@
                                                                                                 <button class="button btn-align no-lh raised primary-btn">Search</button>
                                                                                                 <button class="button is-link no-lh">Cancel</button>
                                                                                         </div>
-                                                                                </form> 
+                                                                                </form>  -->
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -325,18 +341,18 @@
     <section id="jadwal" class="section is-medium is-skewed-sm">
         <div class="container is-reverse-skewed-sm">
             <div class="section-title-wrapper has-text-centered">
-                <div class="clean-bg-symbol"><i class="fas fa-train    "></i></div>
+                <div class="clean-bg-symbol"><i class="fas fa-plane    "></i></div>
                     <div>
                         <h2 class="clean-section-title">Jadwal.</h2>
                         <h3 class="subtitle is-5 pt-10">
-                           Jadwal Keberangkatan Kereta hari ini.
+                           Jadwal Keberangkatan Pesawat hari ini.
                         </h3>
                     </div>
             </div>
             <div class="columns is-vcentered pt-30">
                 <!-- Demo section -->
                 <div class="column is-10 is-offset-1">
-                    <table class="responsive-table is-primary mb-40">
+                    <table class="responsive-table is-primary mb-40 selector">
                         <tbody>
                             <tr>
                                 <th>No KA.</th>

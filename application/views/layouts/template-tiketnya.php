@@ -8,8 +8,9 @@
     <title>Murah Tiketnya - Beli Tiket Murah Ya Disini Tempatnya.</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bulma.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bulma-steps.sass">
+  
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/core_green.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/core_demo.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <!-- Plugin CSS -->
@@ -214,12 +215,17 @@
         });
 
         $(function(){
-
             $('.timer').startTimer();
+        })      
 
-      
-         
-        })             
+        document.addEventListener('DOMContentLoaded', function() {
+            let cardToggles = document.getElementsByClassName('card-toggle');
+            for (let i = 0; i < cardToggles.length; i++) {
+                cardToggles[i].addEventListener('click', e => {
+                    e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden');
+                });
+            }
+        });
 
     </script>
 
@@ -238,5 +244,7 @@
     <script src="<?php echo base_url() ?>assets/js/main.js"></script>
     <!-- Page specific JS -->
     <script src="<?php echo base_url() ?>assets/js/pages/landingv1.js"></script>
+    <!-- Collapsible -->
+
 </body>
 </html>

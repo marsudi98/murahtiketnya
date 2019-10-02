@@ -2769,7 +2769,7 @@ TABLE OF CONTENTS
 7. Media cards
 ========================================================================== */
 .media-card {
-  min-height: 260px; }
+  min-height: 180px; }
   .media-card .media-card-image {
     height: 100% !important;
     min-height: 260px;

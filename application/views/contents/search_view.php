@@ -1,15 +1,15 @@
 <!--Search-->
 <section class="section is-medium is-skewed-sm">
 		<div class="container is-reverse-skewed-sm">
-				<!--Title-->
-				<div class="section-title-wrapper has-text-centered">
-					<div class="clean-bg-symbol"><i class="fas fa-search    "></i></div>
-							<div>
-									<h2 class="clean-section-title">Tiket Pesawat</h2>
-									<h3 class="subtitle is-5 pt-10">
-										<i>Hasil pencarian tiket anda.</i>
-									</h3>
-							</div>
+            <!--Title-->
+            <div class="section-title-wrapper has-text-centered">
+            <div class="clean-bg-symbol"><i class="fas fa-search"></i></div>
+            <div>
+                <h2 class="clean-section-title">Tiket Pesawat</h2>
+                <h3 class="subtitle is-5 pt-10">
+                    <i>Hasil pencarian tiket anda.</i>
+                </h3>
+            </div>
         </div>
 
         <div class="content-wrapper">
@@ -29,7 +29,7 @@
 
             <div class="columns is-vcentered">
                 <div class="column is-8 is-offset-2">
-                    <div class="flex-card light-bordered light-raised" id="form_search" style="display: none">
+                    <div class="flex-card light-bordered hover-inset" id="form_search" style="display: none">
                         <div class="card-body">
                             <h2 class="title is-4 text-bold mb-20">Cari Tiket Kereta Api</h2>
                             <form action="<?php echo site_url('Search');?>">
@@ -105,214 +105,418 @@
                     </div>
                 </div>
             </div>
-
-        <div class="content-wrapper">
-            <div class="column">
-                <h3 class="subtitle text-bold is-6">Filter :  </h3>
-                <div id="signup-btn" class="button button-cta btn-align is-bold light-btn is-drop is-centered">Urutkan &nbsp;<i class="fas fa-align-left"></i>
-                  <div class="dropContain">
-                    <div class="dropOut">
-                      <ul>
-                        <li><a href="#" style="color: #000000"> Harga Terendah</a> </li>
-                        <li><a href="#" style="color: #000000"> Waktu Berangkat Awal</a></li>
-                        <li><a href="#" style="color: #000000"> Waktu Berangkat Akhir</a></li>
-                        <li><a href="#" style="color: #000000">>Waktu Tiba Awal</a></li>
-                        <li><a href="#" style="color: #000000">Waktu Tiba Akhir</a></li>
-                        <li><a href="#" style="color: #000000">Durasi Tercepat</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-          </div>
         </div>
 
         <div class="content-wrapper">
-          <div class="flex-card media-card media-card-right light-bordered light-raised">
-            <div class="columns is-gapless is-desktop">
-                <div class="column content-column">
-                    <div class="columns">
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">10:40</a></h3>
-                              <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
-                          </div>
-                      </div>
+            <h3 class="subtitle text-bold is-6">Filter :  </h3>
+            <div id="signup-btn" class="button button-cta btn-align is-bold light-btn is-drop is-centered">Urutkan &nbsp;<i class="fas fa-align-left"></i>
+            <div class="dropContain">
+                <div class="dropOut">
+                <ul>
+                    <li><a href="#" style="color: #000000"> Harga Terendah</a> </li>
+                    <li><a href="#" style="color: #000000"> Waktu Berangkat Awal</a></li>
+                    <li><a href="#" style="color: #000000"> Waktu Berangkat Akhir</a></li>
+                    <li><a href="#" style="color: #000000">>Waktu Tiba Awal</a></li>
+                    <li><a href="#" style="color: #000000">Waktu Tiba Akhir</a></li>
+                    <li><a href="#" style="color: #000000">Durasi Tercepat</a></li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    
+        <!-- <section class="section">
+            <div class="container">
+                <div class="card is-fullwidth">
+                    <header class="card-header">
+                        <p class="card-header-title">Card #1</p>
+                        <a class="card-header-icon card-toggle">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </header>
+                    <div class="card-content is-hidden">
+                        <div class="content">
+                            Content goes here <small>Small text</small>
+                        </div>
+                    </div>
+                </div>
 
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">12:05</a></h3>
-                              <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
-                          </div>
-                      </div>
-
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
-                              <p class="mcard-description is-hidden-touch">Langsung</p>
-                          </div>
-                      </div>
-
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rp. 725.600</a></h3>
-                              <p class="mcard-description is-hidden-touch">/ orang</smalclass="mcard-description>
-                          </div>
-                      </div>
+                <div class="card is-fullwidth">
+                    <header class="card-header">
+                        <p class="card-header-title">Card #2</p>
+                        <a class="card-header-icon card-toggle">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </header>
+                    <div class="card-content is-hidden">
+                        <div class="content">
+                            Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        
+        <div class="content-wrapper">
+            <div class="flex-card media-card  light-bordered hover-inset pertama toggle-wrap">
+                <div class="columns is-desktop mt-20 ml-60 is-vcentered trigger active">
+             
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <!-- <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png"> -->
+                            <figure class="image is-64x64">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                            </figure>
+                            <h3 class="mcard-title ml-10"><a href="#">10:40</a></h3>
+                        </div>
+                    </div>
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                            <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                        </div>
                     </div>
 
-                    
-                    
-                    <div class="mcard-controls">
-                        <div class="mcard-avatar">
-                            <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                            <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
                         </div>
-                        <div class="mcard-info">
-                            <span><a href="#">Lion Air</a></span> 
-                            <div><span>20 September 2019</span><span>  |  Ekonomi</span></div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                            <p class="mcard-description is-hidden-touch">Langsung</p>
                         </div>
-                        <div class="mcard-actions ml-auto">
-                            <span><i class="material-icons">work</i></span>
-                            <span><i class="material-icons">local_dining</i></span>&nbsp;&nbsp;
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title mb-10"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
+                            <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rawdaw0</a></h3>
+                            <p class="mcard-description is-hidden-touch">/ orang
+                        </div>
+                    </div> -->
+                </div>
+                <div class="columns is-desktop mt-20 ml-60 is-vcentered toggle-container" >
+                    
+                    <div class="column is-11">
+                        <hr>
+                    </div>
+                    <div class="columns">
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <!-- <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png"> -->
+                            <figure class="image is-64x64">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                            </figure>
+                            <h3 class="mcard-title ml-10"><a href="#">10:40</a></h3>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="flex-card media-card  light-bordered hover-inset pertama toggle-wrap">
+                <div class="columns is-desktop mt-20 ml-60 is-vcentered trigger active">
+             
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <!-- <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png"> -->
+                            <figure class="image is-64x64">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                            </figure>
+                            <h3 class="mcard-title ml-10"><a href="#">10:40</a></h3>
+                        </div>
+                    </div>
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                            <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                            <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                            <p class="mcard-description is-hidden-touch">Langsung</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title mb-10"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
+                            <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rawdaw0</a></h3>
+                            <p class="mcard-description is-hidden-touch">/ orang
+                        </div>
+                    </div> -->
+                </div>
+                <div class="columns is-desktop mt-20 ml-60 is-vcentered toggle-container" >
+             
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <!-- <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png"> -->
+                            <figure class="image is-64x64">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                            </figure>
+                            <h3 class="mcard-title ml-10"><a href="#">10:40</a></h3>
+                        </div>
+                    </div>
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                            <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                            <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                            <p class="mcard-description is-hidden-touch">Langsung</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title mb-10"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
+                            <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rawdaw0</a></h3>
+                            <p class="mcard-description is-hidden-touch">/ orang
+                        </div>
+                    </div> -->
+                </div>
+               
+            </div>
+
+            <div class="flex-card media-card  light-bordered hover-inset pertama toggle-wrap">
+                <div class="columns is-desktop mt-20 ml-60 is-vcentered trigger active">
+             
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <!-- <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png"> -->
+                            <figure class="image is-64x64">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                            </figure>
+                            <h3 class="mcard-title ml-10"><a href="#">10:40</a></h3>
+                        </div>
+                    </div>
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                            <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                            <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                            <p class="mcard-description is-hidden-touch">Langsung</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title mb-10"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
+                            <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rawdaw0</a></h3>
+                            <p class="mcard-description is-hidden-touch">/ orang
+                        </div>
+                    </div> -->
+                </div>
+                <div class="columns is-desktop mt-20 ml-60 is-vcentered toggle-container" >
+             
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <!-- <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png"> -->
+                            <figure class="image is-64x64">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                            </figure>
+                            <h3 class="mcard-title ml-10"><a href="#">10:40</a></h3>
+                        </div>
+                    </div>
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                            <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                            <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                            <p class="mcard-description is-hidden-touch">Langsung</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title mb-10"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
+                            <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rawdaw0</a></h3>
+                            <p class="mcard-description is-hidden-touch">/ orang
+                        </div>
+                    </div> -->
+                </div>
+               
+            </div>
+
+            <div class="flex-card media-card  light-bordered hover-inset pertama toggle-wrap">
+                <div class="columns is-desktop mt-20 ml-60 is-vcentered trigger active">
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <!-- <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png"> -->
+                            <figure class="image is-64x64">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                            </figure>
+                            <h3 class="mcard-title ml-10"><a href="#">10:40</a></h3>
+                        </div>
+                    </div>
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                            <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                            <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                            <p class="mcard-description is-hidden-touch">Langsung</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title mb-10"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
                             <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
-                <div class="column is-4 media-stretch">
-                    <div class="mcard-content">
-                        <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
-                        <br>
-                        <p class="mcard-description is-hidden-touch">Jakarta (CGK) - Soekarno Hatta Airport → Malang (MLG) Abdurahman  </p>
-                        <p class="mcard-description is-hidden-touch">Pesawat Boeing 737</p>
-                        <p class="mcard-description is-hidden-touch">Tata Kursi 3-3</p>
-                        <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
-                        
+                <div class="columns is-desktop mt-20 ml-60 is-vcentered toggle-container" >
+                    
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <!-- <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png"> -->
+                            <figure class="image is-64x64">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                            </figure>
+                            <h3 class="mcard-title ml-10"><a href="#">10:40</a></h3>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="flex-card media-card media-card-right light-bordered light-raised">
-            <div class="columns is-gapless is-desktop">
-                <div class="column content-column">
-                    <div class="columns">
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">10:40</a></h3>
-                              <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
-                          </div>
-                      </div>
-
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">12:05</a></h3>
-                              <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
-                          </div>
-                      </div>
-
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
-                              <p class="mcard-description is-hidden-touch">Langsung</p>
-                          </div>
-                      </div>
-
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rp. 725.600</a></h3>
-                              <p class="mcard-description is-hidden-touch">/ orang</smalclass="mcard-description>
-                          </div>
-                      </div>
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">10:40</a></h3>
+                            <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
+                        </div>
                     </div>
 
-                    <div class="mcard-controls">
-                        <div class="mcard-avatar">
-                            <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">12:05</a></h3>
+                            <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
                         </div>
-                        <div class="mcard-info">
-                            <span><a href="#">Garuda Indonesia</a></span> 
-                            <div><span>20 September 2019</span><span>  |  Ekonomi</span></div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
+                            <p class="mcard-description is-hidden-touch">Langsung</p>
                         </div>
-                        <div class="mcard-actions ml-auto">
-                            <span><i class="material-icons">work</i></span>
-                            <span><i class="material-icons">local_dining</i></span>&nbsp;&nbsp;
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title mb-10"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
                             <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
                         </div>
                     </div>
+
+                    <!-- <div class="column is-2">
+                        <div class="mcard-content">
+                            <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rawdaw0</a></h3>
+                            <p class="mcard-description is-hidden-touch">/ orang
+                        </div>
+                    </div> -->
                 </div>
-                <div class="column is-4 media-stretch">
-                    <div class="mcard-content">
-                        <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
-                        <br>
-                        <p class="mcard-description is-hidden-touch">Jakarta (CGK) - Soekarno Hatta Airport → Malang (MLG) Abdurahman  </p>
-                        <p class="mcard-description is-hidden-touch">Pesawat Boeing 737</p>
-                        <p class="mcard-description is-hidden-touch">Tata Kursi 3-3</p>
-                        <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
-                        
-                    </div>
-                </div>
+               
             </div>
-        </div>
-        <div class="flex-card media-card media-card-right light-bordered light-raised">
-            <div class="columns is-gapless is-desktop">
-                <div class="column content-column">
-                    <div class="columns">
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">10:40</a></h3>
-                              <p class="mcard-description is-hidden-touch">Jakarta (CGK)</p>
-                          </div>
-                      </div>
 
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">12:05</a></h3>
-                              <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
-                          </div>
-                      </div>
-
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#">1j 25m</a></h3>
-                              <p class="mcard-description is-hidden-touch">Langsung</p>
-                          </div>
-                      </div>
-
-                      <div class="column is-3">
-                          <div class="mcard-content">
-                              <h3 class="mcard-title"><a href="#" style="color: #66bb6a">Rp. 725.600</a></h3>
-                              <p class="mcard-description is-hidden-touch">/ orang</smalclass="mcard-description>
-                          </div>
-                      </div>
-                    </div>
-
-                    
-                    
-                    <div class="mcard-controls">
-                        <div class="mcard-avatar">
-                            <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
-                        </div>
-                        <div class="mcard-info">
-                            <span><a href="#">Lion Air</a></span> 
-                            <div><span>20 September 2019</span>  |  <span>Ekonomi</span></div>
-                        </div>
-                        <div class="mcard-actions ml-auto">
-                            <span><i class="material-icons" title="Bagasi 20 kg">work</i></span>
-                            <span><i class="material-icons" title="Makanan di pesawat">local_dining</i></span>&nbsp;&nbsp;
-                            <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
+            <div class="columns is-vcentered mt-20">
+                    <div class="column is-12">
+                        <div class="single-toggle-wrapper">
+                            <div class="toggle-wrap">
+                                <span class="trigger active"><a href="#"><i class="im im-icon-Coding is-icon-2x"></i> SHOW CODE<i class="im im-icon-Add"></i></a></span>
+                                <div class="toggle-container" style="display: block;">
+                                    <p class="no-padding mt-10">Lorem ipsum dolor sit amet, cu ius oratio appareat partiendo. Solet civibus nam te. Eu vel veri putent. Et suas reprimique adversarium duo, ex vel ridens graecis. Mel ipsum oratio voluptatum et.</p>
+                                    <p class="no-padding mt-10">Errem latine pro id, sea ei dolor legendos constituam. Ut pri decore persius concludaturque, et magna omittam vituperatoribus per. Et cetero eripuit his. Eum rebum moderatius appellantur ea.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="column is-4 media-stretch">
-                    <div class="mcard-content">
-                        <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
-                        <br>
-                        <p class="mcard-description is-hidden-touch">Jakarta (CGK) - Soekarno Hatta Airport → Malang (MLG) Abdurahman  </p>
-                        <p class="mcard-description is-hidden-touch">Pesawat Boeing 737</p>
-                        <p class="mcard-description is-hidden-touch">Tata Kursi 3-3</p>
-                        <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
-                        
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
   </section>

@@ -876,3 +876,31 @@
       .steps.is-thin.is-horizontal.has-content-centered.has-gaps .steps-segment:not(:last-child):after, .steps.is-thin.is-horizontal.has-content-centered .steps-segment.has-gaps:not(:last-child):after {
         left: calc(50% + 0.8em);
         right: calc(-50% + 0.8em); }
+
+        .card + .card {
+          margin-top: 20px;
+        }
+        
+.card-wrapper {
+  width: 30%;
+  display:inline-block;
+  height: 300px;
+  background: url('https://www.ukvetsonline.co.uk/sites/default/files/230/kitten_on_fence_0.jpg');
+  background-size:cover;
+  position: relative;
+}
+.card-text-wrapper{ 
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(225,225,225,.7);
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.hide {
+  display: none;
+}
+.show {
+  display:block;
+}
+

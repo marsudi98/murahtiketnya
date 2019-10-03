@@ -229,18 +229,12 @@
 
         $(document).ready(function() {
 			var options = {
-				url: "assets/js/asalberangkatpesawat.json",
-
-				categories: [{
-					listLocation: "cengkareng",
-					header: "Jakarta - Cengkareng"
-				}, {
-					listLocation: "halim",
-					header: "Jakarta - Halim"
-			    }, {
-					listLocation: "malang",
-					header: "Malang"
-			    }]
+				data: ["Jakarta - Cengkareng", "Jakarta - Halim Perdana Kusuma", "Malang - Abdurahman Saleh"],
+                list: {
+                    match: {
+                        enabled: true
+                    }
+                }
 
 			};
 
@@ -265,7 +259,11 @@
 			};
 
 			$("#berangkat").easyAutocomplete(options);
-		});    
+		});
+
+        $(document).ready(function(){
+            $('[data-toggle="datepicker"]').datepicker();
+        });    
 
     </script>
 

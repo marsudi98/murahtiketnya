@@ -39,7 +39,7 @@
                                                                                                         </div>
                                                                                                         <div class="control">
                                                                                                                 <label>Tanggal Berangkat</label>
-                                                                                                                <input type="date" class="input is-secondary-focus is-medium mt-5">
+                                                                                                                <input data-toggle="datepicker" class="input is-secondary-focus is-medium mt-5">
                                                                                                         </div>
                                                                                                 </div>
                                                                                                 <div class="column">
@@ -60,7 +60,7 @@
                                                                                                         </div>
                                                                                                         <div class="control" id="show" style="display: none;">
                                                                                                                 <label>Pulang Pergi</label>
-                                                                                                                <input type="date" class="input is-secondary-focus is-medium mt-5">
+                                                                                                                <input data-toggle="datepicker" class="input is-secondary-focus is-medium mt-5">
                                                                                                         </div>
                                                                                                 </div>
                                                                                         </div>

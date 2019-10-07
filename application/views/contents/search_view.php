@@ -1,6 +1,6 @@
 <!--Search-->
 <section class="section is-medium is-skewed-sm">
-		<div class="container is-reverse-skewed-sm">
+    <div class="container is-reverse-skewed-sm">
             <!--Title-->
             <div class="section-title-wrapper has-text-centered">
             <div class="clean-bg-symbol"><i class="fas fa-search"></i></div>
@@ -31,76 +31,92 @@
                 <div class="column is-8 is-offset-2">
                     <div class="flex-card light-bordered hover-inset" id="form_search" style="display: none">
                         <div class="card-body">
-                            <h2 class="title is-4 text-bold mb-20">Cari Tiket Kereta Api</h2>
-                            <form action="<?php echo site_url('Search');?>">
-                                <div class="columns mt-50">
+                            <h2 class="title is-4 text-bold mb-20">Cari Tiket Pesawat Terbang</h2>
+                            <form action="<?=base_url('Search')?>">
+                              <div class="columns mt-50">
+                                  <div class="column">
+                                     <div class="control">
+                                        <label>Asal</label>
+                                          <input class="input is-secondary-focus is-medium" id="asal" name="asal" type="text" style="width: 200px;">
+                                     </div>
+                                     <div class="control">
+                                        <label>Tanggal Berangkat</label>
+                                          <input data-toggle="datepicker" class="input is-secondary-focus is-medium mt-5" style="width: 200px;">
+                                     </div>
+                                  </div>
+                                  <div class="column">
+                                    <br>
+                                    <a type="button" class="button button-cta primary-btn rounded"  id="go" onclick="swapValues()"><i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Swap Jadwal</a>
+                                      <div class="control">
+                                          <label class="checkbox-wrap is-medium" style="line-height: 6.8;">
+                                           <input id="myCheck" type="checkbox" class="d-checkbox" onclick="myKereta()">
+                                            <span></span>
+                                            Pulang-Pergi
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <div class="column">
+                                      <div class="control">
+                                        <label>Berangkat</label>
+                                          <input class="input is-secondary-focus is-medium mt-5" id="berangkat" name="berangkat" type="text" style="width: 200px;">
+                                      </div>
+                                      <div class="control" id="show" style="display: none;">
+                                        <label>Pulang Pergi</label>
+                                          <input data-toggle="datepicker" class="input is-secondary-focus is-medium mt-5" style="width: 200px;">
+                                      </div>
+                                  </div>
+                                  </div>
+                                  <div class="columns">
                                     <div class="column">
-                                        <div class="control">
-                                            <label>Asal</label>
-                                            <input class="input is-secondary-focus is-medium mt-5" id="asal" name="asal" type="text">
-                                        </div>
-                                        <div class="control">
-                                            <label>Tanggal Berangkat</label>
-                                            <input type="date" class="input is-secondary-focus is-medium mt-5">
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                          <br>
-                                          <a type="button" class="button button-cta primary-btn rounded"  id="go" onclick="swapValues()"><i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Swap Jadwal</a>
-                                        <div class="control">
-                                            <label class="checkbox-wrap is-medium" style="line-height: 6.8;">
-                                                <input id="myCheck" type="checkbox" class="d-checkbox" onclick="myFunction()">
-                                                <span></span>
-                                                Pulang-Pergi
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="control">
-                                            <label>Berangkat</label>
-                                            <input class="input is-secondary-focus is-medium mt-5" id="berangkat" name="berangkat" type="text">
-                                        </div>
-                                        <div class="control" id="show" style="display: none;">
-                                            <label>Pulang Pergi</label>
-                                            <input type="date" class="input is-secondary-focus is-medium mt-5">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="columns">
-                                    <div class="column">
-                                        <div class="control">
-                                            <label>Dewasa</label>
-                                            <div class="select is-fullwidth">
+                                      <div class="control">
+                                        <label>Dewasa</label>
+                                          <div class="select is-fullwidth">
                                             <select class="is-hovered">
-                                                  <option name="1">1</option>
-                                                  <option name="2">2</option>
-                                                  <option name="3">3</option>
-                                                  <option name="4">4</option>
+                                              <option name="1">1</option>
+                                              <option name="2">2</option>
+                                              <option name="3">3</option>
+                                              <option name="4">4</option>
                                             </select>
-                                            </div>
-                                            <small style="color: #bdbdbd;">3 tahun ke atas*</small>
-                                        </div>
-                                    </div>   
-                                </div>
-                                <div class="columns">
+                                          </div>
+                                          <small style="color: #bdbdbd;">12 tahun ke atas*</small>
+                                      </div>
+                                     </div>   
+                                  </div>
+
+                                  <div class="columns">
                                     <div class="column">
-                                        <div class="control">
-                                            <label>Bayi</label>
-                                            <div class="select is-fullwidth">
+                                      <div class="control">
+                                        <label>Anak</label>
+                                          <div class="select is-fullwidth">
                                             <select class="is-hovered">
-                                                  <option name="0">0</option>
-                                                  <option name="1">1</option>
+                                              <option name="1">1</option>
+                                              <option name="2">2</option>
                                             </select>
-                                            </div>
-                                            <small style="color: #bdbdbd;">Bawah 3 tahun*</small>
-                                        </div>
+                                          </div>
+                                          <small style="color: #bdbdbd;">2 - 11 tahun *</small>
+                                      </div>
                                     </div>   
-                                </div>
-                                <div class="mt-30">  
+                                  </div>
+                                                                                        
+                                  <div class="columns">
+                                   <div class="column">
+                                    <div class="control">
+                                      <label>Bayi</label>
+                                        <div class="select is-fullwidth">
+                                          <select class="is-hovered">
+                                            <option name="0">0</option>
+                                            <option name="1">1</option>
+                                          </select>
+                                        </div>
+                                        <small style="color: #bdbdbd;">Bawah 2 tahun*</small>
+                                    </div>
+                                   </div>   
+                                  </div>
+                                  <div class="mt-30">  
                                     <button class="button btn-align no-lh raised primary-btn">Search</button>
                                     <button class="button is-link no-lh">Cancel</button>
-                                </div>
-                            </form> 
+                                  </div>
+                          </form> 
                         </div>
                     </div>
                 </div>
@@ -163,9 +179,9 @@
                     <div class="column has-text-centered ">
                         <div class="mcard-content">
                             <figure class="image is-64x64 container">
-                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
+                                <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
                             </figure>
-                            <h3 class="mcard-title is-centered"><a href="#">Lion</a></h3>
+                            <h3 class="mcard-title is-centered"><a href="#">Garuda</a></h3>
                         </div>
                     </div>
                     <div class="column has-text-centered">
@@ -197,6 +213,7 @@
                     <div class="column is-3 has-text-centered">
                         <div class="mcard-content">
                             <h3 class="mcard-title is-size-7"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
+                            
                         </div>
                     </div>
                 </div>
@@ -250,6 +267,7 @@
                             <p class="mcard-description is-hidden-touch ">Tata Kursi 3-3</p>
                             <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
                             <p class="mcard-description is-hidden-touch mb-10">Bagasi Kabin 7 kg</p>
+                            <br>
                             <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn">Pesan Sekarang</a>
                         </div>
                     </div>

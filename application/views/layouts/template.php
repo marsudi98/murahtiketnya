@@ -93,7 +93,7 @@
                             <a href="#jadwal" class="nav-item is-tab nav-inner is-menu-mobile">Destinasi</a>
                             <a href="#testimoni" class="nav-item is-tab nav-inner is-menu-mobile">Testimoni</a>
                             <span class="nav-item">
-                                <a href="<?php base_url('KodePembayaran') ?>"><div class="button button-cta btn-align btn-outlined is-bold light-btn centered">Konfirmasi </div></a>
+                                <a href="<?php echo base_url('KodePembayaran') ?>"><div id="signup-btn" class="button button-cta btn-align btn-outlined is-bold light-btn centered">Konfirmasi</div></a>
                             </span>
                         </div>
                     </div>

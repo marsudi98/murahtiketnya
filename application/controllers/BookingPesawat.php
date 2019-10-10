@@ -23,6 +23,8 @@ class BookingPesawat extends CI_Controller {
 		$this->load->view('layouts/template-tiketnya',$data);
     }
 
+   
+
 
 }
 

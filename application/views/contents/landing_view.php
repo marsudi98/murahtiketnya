@@ -38,17 +38,19 @@
                                                                                                                 <input class="input is-secondary-focus is-medium mt-5" id="asal" name="asal" type="text">
                                                                                                         </div> -->
                                                                                                         <div class="control">
-                                                                                                            <select class="chosen-select" data-placeholder="Project category">
-                                                                                                                <option label="App category"></option>
-                                                                                                                <option>Document management</option>
-                                                                                                                <option>HR management</option>
-                                                                                                                <option>ERP</option>
-                                                                                                                <option>Invoicing</option>
-                                                                                                                <option>Email marketing</option>
-                                                                                                                <option>CRM</option>
-                                                                                                                <option disabled>Helpdesk</option>
-                                                                                                                <option>Corporate chat</option>
-                                                                                                            </select>
+                                                                                                            <div class="select is-fullwidth">
+                                                                                                                <select class="chosen-select" data-placeholder="Project category">
+                                                                                                                    <option label="App category"></option>
+                                                                                                                    <option>Document management</option>
+                                                                                                                    <option>HR management</option>
+                                                                                                                    <option>ERP</option>
+                                                                                                                    <option>Invoicing</option>
+                                                                                                                    <option>Email marketing</option>
+                                                                                                                    <option>CRM</option>
+                                                                                                                    <option disabled>Helpdesk</option>
+                                                                                                                    <option>Corporate chat</option>
+                                                                                                                </select>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                         <div class="control">
                                                                                                                 <label>Tanggal Berangkat</label>

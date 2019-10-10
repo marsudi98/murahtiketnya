@@ -69,3 +69,76 @@
     border: none
 }
 /*# sourceMappingURL=core_demo.css.map */
+a,
+a:active,
+i,
+i:active,
+div,
+div:active,
+div:focus,
+span:focus,
+span:active {
+    outline: none !important
+}
+
+*::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    width: 10px
+}
+
+*::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2)
+}
+
+.select:after {
+    border: 1px solid #4FC1EA;
+    border-right: 0;
+    border-top: 0
+}
+
+.select:hover:after {
+    border: 1px solid #21b1e5;
+    border-right: 0;
+    border-top: 0
+}
+
+.select select:active,
+.select select:focus {
+    border-color: #4FC1EA
+}
+
+.control.has-icons-left .select select {
+    padding-left: 2.5rem
+}
+
+.control.has-icons-left .select+.icon {
+    top: 0.6rem;
+    font-size: 1.2rem
+}
+
+.control.has-icons-left .select.is-small+.icon {
+    top: 0.4rem;
+    font-size: 1rem
+}
+
+.control.has-icons-left .select.is-medium+.icon {
+    top: 0.9rem;
+    font-size: 1.5rem
+}
+
+.control.has-icons-left .select.is-medium select {
+    padding-left: 3rem
+}
+
+.control.has-icons-left .select.is-large+.icon {
+    top: 1.2rem;
+    font-size: 1.6rem
+}
+
+.control.has-icons-left .select.is-large select {
+    padding-left: 3.3rem
+}

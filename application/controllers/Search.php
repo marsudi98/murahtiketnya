@@ -5,99 +5,112 @@ class Search extends CI_Controller {
     
     public function __construct()
     {
-        parent::__construct();
-        //Do your magic here
+      parent::__construct();
+      //Do your magic here
     }
     
     var $ctrlname = 'Search';
 
     public function index()
     {
-        $data=[
-			'title'=>"Search Murahtiketnya",
-			'ctrlname' => $this->ctrlname,
-			// 'headers' => "dashboard/header",
-			'contents' => "search_view",
-			// 'footers' => "dashboard/footer",
-			'data' => array( 'tooi')
-    ];
-		$this->load->view('layouts/template-tiketnya',$data);
+      $group =$this->input->post('group');
+      $from =$this->input->post('from');
+      $to =$this->input->post('to');
+      $return = $this->input->post('return');
+      $go = $this->input->post('go');
+      $back = $this->input->post('back');
+      $adult = $this->input->post('adult');
+      $child = $this->input->post('child');
+      $infant = $this->input->post('infant');
+      $airlanes = $this->input->post('airlanes');
+      $this->load->library('curl');
+// URL API 
+            $url  =  'http://193.168.195.29/demo/find.php' ; 
+
+            // buat sumber daya cURL baru 
+            $ch  =  curl_init ( $url ); 
+
+            // atur permintaan untuk mengirim json melalui POST 
+            $data  = array( 
+                    "group" => null,
+                  "from_code" => $from,
+                  "to_code" => $to,
+                  "is_return" => 0,
+                  "go_date" => $go,
+                  "back_date" => null,
+                  "adult_count" => "1",
+                  "child_count" => "0",
+                  "infant_count" => "0",
+                  "airlines" => "LIO" 
+            );
+
+            $payload  =  json_encode ( $data );
+            //echo $payload; 
+
+            // lampirkan string JSON yang disandikan ke bidang POST 
+
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+            // setel tipe konten ke application / json 
+            curl_setopt ( $ch ,  CURLOPT_HTTPHEADER , array ( 'Content-Type: application/json' )); 
+
+            // kembalikan respons alih-alih mengeluarkan 
+            curl_setopt ( $ch ,  CURLOPT_RETURNTRANSFER ,  true ); 
+
+            // jalankan permintaan POST 
+            $result  =  curl_exec ($ch);
+            //var_dump($result) or die;
+            // tutup cURL resource 
+            curl_close ($ch);
+            
+            $result= json_decode($result, true);
+
+            $result =$this->show($result) ;
+            $result['tanggal_pergi'] = $data['go_date'];
+            $result['from']=$data['from_code'];
+            $result['to']=$data['to_code'];
+            
+            $data=[
+               'title'=>"Search Murahtiketnya",
+               'ctrlname' => $this->ctrlname,
+               'headers' => "dashboard/header",
+               'contents' => "search_view",
+               'footers' => "dashboard/footer",
+               'data' => array( $result)
+            ];
+        $this->load->view('layouts/template-tiketnya',$data);
+   }
+
+    public function a(){
+for ($a = 0; $a < 10; $a++) {
+  $show[$a] = [];
+for($b = 0; $b < 10; $b++){
+  array_push( $show[$a] , $b.'a');
+}
+
+
+}
+print_r($show) ;
     }
     
-     public  function post(){
-                $group =$this->input->post('group');
-                $from =$this->input->post('from');
-                $to =$this->input->post('to');
-                $is = $this->input->post('return');
-                $go = $this->input->post('go');
-                $back = $this->input->post('back');
-                $adult = $this->input->post('adult');
-                $child = $this->input->post('child');
-                $infant = $this->input->post('infant');
-                $airlanes = $this->input->post('airlanes');
-
-                // URL API                 
-                $url  =
-                  'http://193.168.195.29/demo/find.php' ; 
-
-                // buat sumber daya cURL baru 
-                $ch  =  curl_init ( $url ); 
-
-                // atur permintaan untuk mengirim json melalui POST 
-                $data  = array ( 
-                        "group" => $group,
-                      "from_code" => $from,
-                      "to_code" => $to,
-                      "is_return" => $return,
-                      "go_date" => $go,
-                      "back_date" => $back,
-                      "adult_count" => $adult,
-                      "child_count" => $child,
-                      "infant_count" => $infant,
-                      "airlines" => $airlines 
-                );
-
-                $payload  =  json_encode ( $data );
-                //echo $payload; 
-
-                // lampirkan string JSON yang disandikan ke bidang POST 
-
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-
-                // setel tipe konten ke application / json 
-                curl_setopt ( $ch ,  CURLOPT_HTTPHEADER , array ( 'Content-Type: application/json' )); 
-
-                // kembalikan respons alih-alih mengeluarkan 
-                curl_setopt ( $ch ,  CURLOPT_RETURNTRANSFER ,  true ); 
-
-                // jalankan permintaan POST 
-                $result  =  curl_exec ($ch);
-
-                // tutup cURL resource 
-                curl_close ($ch);
-                
-                $data= json_decode($result, true);
-
-                return $data ;
-    }
-
-    public function show($type,$data)
+ 
+    public function show($data)
     {
-                        //pergi
+           for ($a = 0; $a< count($data['progress'][0]['data']['go']); $a++) {
+              $show[$a] = array('kode_pesawat' => [],'total_perjalanan' => [] ,'perjalanan' => [],'harga' => []  );
+            }
+
+            //pergi
            for($i=0;$i<count($data['progress'][0]['data']['go']);$i++){
 //maskapai    
-                      if($type == 'maskapai')
-                            echo  $data['progress'][0]['airline_code'];
+
+                        $show[$i]['maskapai']=  $data['progress'][0]['airline_code'];
 //kode pesawat
-                      if($type == 'kode_pesawat'){
                           //flight
                             for($j=0;$j<count($data['progress'][0]['data']['go'][$i]['flights']);$j++){
-                               
-                                echo $data['progress'][0]['data']['go'][$i]['flights'][$j]['flight_num']."<br>";
+                                array_push($show[$i]['kode_pesawat'], $data['progress'][0]['data']['go'][$i]['flights'][$j]['flight_num']);
                             }
-                      }
-// total perjalanan
-                      if($type == 'total_perjalanan'){
+// total total_perjalanan
                             for($j=0;$j<count($data['progress'][0]['data']['go'][$i]['flights']);$j++){
                                     if($j ==0){
                  
@@ -120,39 +133,34 @@ class Search extends CI_Controller {
                                          // echo $berangkat->format('H:i:s') . "<br>";
                                          // echo $sampai->format('H:i:s') . "<br>";
                                          $duration = $berangkat->diff($sampai); //$duration is a DateInterval object
-                                         echo $duration->format("%H:%I");
+                                         $show[$i]['total_perjalanan'] = $duration->format("%H:%I");
                                     }
 
                                 }
-                        }
-//perjalanan
-                        if($type == 'perjalanan'){
+
                           for($j=0;$j<count($data['progress'][0]['data']['go'][$i]['flights']);$j++){
+
+//perjalanan
                               if($j == 0){
-                                  echo  "<br>".$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_time']
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_city']." ("
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_port'].")<br>" 
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_time']
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_city']." ("
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_port'].")<br>"  ;
+                                  array_push($show[$i]['perjalanan'] , $data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_time']
+                                   .$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_city']." ("
+                                   .$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_port'].")<br>" 
+                                   .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_time']
+                                   .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_city']." ("
+                                   .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_port'].")<br>")  ;
                               }
 
                               if($j > 0){
-                                echo  $data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_time']
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_city']." ("
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_port'].")<br>" 
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_time']
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_city']." ("
-                                  .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_port'].")<br>"  ;
+                                array_push($show[$i]['perjalanan'] ,  $data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_time']
+                                .$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_city']." ("
+                                .$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_port'].")<br>" 
+                                .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_time']
+                                .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_city']." ("
+                                .$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_port'].")<br>"  );
                               }
 
-                              if($j == count($data['progress'][0]['data']['go'][$i]['flights'])-1){
-                                  echo "<br>";
-                              }
                         }
-                      }
 //harga
-                      if($type == 'harga'){
                           //fares
                               $pro = isset($data['progress'][0]['data']['go'][$i]['fares']['pro']) ? 1 : 0 ;
                               $eco = isset($data['progress'][0]['data']['go'][$i]['fares']['eco']) ? 1 : 0;
@@ -165,7 +173,7 @@ class Search extends CI_Controller {
                                       $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                        $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
                                              
-                                      echo "Promo Rp.".number_format( $total, 2, ',', '.')."<br>" ;
+                                      array_push( $show[$i]['harga'],"Promo Rp.".number_format( $total, 2, ',', '.')."<br>") ;
                                   }
 
                                   if($eco == 1){
@@ -174,7 +182,7 @@ class Search extends CI_Controller {
                                       $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                        $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
                                              
-                                      echo "Ekonomi Rp.".number_format( $total, 2, ',', '.')."<br>" ;
+                                      array_push( $show[$i]['harga'],"Ekonomi Rp.".number_format( $total, 2, ',', '.')."<br>") ;
                              
                                   }
 
@@ -184,14 +192,15 @@ class Search extends CI_Controller {
                                       $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                        $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
                                              
-                                      echo "Bisnis Rp.".number_format( $total, 2, ',', '.')."<br>" ;
+                                      array_push( $show[$i]['harga'], "Bisnis Rp.".number_format( $total, 2, ',', '.')."<br>") ;
                              
                                   }
+ 
 
-
-                            }
+                            
           }
 
+          return $show ;
     }
 
 

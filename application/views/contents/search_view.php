@@ -1,5 +1,6 @@
 <!--Search-->
 <section class="section is-medium is-skewed-sm">
+
   <div class="container is-reverse-skewed-sm">
       <!--Title-->
       <div class="section-title-wrapper has-text-centered">
@@ -13,11 +14,11 @@
       </div>
 
       <div class="content-wrapper">
-        <h3 class="title text-bold is-5"><?= $data[0]['from']  ?> →  <?= $data[0]['to']  ?> </h3>
+        <h3 class="title text-bold is-5"><?= $data['from']  ?> →  <?= $data['to']  ?> </h3>
         <div class="columns">
           <div class="column is-6">
             <h3 class="subtitle is-6 pt-10">
-              <p class="text-bold" style="color: #757575;"><?= $data[0]['tanggal_pergi']  ?></p>
+              <p class="text-bold" style="color: #757575;"><?= $data['tanggal_pergi']  ?></p>
               <br/>
               <p class="text-bold" style="font-size: 13px; color: #757575;">1 Dewasa | Ekonomi </p>
             </h3>
@@ -181,7 +182,7 @@
         <!-- Card -->
         <?php         
 
-        for($i = 0 ;$i < count($data[0]) ; $i++){ ?>
+        for($i = 0 ;$i < count($data['go']) ; $i++){ ?>
         <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
           <div class="columns is-desktop is-centered is-vcentered trigger active">
               <div class="column has-text-centered ">
@@ -189,22 +190,22 @@
                       <figure class="image is-64x64 container">
                           <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
                       </figure>
-                      <h3 class="mcard-title is-centered"><a href="#"><?= $data[0][$i]['maskapai'] ; ?></a></h3>
+                      <h3 class="mcard-title is-centered"><a href="#"><?= $data['go'][$i]['maskapai'] ; ?></a></h3>
                   </div>
               </div>
 
               <div class="column has-text-centered">
-                  <?php for ($j = 0; $j < count($data[0][$i]['perjalanan']) ; $j++) { ?>                    
+                  <?php for ($j = 0; $j < count($data['go'][$i]['perjalanan']) ; $j++) { ?>                    
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data[0][$i]['perjalanan'][$j]  ?></a></h3>
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][$i]['perjalanan'][$j]  ?></a></h3>
                       <!--<p class="mcard-description is-hidden-touch">Malang (MLG)</p>-->
                   </div>
                   <?php } ?>
               </div>
               <div class="column has-text-centered">
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data[0][$i]['total_perjalanan']  ?></a></h3>
-                      <p class="mcard-description is-hidden-touch"><?= $data[0][$i]['total_perjalanan']  ?></p>
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][$i]['total_perjalanan']  ?></a></h3>
+                      <p class="mcard-description is-hidden-touch"><?= $data['go'][$i]['total_perjalanan']  ?></p>
                   </div>
               </div>
               <div class="column has-text-centered">
@@ -231,9 +232,9 @@
                       <figure class="image is-48x48 container">
                           <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
                       </figure>
-               <?php for ($j = 0; $j < count($data[0][$i]['kode_pesawat']) ; $j++) { ?>                    
+               <?php for ($j = 0; $j < count($data['go'][$i]['kode_pesawat']) ; $j++) { ?>                    
            
-                      <h5 class="mcard-title is-centered is-5"><?=  $data[0][$i]['kode_pesawat'][$j] ?></h5>
+                      <h5 class="mcard-title is-centered is-5"><?=  $data['go'][$i]['kode_pesawat'][$j] ?></h5>
                 <?php } ?>
                       <p class="mcard-description is-hidden-touch is-centered">Economy</p>
                   </div>
@@ -241,9 +242,9 @@
               <div class="column is-6 is-multiline">
                   <div class="columns">
                       <div class="column is-4">
-                                         <?php for ($j = 0; $j < count($data[0][$i]['perjalanan']) ; $j++) { ?>                    
+                                         <?php for ($j = 0; $j < count($data['go'][$i]['perjalanan']) ; $j++) { ?>                    
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data[0][$i]['perjalanan'][$j]  ?></a></h3>
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][$i]['perjalanan'][$j]  ?></a></h3>
                       <!--<p class="mcard-description is-hidden-touch">Malang (MLG)</p>-->
                   </div>
                   <?php } ?>
@@ -278,9 +279,9 @@
                       <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
                       <p class="mcard-description is-hidden-touch mb-10">Bagasi Kabin 7 kg</p>
                       <br>
-                      <?php for ($j = 0; $j < count($data[0][$i]['harga']) ; $j++) { ?>                    
+                      <?php for ($j = 0; $j < count($data['go'][$i]['harga']) ; $j++) { ?>                    
    
-                      <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn"><?= $data[0][$i]['harga'][$j] ?></a>
+                      <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn"><?= $data['go'][$i]['harga'][$j] ?></a>
                     <?php } ?>
                   </div>
               </div>

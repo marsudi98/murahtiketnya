@@ -14,7 +14,7 @@
       </div>
 
       <div class="content-wrapper">
-        <h3 class="title text-bold is-5"><?= $data['from']  ?> →  <?= $data['to']  ?> </h3>
+        <h3 class="title text-bold is-5"><?= '( '.$data['from'].' )' ; ?> →  <?= '( '.$data['to'].' )';  ?> </h3>
         <div class="columns">
           <div class="column is-6">
             <h3 class="subtitle is-6 pt-10">
@@ -182,22 +182,23 @@
         <!-- Card -->
         <?php         
 
-        for($i = 0 ;$i < count($data['go']) ; $i++){ ?>
+        for($i = 0 ;$i < count($data['LIO']['go']['LIO']) ; $i++){ ?>
         <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
           <div class="columns is-desktop is-centered is-vcentered trigger active">
+
               <div class="column has-text-centered ">
                   <div class="mcard-content">
                       <figure class="image is-64x64 container">
                           <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
                       </figure>
-                      <h3 class="mcard-title is-centered"><a href="#"><?= $data['go'][$i]['maskapai'] ; ?></a></h3>
+                      <h3 class="mcard-title is-centered"><a href="#"><?= array_keys($data['go'][0]) ; ?></a></h3>
                   </div>
               </div>
 
               <div class="column has-text-centered">
                   <?php for ($j = 0; $j < count($data['go'][$i]['perjalanan']) ; $j++) { ?>                    
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data['go'][$i]['perjalanan'][$j]  ?></a></h3>
+                      <h3 class="mcard-title"><a href="#"><?= $data['go']['LIO'][$i]['perjalanan'][$j]['berangkat']['jam'].'->'.$data['go']['LIO'][$i]['perjalanan'][$j]['sampai']['jam']   ?></a></h3>
                       <!--<p class="mcard-description is-hidden-touch">Malang (MLG)</p>-->
                   </div>
                   <?php } ?>

@@ -182,44 +182,54 @@
         <!-- Card -->
         <?php         
 
-        for($i = 0 ;$i < count($data['LIO']['go']['LIO']) ; $i++){ ?>
+        for($i = 0 ;$i < count($data['go'][0]['LIO']) ; $i++){ ?>
         <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
           <div class="columns is-desktop is-centered is-vcentered trigger active">
 
-              <div class="column has-text-centered ">
+              <div class="column is-2 has-text-centered ">
                   <div class="mcard-content">
                       <figure class="image is-64x64 container">
                           <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
                       </figure>
-                      <h3 class="mcard-title is-centered"><a href="#"><?= array_keys($data['go'][0]) ; ?></a></h3>
+                      <h3 class="mcard-title is-centered"><a href="#"> LIO </a></h3>
                   </div>
               </div>
 
-              <div class="column has-text-centered">
-                  <?php for ($j = 0; $j < count($data['go'][$i]['perjalanan']) ; $j++) { ?>                    
+              <div class="column is-2 has-text-centered">
+                  <?php for ($j = 0; $j < count($data['go'][0]['LIO'][$i]['perjalanan']) ; $j++) { ?>                    
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data['go']['LIO'][$i]['perjalanan'][$j]['berangkat']['jam'].'->'.$data['go']['LIO'][$i]['perjalanan'][$j]['sampai']['jam']   ?></a></h3>
-                      <!--<p class="mcard-description is-hidden-touch">Malang (MLG)</p>-->
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]['berangkat']['jam'].'->'.$data['go'][0]['LIO'][$i]['perjalanan'][$j]['sampai']['jam'] ;  ?></a></h3>
+                      <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
                   </div>
                   <?php } ?>
               </div>
-              <div class="column has-text-centered">
+
+               <div class="column is-2 has-text-centered">
+                  <?php for ($j = 0; $j < count($data['go'][0]['LIO'][$i]['perjalanan']) ; $j++) { ?>                    
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data['go'][$i]['total_perjalanan']  ?></a></h3>
-                      <p class="mcard-description is-hidden-touch"><?= $data['go'][$i]['total_perjalanan']  ?></p>
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]['berangkat']['jam'].'->'.$data['go'][0]['LIO'][$i]['perjalanan'][$j]['sampai']['jam'] ;  ?></a></h3>
+                      <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                  </div>
+                  <?php } ?>
+              </div>
+
+              <div class="column is-2 has-text-centered">
+                  <div class="mcard-content">
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][0]['LIO'][$i]['total_perjalanan']  ?></a></h3>
+                      <p class="mcard-description is-hidden-touch">langsung</p>
                   </div>
               </div>
-              <div class="column has-text-centered">
+
+              <div class="column is-2 has-text-centered">
                   <div class="mcard-content">
                       <div class="mcard-actions ml-auto">
                           <span><i class="material-icons">work</i></span>
-                          <span><i class="material-icons">local_dining</i></span>&nbsp;&nbsp;
                       </div>
                   </div>
               </div>     
-              <div class="column is-3 has-text-centered">
+              <div class="column is-2 has-text-centered">
                   <div class="mcard-content">
-                      <h3 class="mcard-title is-size-7"><a href="#" style="color: #66bb6a">Rp. 725.600 / orang</a></h3>
+                      <h3 class="mcard-title"><a href="#" style="color: #66bb6a; font-size: 16px;">Rp. 725.600 / org</a></h3>
                   </div>
               </div>
           </div>
@@ -233,9 +243,9 @@
                       <figure class="image is-48x48 container">
                           <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
                       </figure>
-               <?php for ($j = 0; $j < count($data['go'][$i]['kode_pesawat']) ; $j++) { ?>                    
+               <?php for ($j = 0; $j < count($data['go'][0]['LIO'][$i]['pesawat']) ; $j++) { ?>                    
            
-                      <h5 class="mcard-title is-centered is-5"><?=  $data['go'][$i]['kode_pesawat'][$j] ?></h5>
+                      <h5 class="mcard-title is-centered is-5"><?=  $data['go'][0]['LIO'][$i]['pesawat'][$j] ?></h5>
                 <?php } ?>
                       <p class="mcard-description is-hidden-touch is-centered">Economy</p>
                   </div>
@@ -243,9 +253,9 @@
               <div class="column is-6 is-multiline">
                   <div class="columns">
                       <div class="column is-4">
-                                         <?php for ($j = 0; $j < count($data['go'][$i]['perjalanan']) ; $j++) { ?>                    
+                                         <?php for ($j = 0; $j < count($data['go'][0]['LIO'][$i]['perjalanan']) ; $j++) { ?>                    
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data['go'][$i]['perjalanan'][$j]  ?></a></h3>
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]  ?></a></h3>
                       <!--<p class="mcard-description is-hidden-touch">Malang (MLG)</p>-->
                   </div>
                   <?php } ?>
@@ -280,9 +290,9 @@
                       <p class="mcard-description is-hidden-touch">Jarak Antar Kursi 31 inci</p>
                       <p class="mcard-description is-hidden-touch mb-10">Bagasi Kabin 7 kg</p>
                       <br>
-                      <?php for ($j = 0; $j < count($data['go'][$i]['harga']) ; $j++) { ?>                    
+                      <?php for ($j = 0; $j < count($data['go'][0]['LIO'][$i]['harga']) ; $j++) { ?>                    
    
-                      <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn"><?= $data['go'][$i]['harga'][$j] ?></a>
+                      <a href="<?=base_url('BookingPesawat')?>" class="button button-cta primary-btn"><?= $data['go'][0]['LIO'][$i]['harga'][$j] ?></a>
                     <?php } ?>
                   </div>
               </div>

@@ -69,7 +69,7 @@ class Search extends CI_Controller {
             $result['tanggal_pergi'] = $data['go_date'];
             $result['from'] = $data['from_code'];
             $result['to'] = $data['to_code'];
-            print_r($result) and exit();
+//            print_r($result) and exit();
             $data=[
                'title'=>"Search Murahtiketnya",
                'ctrlname' => $this->ctrlname,
@@ -204,7 +204,7 @@ class Search extends CI_Controller {
           
 
           for($a=0;$a<count($data['progress'][0]['data']['go']) ; $a++){
-            unset($show[$a]);
+            unset($show[$a]);   
 
           }
 

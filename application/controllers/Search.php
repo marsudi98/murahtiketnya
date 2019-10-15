@@ -64,7 +64,7 @@ class Search extends CI_Controller {
             curl_close ($ch);
             
             $result= json_decode($result, true);
-
+            
             $result =$this->show($result) ;
             $result['tanggal_pergi'] = $data['go_date'];
             $result['from'] = $data['from_code'];

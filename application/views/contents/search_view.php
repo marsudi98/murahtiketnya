@@ -13,6 +13,8 @@
         </div>
       </div>
 
+      <?php print_r($data); ?>
+
       <div class="content-wrapper">
         <h3 class="title text-bold is-5"><?= '( '.$data['from'].' )' ; ?> →  <?= '( '.$data['to'].' )';  ?> </h3>
         <div class="columns">
@@ -198,8 +200,8 @@
               <div class="column is-2 has-text-centered">
                   <?php for ($j = 0; $j < count($data['go'][0]['LIO'][$i]['perjalanan']) ; $j++) { ?>                    
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]['berangkat']['jam'].'->'.$data['go'][0]['LIO'][$i]['perjalanan'][$j]['sampai']['jam'] ;  ?></a></h3>
-                      <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]['berangkat']['jam'];  ?></a></h3>
+                      <p class="mcard-description is-hidden-touch"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]['berangkat']['kota'].' ('.$data['from'].') '; ?></p>
                   </div>
                   <?php } ?>
               </div>
@@ -207,8 +209,8 @@
                <div class="column is-2 has-text-centered">
                   <?php for ($j = 0; $j < count($data['go'][0]['LIO'][$i]['perjalanan']) ; $j++) { ?>                    
                   <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]['berangkat']['jam'].'->'.$data['go'][0]['LIO'][$i]['perjalanan'][$j]['sampai']['jam'] ;  ?></a></h3>
-                      <p class="mcard-description is-hidden-touch">Malang (MLG)</p>
+                      <h3 class="mcard-title"><a href="#"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]['sampai']['jam'] ;  ?></a></h3>
+                      <p class="mcard-description is-hidden-touch"><?= $data['go'][0]['LIO'][$i]['perjalanan'][$j]['sampai']['kota'].' ('.$data['to'].') '; ?></p>
                   </div>
                   <?php } ?>
               </div>

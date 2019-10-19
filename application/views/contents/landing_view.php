@@ -51,7 +51,7 @@
                                           </div> -->
                                           <div class="control">
                                              <label>Tanggal Berangkat</label>
-                                             <input data-toggle="datepicker" value="2019-10-22" dateFormat="Y-M-D" name="go"  class="input is-secondary-focus is-medium mt-5">
+                                             <input data-toggle="datepicker" value="2019-12-22" dateFormat="Y-M-D" name="go"  class="input is-secondary-focus is-medium mt-5">
                                           </div>
                                        </div>
                                        <div class="column">
@@ -92,6 +92,7 @@
                                           </div>
                                        </div>
                                     </div>
+
                                     <div class="columns">
                                        <div class="column">
                                           <div class="control">
@@ -120,6 +121,26 @@
                                           </div>
                                        </div>
                                     </div>
+
+                                    <div class="columns">
+                                       <div class="column">
+                                          <div class="control">
+                                             <label>Maskapai</label>
+                                             <div class="select is-fullwidth">
+                                                <select class="is-hovered" name="maskapai">
+                                                   <option value="CIT">Citilink</option>
+                                                   <option value="GAR">Garuda</option>
+                                                   <option value="LIO">Lion</option>
+                                                   <option value="SRI">Sriwijaya</option>
+                                                   <option value="TRA">TransNusa</option>
+                                                   <option value="TRI">Trigana</option>
+                                                   <option value="AIR">Air Asia</option>
+                                                </select>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+
                                     <div class="mt-30">  
                                        <button class="button btn-align no-lh raised primary-btn">Search</button>
                                        <button class="button is-link no-lh">Cancel</button>
@@ -184,7 +205,7 @@
                                                                                              </select>
                                                                                              </div>
                                                                                              <small style="color: #bdbdbd;">3 tahun ke atas*</small>
-                                                                                     </div>
+                                                                                     </div> 
                                                                              </div>   
                                                                      </div>
                                                                      <div class="columns">

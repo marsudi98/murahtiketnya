@@ -32,16 +32,16 @@ class Search extends CI_Controller {
 
             // atur permintaan untuk mengirim json melalui POST 
             $data  = array( 
-                    "group" => null,
-                  "from_code" => $from,
-                  "to_code" => $to,
-                  "is_return" => 1,
-                  "go_date" => $go,
-                  "back_date" => "2019-10-25",
-                  "adult_count" => "1",
-                  "child_count" => "0",
-                  "infant_count" => "0",
-                  "airlines" => "LIO" 
+              "group" => null,
+              "from_code" => $from,
+              "to_code" => $to,
+              "is_return" => 1,
+              "go_date" => $go,
+              "back_date" => "2019-10-25",
+              "adult_count" => "1",
+              "child_count" => "0",
+              "infant_count" => "0",
+              "airlines" => "LIO" 
             );
 
             $payload  =  json_encode ( $data );
@@ -69,7 +69,7 @@ class Search extends CI_Controller {
             $result['tanggal_pergi'] = $data['go_date'];
             $result['from'] = $data['from_code'];
             $result['to'] = $data['to_code'];
-//            print_r($result) and exit();
+            //  print_r($result) and exit();
             $data=[
                'title'=>"Search Murahtiketnya",
                'ctrlname' => $this->ctrlname,
@@ -92,7 +92,7 @@ class Search extends CI_Controller {
 // }
 // print_r($show) ;
 //     }
-    
+
  
     public function show($data)
     { 

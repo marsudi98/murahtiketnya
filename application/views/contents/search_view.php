@@ -15,7 +15,9 @@
 
       <?php //print_r($data); ?>
 
-      <div class="content-wrapper">
+
+
+      <!-- <div class="content-wrapper"> -->
         <h3 class="title text-bold is-5"><?= '( '.$data['from'].' )' ; ?> →  <?= '( '.$data['to'].' )';  ?> </h3>
         <div class="columns">
           <div class="column is-6">
@@ -126,7 +128,7 @@
           </div>
       </div>
 
-      <div class="content-wrapper">
+      <!-- <div class="content-wrapper">
         <h3 class="subtitle text-bold is-6">Filter :  </h3>
         <div id="signup-btn" class="button button-cta btn-align is-bold light-btn is-drop is-centered">Urutkan &nbsp;<i class="fas fa-align-left"></i>
           <div class="dropContain">
@@ -142,50 +144,90 @@
             </div>
           </div>
         </div>
-      </div>
-  
-      <!-- <section class="section">
-          <div class="container">
-              <div class="card is-fullwidth">
-                  <header class="card-header">
-                      <p class="card-header-title">Card #1</p>
-                      <a class="card-header-icon card-toggle">
-                          <i class="fa fa-angle-down"></i>
-                      </a>
-                  </header>
-                  <div class="card-content is-hidden">
-                      <div class="content">
-                          Content goes here <small>Small text</small>
-                      </div>
-                  </div>
-              </div>
+      </div> -->
+      </section>
 
-              <div class="card is-fullwidth">
-                  <header class="card-header">
-                      <p class="card-header-title">Card #2</p>
-                      <a class="card-header-icon card-toggle">
-                          <i class="fa fa-angle-down"></i>
-                      </a>
-                  </header>
-                  <div class="card-content is-hidden">
-                      <div class="content">
-                          Some more content. Look at all this whitespace. <small>(Unless you are on mobile)</small>
-                      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <div class="flex-card">
+              <div class="card-body">
+                  <div class="content">
+                      <h4 class="no-margin">Maskapai</h4>
+                      <p class="pt-10">
+                        <div class="select is-fullwidth">
+                          <select class="is-hovered" name="maskapai">
+                            <option value="CIT">Citilink</option>
+                            <option value="GAR">Garuda</option>
+                            <option value="LIO">Lion</option>
+                            <option value="SRI">Sriwijaya</option>
+                            <option value="TRA">TransNusa</option>
+                            <option value="TRI">Trigana</option>
+                            <option value="AIR">Air Asia</option>
+                          </select>
+                        </div>
+                      </p>
+
+                      <h4 class="no-margin">Kelas</h2>
+                      <br>
+                        <label class="checkbox-wrap is-medium">
+                          <input id="myCheck" type="checkbox" class="d-checkbox">
+                            <span></span>
+                              Ekonomi
+                        </label>
+                        <br>
+                        <label class="checkbox-wrap is-medium">
+                          <input id="myCheck" type="checkbox" class="d-checkbox">
+                            <span></span>
+                              Bisnis
+                        </label>
+                        <br>
+                        <label class="checkbox-wrap is-medium">
+                          <input id="myCheck" type="checkbox" class="d-checkbox">
+                            <span></span>
+                              Promo
+                        </label>
+                        <br><br>
+                      <h4 class="no-margin">Transit</h4>
+                      <p class="pt-10">
+                        <label class="checkbox-wrap is-medium">
+                            <input id="myCheck" type="checkbox" class="d-checkbox">
+                              <span></span>
+                                Langsung
+                        </label>
+                      </p>
+
+                      <h4 class="no-margin">Harga</h4>
+                      <p class="pt-10">
+                      <input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="600.000" max="2.520.000" value="50" step="1" type="range">
+                      <output for="sliderWithValue"><span>50</span></output>
+                      </p>
+
+                      <h4 class="no-margin">Waktu Takeoff</h4>
+                      <p class="pt-10">
+                      <input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="600.000" max="2.520.000" value="50" step="1" type="range">
+                      <output for="sliderWithValue"><span>50</span></output>
+                      </p>
+
+                      <h4 class="no-margin">Waktu Landing</h4>
+                      <p class="pt-10">
+                      <input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="600.000" max="2.520.000" value="50" step="1" type="range">
+                      <output for="sliderWithValue"><span>50</span></output>
+                      </p>
+
+                      <a href="#"><button class="button btn-align no-lh raised primary-btn">Tampilkan</button></a>
                   </div>
-              </div>
+              </div>  
           </div>
-      </section> -->
-      
-        
-      
+        </div>
 
-
-      <div class="content-wrapper">
+        <div class="column is-9">
+        <div class="content-wrapper">
         <!-- Card -->
         <?php         
 
         for($i = 0 ;$i < count($data[0][$maskapai]) ; $i++){ ?>
           <?php if (isset($data[0][$maskapai][$i]['eco']) ){ ?>
+      
         <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
           <div class="columns is-desktop is-centered is-vcentered trigger active">
 
@@ -240,7 +282,7 @@
               <div class="column is-2 has-text-centered">
                   <div class="mcard-content">
                       <h2>Ekonomi</h2>
-                      <h3 class="mcard-title"><a href="#" style="color: #66bb6a; font-size: 16px;">Rp. <?= $data[0][$maskapai][$i]['eco']['total'] ?></a></h3>
+                      <h3 class="mcard-title"><a href="#" style="color: #66bb6a; font-size: 16px;"><?= $data[0][$maskapai][$i]['eco']['total'] ?></a></h3>
 
                   </div>
               </div>
@@ -386,7 +428,7 @@
               <div class="column is-2 has-text-centered">
                   <div class="mcard-content">
                       <h2>Bisnis</h2>
-                      <h3 class="mcard-title"><a href="#" style="color: #DC143C; font-size: 16px;">Rp. <?= $data[0][$maskapai][$i]['bus']['total'] ?></a></h3>
+                      <h3 class="mcard-title"><a href="#" style="color: #DC143C; font-size: 16px;"> <?= $data[0][$maskapai][$i]['bus']['total'] ?></a></h3>
                   </div>
               </div>
           </div>
@@ -530,7 +572,7 @@
               <div class="column is-2 has-text-centered">
                   <div class="mcard-content">
                     <h2>Promosi</h2>
-                      <h3 class="mcard-title"><a href="#" style="color: #1E90FF; font-size: 16px;">Rp. <?= $data[0][$maskapai][$i]['pro']['total'] ?></a></h3>
+                      <h3 class="mcard-title"><a href="#" style="color: #1E90FF; font-size: 16px;"> <?= $data[0][$maskapai][$i]['pro']['total'] ?></a></h3>
                   </div>
               </div>
           </div>
@@ -617,6 +659,9 @@
           <?php } ?>
         <?php } ?>
         <!-- End of Card -->
+        </div>
+      </div>
+
 
       </div>
   </div>

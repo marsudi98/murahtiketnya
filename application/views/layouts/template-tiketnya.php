@@ -281,6 +281,7 @@
     <script src="<?php echo base_url() ?>assets/js/main.js"></script>
     <!-- Page specific JS -->
     <script src="<?php echo base_url() ?>assets/js/pages/landingv1.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/pages/components-range.js"></script>
     <!-- Collapsible -->
 
 </body>

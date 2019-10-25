@@ -11,6 +11,8 @@ class Search extends CI_Controller {
     
     var $ctrlname = 'Search';
 
+
+
     public function index()
     {
       $group =$this->input->post('group');
@@ -87,6 +89,13 @@ class Search extends CI_Controller {
              ];
 
         $this->load->view('layouts/template-tiketnya',$data);
+   }
+
+   public function diskon(){
+        $this->load->library('curl'); 
+        $api =  "http://murahtiketnya.com/affan/diskon.php";
+        $data['diskon'] = json_decode($this->curl->simple_get($api));
+          var_dump($data) ;
    }
 
    public function maskapai($from, $to, $go, $airlines){

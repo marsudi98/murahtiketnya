@@ -223,7 +223,8 @@
         <div class="column is-8">
         <div class="content-wrapper">
         <!-- Card -->
-        <?php         
+        <?php
+        if(isset($data[0][$maskapai])){         
         for($i = 0 ;$i < count($data[0][$maskapai]) ; $i++){ ?>
           <?php if (isset($data[0][$maskapai][$i]['eco']) ){ ?>
         <div class="single-toggle-wrapper">
@@ -667,6 +668,9 @@
         </div>
           <?php } ?>
         <?php } ?>
+      <?php } else{ ?>
+                <?= "Tiket Habis";}?>
+
         <!-- End of Card -->
         </div>
       </div>

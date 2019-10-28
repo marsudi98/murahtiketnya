@@ -351,6 +351,9 @@
               </div>  
           </div>
         </div>
+        <?php } ?>
+        <?php } ?>
+        <?php } ?>
 
         <div class="column is-8">
         <div class="content-wrapper">

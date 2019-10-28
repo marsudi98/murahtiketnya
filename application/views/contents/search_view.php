@@ -390,7 +390,9 @@
                 <div class="column is-2 has-text-centered ">
                     <div class="mcard-content">
                         <figure class="image is-64x64 container">
-                            <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
+                           <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
+                           <img src="<?php echo base_url($key->logo_maskapai) ?>">
+                             <?php } ?>
                         </figure>
                         <h3 class="mcard-title is-centered"><a href="#"> <?= $maskapai  ?> </a></h3>
                     </div>
@@ -441,6 +443,9 @@
                         <h3 class="mcard-title"><a href="#" style="color: #DC143C; font-size: 16px;"> <?= $data[0][$maskapai][$i]['bus']['total'] ?></a></h3>
                     </div>
                 </div>
+
+                      <a href="#"><i class="im im-icon-Add"></i></a>
+
             </div>
             <!-- Detail -->
             <div class="columns is-desktop is-centered is-vcentered toggle-container is-multiline" >
@@ -535,7 +540,9 @@
               <div class="column is-2 has-text-centered ">
                   <div class="mcard-content">
                       <figure class="image is-64x64 container">
-                          <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
+                        <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
+                           <img src="<?php echo base_url($key->logo_maskapai) ?>">
+                             <?php } ?>
                       </figure>
                       <h3 class="mcard-title is-centered"><a href="#"> <?= $maskapai  ?> </a></h3>
                   </div>
@@ -586,6 +593,9 @@
                       <h3 class="mcard-title"><a href="#" style="color: #1E90FF; font-size: 16px;"> <?= $data[0][$maskapai][$i]['pro']['total'] ?></a></h3>
                   </div>
               </div>
+
+                    <a href="#"><i class="im im-icon-Add"></i></a>
+
           </div>
           <!-- Detail -->
           <div class="columns is-desktop is-centered is-vcentered toggle-container is-multiline" >

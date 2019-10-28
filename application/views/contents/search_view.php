@@ -145,9 +145,113 @@
           </div>
         </div>
       </div> -->
+
+      <hr>
+        <div class="columns is-centered">
+          <div class="column is-2">
+            <p>Filter : </p>
+          </div>
+
+          <div class="column is-2">
+            <!-- Dropdown trigger -->
+              <button class="button" data-jq-dropdown="#maskapai" style="border: 0px;">Maskapai <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
+            <!-- /Dropdown trigger -->
+
+            <!-- Dropdown -->
+            <div id="maskapai" class="jq-dropdown">
+                <ul class="jq-dropdown-menu">
+                    <li>
+                        <label class="radio-wrap is-small is-primary">
+                            <input type="radio" class="b-radio" name="radio-group">
+                            <span></span>
+                            Citilink
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-wrap is-small is-secondary">
+                            <input type="radio" class="b-radio" name="radio-group">
+                            <span></span>
+                            Garuda
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-wrap is-small is-accent">
+                            <input type="radio" class="b-radio" name="radio-group">
+                            <span></span>
+                            Lion
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-wrap is-small is-accent">
+                            <input type="radio" class="b-radio" name="radio-group">
+                            <span></span>
+                            Sriwijaya
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-wrap is-small is-accent">
+                            <input type="radio" class="b-radio" name="radio-group">
+                            <span></span>
+                            Transnusa
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-wrap is-small is-accent">
+                            <input type="radio" class="b-radio" name="radio-group">
+                            <span></span>
+                            Trigana
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-wrap is-small is-accent">
+                            <input type="radio" class="b-radio" name="radio-group">
+                            <span></span>
+                            Air Asia
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <!-- /Dropdown -->
+          </div>
+          <div class="column is-2">
+            <!-- Dropdown trigger -->
+              <button class="button" data-jq-dropdown="#transit" style="border: 0px;">Transit <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
+            <!-- /Dropdown trigger -->
+          </div>
+
+          <div class="column is-2">
+            <!-- Dropdown trigger -->
+            <button class="button" data-jq-dropdown="#harga" style="border: 0px;">Harga <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
+            <!-- /Dropdown trigger -->
+          </div>
+
+          <div class="column is-2">
+            <!-- Dropdown trigger -->
+            <button class="button" data-jq-dropdown="#waktu" style="border: 0px;">Waktu <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
+            <!-- /Dropdown trigger -->
+          </div>
+
+          <div class="column is-2">
+            <div class="button btn-align has-icon-right primary-btn btn-outlined is-drop" style="border: 0px;">Sort <i class="sl sl-icon-arrow-down is-icon-xs"></i>
+                <div class="dropContain">
+                  <div class="dropOut">
+                    <ul>
+                      <li><a href="#" style="color: #000000">Harga Terendah</a> </li>
+                      <li><a href="#" style="color: #000000">Waktu Berangkat Awal</a></li>
+                      <li><a href="#" style="color: #000000">Waktu Berangkat Akhir</a></li>
+                      <li><a href="#" style="color: #000000">Waktu Tiba Awal</a></li>
+                      <li><a href="#" style="color: #000000">Waktu Tiba Akhir</a></li>
+                      <li><a href="#" style="color: #000000">Durasi Tercepat</a></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      <hr>
     
 
-      <div class="columns">
+      <div class="columns is-centered">
         <div class="content-wrapper">
           <!-- Card -->
           <?php
@@ -162,7 +266,7 @@
                           <figure class="image is-64x64 container">
                               <img src="<?php echo base_url() ?>assets/img/logo-pesawat/garuda-indonesia.png">
                           </figure>
-                          <h3 class="mcard-title is-centered"><a href="#"> <?= $maskapai  ?> </a></h3>
+                          <h3 class="mcard-title is-centered"><a href="#"><?= $maskapai  ?></a></h3>
                       </div>
                   </div>
 
@@ -198,23 +302,16 @@
                       </div>
                   </div>
 
-                  <div class="column is-1 has-text-centered">
-                      <div class="mcard-content">
-                          <div class="mcard-actions ml-auto">
-                              <span><i class="material-icons">work</i></span>
-                          </div>
-                      </div>
-                  </div>     
                   <div class="column is-2 has-text-centered">
                       <div class="mcard-content">
-                          <h2>Ekonomi</h2>
-                          <h3 class="mcard-title"><a href="#" style="color: #66bb6a; font-size: 16px;"><?= $data[0][$maskapai][$i]['eco']['total'] ?></a></h3>
-
+                          <h3 class="mcard-title"><a href="#">Ekonomi</a></h2>
+                          <p class="mcard-description"><a href="#" style="color: #66bb6a; font-size: 16px;"><?= $data[0][$maskapai][$i]['eco']['total'] ?></a></p>
                       </div>
                   </div>
               
-                    
-                          <a href="#"><i class="im im-icon-Add"></i></a>
+                  <div class="column is-2 has-text-centered">
+                    <a href="#"><i class="im im-icon-Add"></i></a>
+                  </div>
                 
           
               </div>

@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/easyAutocomplete/easy-autocomplete.css"> 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/slick-carousel/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/ggpopover/ggtooltip.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/jqdropdown/jquery.dropdown.css">
     <!-- Icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/icons.min.css">
@@ -277,6 +278,7 @@
     <script src="<?php echo base_url() ?>assets/js/datepicker/datepicker.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/easyAutocomplete/jquery.easy-autocomplete.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/jquery.simple.timer.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/jqdropdown/jquery.dropdown.min.js"></script>
     <!-- Bulkit js -->
     <script src="<?php echo base_url() ?>assets/js/main.js"></script>
     <!-- Page specific JS -->

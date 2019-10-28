@@ -146,6 +146,8 @@
         </div>
       </div> -->
 
+    </section>
+
       <hr>
         <div class="columns is-centered">
           <div class="column is-2">
@@ -270,46 +272,39 @@
                       </div>
                   </div>
 
-                      <h4 class="no-margin">Kelas</h2>
-                      <br>
-                        <label class="checkbox-wrap is-medium">
-                          <input id="myCheck" type="checkbox" class="d-checkbox">
-                            <span></span>
-                              Ekonomi
-                        </label>
-                        <br>
-                        <label class="checkbox-wrap is-medium">
-                          <input id="myCheck" type="checkbox" class="d-checkbox">
-                            <span></span>
-                              Bisnis
-                        </label>
-                        <br>
-                        <label class="checkbox-wrap is-medium">
-                          <input id="myCheck" type="checkbox" class="d-checkbox">
-                            <span></span>
-                              Promo
-                        </label>
-                        <br><br>
-                      <h4 class="no-margin">Transit</h4>
-                      <p class="pt-10">
-                        <label class="checkbox-wrap is-medium">
-                            <input id="myCheck" type="checkbox" class="d-checkbox">
-                              <span></span>
-                                Langsung
-                        </label>
-                      </p>
+                  <div class="column is-2 has-text-centered">
+                    <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['eco']['perjalanan']) ; $j++) {
+                      if($j == 0){ 
+                    ?>                    
+                    <div class="mcard-content">
+                      <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['jam']    ?></a></h3>
+                        <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') '; ?></p>
+                    </div> 
+                    <?php }  } ?>
+                </div>
 
-                      <h4 class="no-margin">Harga</h4>
-                      <p class="pt-10">
-                      <input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="600.000" max="2.520.000" value="50" step="1" type="range">
-                      <output for="sliderWithValue"><span>50</span></output>
-                      </p>
+                <div class="column is-2 has-text-centered">
+                    <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) ; $j++) {
+                                          ?>                    
+                      <?php 
+                        
+                        if($j == count($data[0][$maskapai][$i]['eco']['perjalanan']['detail'])-1){
+                      ?>  
+                    <div class="mcard-content">
+                        <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['jam'] ;  ?></a></h3>
+                        <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') '; ?></p>
+                    </div>
+                    <?php } } ?>
+                </div>
 
-                      <h4 class="no-margin">Waktu Takeoff</h4>
-                      <p class="pt-10">
-                      <input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="600.000" max="2.520.000" value="50" step="1" type="range">
-                      <output for="sliderWithValue"><span>50</span></output>
-                      </p>
+                <div class="column is-2 has-text-centered">
+                    <div class="mcard-content">
+                        <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['total_perjalanan']  ?></a></h3>
+                        <p class="mcard-description is-hidden-touch">langsung</p>
+                    </div>
+                </div>
+
+                      
 
                   <div class="column is-2 has-text-centered">
                       <div class="mcard-content">
@@ -403,7 +398,7 @@
                 <div class="column is-2 has-text-centered">
                     <div class="mcard-content">
                         <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['total_perjalanan']  ?></a></h3>
-                        <p class="mcard-description is-hidden-touch">langsung</p>
+                          <p class="mcard-description is-hidden-touch">langsung</p>
                     </div>
                 </div>
 
@@ -460,11 +455,11 @@
                     <div class="column is-4"> 
                       <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) ; $j++) { ?>                    
                       <div class="mcard-content">
-                        <!-- <figure class="image is-48x48 container">
+                        <figure class="image is-48x48 container">
                             <img src="<?php echo base_url() ?>assets/img/logo-pesawat/lion-air.png">
                         </figure>
                                       
-                        <h5 class="mcard-title is-centered is-5"><?= $data[0][$maskapai][$i]['eco']['perjalanan'][0]['kode_pesawat'] ?></h5> -->
+                        <h5 class="mcard-title is-centered is-5"><?= $data[0][$maskapai][$i]['eco']['perjalanan'][0]['kode_pesawat'] ?></h5>
 
                         <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['jam'];  ?></a></h3>
                         <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') '; ?></p>

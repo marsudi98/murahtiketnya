@@ -98,9 +98,10 @@
                                           <div class="control">
                                              <label>Anak</label>
                                              <div class="select is-fullwidth">
-                                                <select class="is-hovered">
-                                                   <option name="1">1</option>
-                                                   <option name="2">2</option>
+                                                <select class="is-hovered" name='child'>
+                                                   <option value="0">0</option>
+                                                   <option value="1">1</option>
+                                                   <option value="2">2</option>
                                                 </select>
                                              </div>
                                              <small style="color: #bdbdbd;">2 - 11 tahun *</small>
@@ -112,9 +113,9 @@
                                           <div class="control">
                                              <label>Bayi</label>
                                              <div class="select is-fullwidth">
-                                                <select class="is-hovered">
-                                                   <option name="0">0</option>
-                                                   <option name="1">1</option>
+                                                <select class="is-hovered" name='infant'>
+                                                   <option value ="0">0</option>
+                                                   <option value ="1">1</option>
                                                 </select>
                                              </div>
                                              <small style="color: #bdbdbd;">Bawah 2 tahun*</small>

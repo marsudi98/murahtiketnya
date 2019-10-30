@@ -29,7 +29,7 @@ class Search extends CI_Controller {
       $data = $this->maskapai($from, $to, $go, $airlines);
               
       if(!is_null($data['progress'][0]['data']) ){
-        $result[0][$airlines] =  $this->show($data) ;
+        $result[0][$airlines] =  $this->show($data,$airlines) ;
       }
 
               // $airlines = 'GAR';  
@@ -77,6 +77,7 @@ class Search extends CI_Controller {
               $result['from'] = $from;
               $result['to'] = $to;
               $result['tanggal_pergi'] = $go;
+              $result['bagasi']= $this->bagasi($airlines);
 //          print_r($result)  or die();
             $data=[
                'title'=>"Search Murahtiketnya",
@@ -91,7 +92,7 @@ class Search extends CI_Controller {
         $this->load->view('layouts/template-tiketnya',$data);
    }
 
-   public function diskon(){
+   public function diskonApi(){
         $this->load->library('curl'); 
         $api =  "http://murahtiketnya.com/affan/diskon.php";
         $data['diskon'] = json_decode($this->curl->simple_get($api));
@@ -158,7 +159,7 @@ class Search extends CI_Controller {
 //     }
 
  
-    public function show($data)
+    public function show($data,$maskapai)
     { 
 
             //pergi
@@ -184,6 +185,13 @@ class Search extends CI_Controller {
                                       $total = $fares['by_ages']['adult']['total'];
                                       $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                        $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
+                 
+                                         $diskon = $this->diskon($total,$maskapai);
+                                        
+                                       $show[$i]['pro']['diskon']=$pro['id'] ;                                       
+                                       $show[$i]['pro']['diskon']=number_format( $diskon, 2, ',', '.') ;
+
+                 
                                        $show[$i]['pro']['total']=$pro['id'] ;     
                                        $show[$i]['pro']['total']=number_format( $total, 2, ',', '.') ;
                                         $a =$this->perjalanan($data);
@@ -198,10 +206,18 @@ class Search extends CI_Controller {
                                       $total = $fares['by_ages']['adult']['total'];
                                       $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                        $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
+                 
+                                      $diskon = $this->diskon($total,$maskapai);
+                                        
+                                       $show[$i]['eco']['diskon']=$eco['id'] ;                                       
+                                       $show[$i]['eco']['diskon']=number_format( $diskon, 2, ',', '.') ;
+                 
                                        $show[$i]['eco']['id_harga']= $eco['id'] ; 
+                                      
                                        $show[$i]['eco']['total'] =number_format( $total, 2, ',', '.')  ;
                                         $a =$this->perjalanan($data);
                                         $show[$i]['eco']['perjalanan'] = $a[$i];
+
                                   }
 
                                   if($bus != 1){
@@ -209,6 +225,12 @@ class Search extends CI_Controller {
                                       $total = $fares['by_ages']['adult']['total'];
                                       $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                        $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
+                 
+                                          $diskon = $this->diskon($total,$maskapai);
+                                        
+                                       $show[$i]['bus']['diskon']=$bus['id'] ;                                       
+                                       $show[$i]['bus']['diskon']=number_format( $diskon, 2, ',', '.') ;
+                 
                                       $show[$i]['bus']['id_harga']=$bus['id'] ;     
                                       $show[$i]['bus']['total']= number_format( $total, 2, ',', '.') ;
                                       $a =$this->perjalanan($data);
@@ -298,6 +320,51 @@ class Search extends CI_Controller {
                 }
                 return $show;
     }
+
+    public function diskon($uang,$maskapai)
+    {
+        if ($maskapai == 'LIO' )
+         $hasil = $uang - ($uang * 0.011) ; 
+        if($maskapai == 'GAR')
+        $hasil = $uang - ($uang * 0.01) ;
+        if($maskapai == 'CIT')
+        $hasil = $uang - ($uang * 0.025) ;
+        if($maskapai == 'SRI')
+        $hasil = $uang - ($uang * 0.08) ;
+        if($maskapai == 'TRI')
+        $hasil = $uang - ($uang * 0.015) ;
+         if($maskapai == 'AIR'){
+        $hasil = $uang - ($uang * 0.002) ;}
+       
+        if($maskapai == 'TRA'){
+        $hasil = $uang - ($uang * 0.011) ;}
+       return $hasil ;
+    }
+    public function bagasi($maskapai){
+
+        if($maskapai == 'GAR'){
+
+        $hasil = '20' ;
+        }
+        if($maskapai == 'CIT'){
+        $hasil = '20';
+        }
+        if($maskapai == 'SRI'){
+        $hasil = '15';
+        }
+        if($maskapai == 'TRI'){
+        $hasil = '20';
+        }
+         if($maskapai == 'AIR'){
+        $hasil = '15';
+        }
+
+        if($maskapai == 'TRA'){
+        $hasil = '10';
+        }
+
+        return $hasil;
+      }
 }
 
 /* End of file Controllername.php */

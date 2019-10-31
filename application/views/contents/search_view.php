@@ -17,7 +17,7 @@
 
 
 
-      <!-- <div class="content-wrapper"> -->
+      <div class="content-wrapper">
         <h3 class="title text-bold is-5"><?= '( '.$data['from'].' )' ; ?> →  <?= '( '.$data['to'].' )';  ?> </h3>
         <div class="columns">
           <div class="column is-6">
@@ -127,25 +127,6 @@
             </div>
           </div>
       </div>
-
-      <!-- <div class="content-wrapper">
-        <h3 class="subtitle text-bold is-6">Filter :  </h3>
-        <div id="signup-btn" class="button button-cta btn-align is-bold light-btn is-drop is-centered">Urutkan &nbsp;<i class="fas fa-align-left"></i>
-          <div class="dropContain">
-            <div class="dropOut">
-              <ul>
-                <li><a href="#" style="color: #000000"> Harga Terendah</a> </li>
-                <li><a href="#" style="color: #000000"> Waktu Berangkat Awal</a></li>
-                <li><a href="#" style="color: #000000"> Waktu Berangkat Akhir</a></li>
-                <li><a href="#" style="color: #000000">>Waktu Tiba Awal</a></li>
-                <li><a href="#" style="color: #000000">Waktu Tiba Akhir</a></li>
-                <li><a href="#" style="color: #000000">Durasi Tercepat</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      </section>
       
       <hr>
         <div class="columns is-centered">
@@ -218,12 +199,34 @@
             <!-- Dropdown trigger -->
               <button class="button" data-jq-dropdown="#transit" style="border: 0px;">Transit <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
             <!-- /Dropdown trigger -->
+
+            <!-- Dropdown -->
+            <div id="transit" class="jq-dropdown">
+                <ul class="jq-dropdown-menu">
+                    <li>
+                        <label class="checkbox-wrap is-small">
+                            <input id="check1" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
+                            <span></span>
+                            Langsung
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <!-- /Dropdown -->
           </div>
 
           <div class="column is-2">
             <!-- Dropdown trigger -->
             <button class="button" data-jq-dropdown="#harga" style="border: 0px;">Harga <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
             <!-- /Dropdown trigger -->
+            <!-- Harga -->
+            <div id="harga" class="jq-dropdown jq-dropdown-tip">
+              <ul class="jq-dropdown-menu">
+                <li><input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="0" max="100" value="50" step="1" type="range"></li>
+                <li><output for="sliderWithValue"><span>50</span></output></li>
+              </ul>
+            </div>
+            <!-- /Harga -->
           </div>
 
           <div class="column is-2">
@@ -250,258 +253,162 @@
           </div>
       </div>
       <hr>
-    
-      <div class="columns">
-        <div class="column is-2">
-          <div class="flex-card">
-              <div class="card-body">
-                  <div class="content">
-                      <h4 class="no-margin">Maskapai</h4>
-                      <p class="pt-10">
-                        <div class="select is-fullwidth">
-                          <select class="is-hovered" name="maskapai">
-                            <option value="CIT">Citilink</option>
-                            <option value="GAR">Garuda</option>
-                            <option value="LIO">Lion</option>
-                            <option value="SRI">Sriwijaya</option>
-                            <option value="TRA">TransNusa</option>
-                            <option value="TRI">Trigana</option>
-                            <option value="AIR">Air Asia</option>
-                          </select>
-                        </div>
-                      </p>
+        
+      <div class="content-wrapper">
+          <!-- Card -->
+          <?php 
+            if(isset($data[0])){        
+          for($i = 0 ;$i < count($data[0][$maskapai]) ; $i++){ ?>
+            <?php if (isset($data[0][$maskapai][$i]['pro']) ){ ?>
+          <div class="single-toggle-wrapper">
+            <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
+              <div class="columns is-desktop is-centered is-vcentered trigger">
+                  <div class="column is-2 has-text-centered ">
+                      <div class="mcard-content">
+                          <figure class="image is-48x48 container">
 
-                      <h4 class="no-margin">Kelas</h2>
-                      <br>
-                        <label class="checkbox-wrap is-medium">
-                          <input id="myCheck" type="checkbox" class="d-checkbox">
-                            <span></span>
-                              Ekonomi
-                        </label>
-                        <br>
-                        <label class="checkbox-wrap is-medium">
-                          <input id="myCheck" type="checkbox" class="d-checkbox">
-                            <span></span>
-                              Bisnis
-                        </label>
-                        <br>
-                        <label class="checkbox-wrap is-medium">
-                          <input id="myCheck" type="checkbox" class="d-checkbox">
-                            <span></span>
-                              Promo
-                        </label>
-                        <br><br>
-                      <h4 class="no-margin">Transit</h4>
-                      <p class="pt-10">
-                        <label class="checkbox-wrap is-medium">
-                            <input id="myCheck" type="checkbox" class="d-checkbox">
-                              <span></span>
-                                Langsung
-                        </label>
-                      </p>
-
-                      <h4 class="no-margin">Harga</h4>
-                      <p class="pt-10">
-                      <input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="600.000" max="2.520.000" value="50" step="1" type="range">
-                      <output for="sliderWithValue"><span>50</span></output>
-                      </p>
-
-                      <h4 class="no-margin">Waktu Takeoff</h4>
-                      <p class="pt-10">
-                      <input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="600.000" max="2.520.000" value="50" step="1" type="range">
-                      <output for="sliderWithValue"><span>50</span></output>
-                      </p>
-
-                      <h4 class="no-margin">Waktu Landing</h4>
-                      <p class="pt-10">
-                      <input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="600.000" max="2.520.000" value="50" step="1" type="range">
-                      <output for="sliderWithValue"><span>50</span></output>
-                      </p>
-
-                      <a href="#"><button class="button btn-align no-lh raised primary-btn">Tampilkan</button></a>
-                  </div>
-              </div>  
-          </div>
-        </div>
-
-        <div class="column is-8">
-        <div class="content-wrapper">
-        <!-- Card -->
-        <?php 
-          if(isset($data[0])){        
-        for($i = 0 ;$i < count($data[0][$maskapai]) ; $i++){ ?>
-          <?php if (isset($data[0][$maskapai][$i]['pro']) ){ ?>
-        <div class="single-toggle-wrapper">
-          <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
-            <div class="columns is-desktop is-centered is-vcentered trigger">
-                <div class="column is-2 has-text-centered ">
-                    <div class="mcard-content">
-                        <figure class="image is-64x64 container">
-
-                           <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
-                           <img src="<?php echo base_url($key->logo_maskapai) ?>">
-                             <?php } ?>
-                        </figure>
-                        <h3 class="mcard-title is-centered"><a href="#"> <?= $maskapai  ?> </a></h3>
-                    </div>
-                </div>
-                <div class="column is-2 has-text-centered">
-                   <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['pro']['perjalanan']) ; $j++) {
-                      if($j == 0){ 
-                    ?>                    
-                    <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['jam']    ?></a></h3>
-                        <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') '; ?></p>
-                    </div> 
-                    <?php }  } ?>
-                </div>
-
-                <div class="column is-2 has-text-centered">
-                    <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['pro']['perjalanan']['detail']) ; $j++) {
-                                          ?>                    
-                      <?php 
-                        
-                        if($j == count($data[0][$maskapai][$i]['pro']['perjalanan']['detail'])-1){
-                      ?>  
-                    <div class="mcard-content">
-                        <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['jam'] ;  ?></a></h3>
-                        <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') '; ?></p>
-                    </div>
-                    <?php } } ?>
-                </div>
-
-                <div class="column is-2 has-text-centered">
-                    <div class="mcard-content">
-                        <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['total_perjalanan']  ?></a></h3>
-                        <p class="mcard-description is-hidden-touch">langsung</p>
-                    </div>
-                </div>
-
-                <div class="column is-1 has-text-centered">
-                    <div class="mcard-content">
-                        <div class="mcard-actions ml-auto">
-                            <span><i class="material-icons">work</i></span>
-                        </div>
-                    </div>
-                </div>     
-                <div class="column is-2 has-text-centered">
-                    <div class="mcard-content">
-                        <h2>Promosi</h2>
-                        <?php if(!isset($data[0][$maskapai][$i]['pro']['diskon'])){ ?>
-                        <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= $data[0][$maskapai][$i]['pro']['total'] ?></a></h4>
-                        <?php } if(isset($data[0][$maskapai][$i]['pro']['diskon'])){ ?>
-                        <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><strike><?= $data[0][$maskapai][$i]['pro']['total'] ?></strike></a></h4>
-                        <h3 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= $data[0][$maskapai][$i]['pro']['diskon'] ?></a></h3>
-                        <?php } ?>
-
-                    </div>
-                </div>
-            
-                  
-                        <a href="#"><i class="im im-icon-Add"></i></a>
-              
-         
-            </div>
-            <!-- Detail -->
-            <div class="columns is-desktop is-centered is-vcentered toggle-container is-multiline" >
-                <div class="column is-11 ">
-                    <hr>
-                </div>
-                <div class="column is-2 has-text-centered ">
-                    <div class="mcard-content">
-                        <figure class="image is-48x48 container">
-
-                           <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
-                           <img src="<?php echo base_url($key->logo_maskapai) ?>">
-                             <?php } ?>
-                        </figure>
-                              
-                    
-                          
-                        <h5 class="mcard-title is-centered is-5"><?=  $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][0]['kode_pesawat'] ?></h5>
-                  
-                        <?php if( count($data[0][$maskapai][$i]['pro']['perjalanan']['detail']) == 2){ ?>
-                        <figure class="image is-48x48 container">
-                          <br>
                             <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
-                           <img src="<?php echo base_url($key->logo_maskapai) ?>">
-                             <?php } ?>
-                        </figure>
-                        
-                        <h5 class="mcard-title is-centered is-5"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][1]['kode_pesawat'] ?></h5>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="column is-3 is-multiline">
-                  <div class="columns">
-                    <div class="column is-4"> 
-                      <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['pro']['perjalanan']['detail']) ; $j++) { ?>                    
-                      <div class="mcard-content">
-
-
-                        <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['jam'];  ?></a></h3>
-                        <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['kode'].') '; ?></p>
-
-                        <br>
-                        <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['jam'] ;  ?></a></h3>
-                        <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['kode'].') '; ?></p>
-                    </div>
-                    <?php } ?>
-                        </div>
-                        <div class="column is-8 ">                            
-                            <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['pro']['perjalanan']['detail']) ; $j++) { ?>                    
-                      <div class="mcard-content">
-                         <?php foreach ($this->db->select('nama_bandara')->from('bandara')->where('kode_bandara',
-                       $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['kode']
-                     )->get()->result() as $key ) {?>
-                           
-                            <p class="mcard-tittle"><?= $key->nama_bandara  ?></p>
-                             <?php } ?>
-                          <br>
-
-                          <?php foreach ($this->db->select('nama_bandara')->from('bandara')->where('kode_bandara',
-                       $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['kode']
-                     )->get()->result() as $key ) {?>
-                           
-                            <p class="mcard-tittle"><?= $key->nama_bandara  ?></p>
-                             <?php } ?>
-
-                    </div>
-                    <?php } ?>
-                            
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column is-4">
-                            <div class="mcard-content">
-                                <p class="mcard-title is-hidden-touch"></p>
-                                <p class="mcard-description is-hidden-touch"></p>
-                            </div>
-                        </div>
-                        <div class="column is-8">
-                            <div class="mcard-content">
-                                <p class="mcard-title is-hidden-touch"></p>
-                                <p class="mcard-description is-hidden-touch"></p>
-                            </div>
-                        </div>
+                            <img src="<?php echo base_url($key->logo_maskapai) ?>">
+                              <?php } ?>
+                          </figure>
+                          <h3 class="mcard-title is-centered"><a href="#"> <?= $maskapai  ?> </a></h3>
+                      </div>
                   </div>
-                </div>
-                <div class="column is-4 is-pulled-right " >
-                    <div class="mcard-content">
-                        <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
-                        <p class="mcard-description is-hidden-touch">Pesawat Boeing <span class="has-text-black">737<span></p>
-                        <p class="mcard-description is-hidden-touch ">Tata Kursi ---</p>
-                        <p class="mcard-description is-hidden-touch">Jarak Antar --- inci</p>
-                        <p class="mcard-description is-hidden-touch mb-10">Bagasi Kabin <?php if( isset($data['bagasi'])) {echo $data['bagasi'];} ?> kg</p>
-                        <br>
-                        <a href="<?=base_url('BookingPesawat')?>" class="button button-cta info-btn">Pilih</a>
-                    </div>
-                </div>
+                  <div class="column is-2 has-text-centered">
+                    <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['pro']['perjalanan']) ; $j++) {
+                        if($j == 0){ 
+                      ?>                    
+                      <div class="mcard-content">
+                        <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['jam']    ?></a></h3>
+                          <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') '; ?></p>
+                      </div> 
+                      <?php }  } ?>
+                  </div>
+
+                  <div class="column is-2 has-text-centered">
+                      <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['pro']['perjalanan']['detail']) ; $j++) {
+                                            ?>                    
+                        <?php 
+                          if($j == count($data[0][$maskapai][$i]['pro']['perjalanan']['detail'])-1){
+                        ?>  
+                      <div class="mcard-content">
+                          <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['jam'] ;  ?></a></h3>
+                          <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') '; ?></p>
+                      </div>
+                      <?php } } ?>
+                  </div>
+
+                  <div class="column is-2 has-text-centered">
+                      <div class="mcard-content">
+                          <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['total_perjalanan']  ?></a></h3>
+                          <p class="mcard-description is-hidden-touch">langsung</p>
+                      </div>
+                  </div>
+  
+                  <div class="column is-2 has-text-centered">
+                      <div class="mcard-content">
+                          <h2>Promosi</h2>
+                          <?php if(!isset($data[0][$maskapai][$i]['pro']['diskon'])){ ?>
+                          <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= $data[0][$maskapai][$i]['pro']['total'] ?></a></h4>
+                          <?php } if(isset($data[0][$maskapai][$i]['pro']['diskon'])){ ?>
+                          <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><strike><?= $data[0][$maskapai][$i]['pro']['total'] ?></strike></a></h4>
+                          <h3 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= $data[0][$maskapai][$i]['pro']['diskon'] ?></a></h3>
+                          <?php } ?>
+
+                      </div>
+                  </div>
+              
+                    
+                  <div class="column is-2 has-text-centered">
+                    <a href="#"><i class="im im-icon-Add"></i></a>
+                  </div>
+                
+          
+              </div>
+              <!-- Detail -->
+              <div class="columns is-desktop is-centered is-vcentered toggle-container is-multiline" >
+                  <div class="column is-11 ">
+                      <hr>
+                  </div>
+                  <div class="column is-2 has-text-centered ">
+                      <div class="mcard-content">
+                          <figure class="image is-48x48 container">
+
+                            <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
+                            <img src="<?php echo base_url($key->logo_maskapai) ?>">
+                              <?php } ?>
+                          </figure>
+                            
+                          <h5 class="mcard-title is-centered is-5"><?=  $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][0]['kode_pesawat'] ?></h5>
+                    
+                          <?php if( count($data[0][$maskapai][$i]['pro']['perjalanan']['detail']) == 2){ ?>
+                          <figure class="image is-48x48 container">
+                            <br>
+                              <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
+                            <img src="<?php echo base_url($key->logo_maskapai) ?>">
+                              <?php } ?>
+                          </figure>
+                          
+                          <h5 class="mcard-title is-centered is-5"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][1]['kode_pesawat'] ?></h5>
+                          <?php } ?>
+                      </div>
+                  </div>
+                  <div class="column is-3 is-multiline">
+                    <div class="columns">
+                      <div class="column is-4"> 
+                        <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['pro']['perjalanan']['detail']) ; $j++) { ?>                    
+                        <div class="mcard-content">
+
+
+                          <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['jam'];  ?></a></h3>
+                          <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['kode'].') '; ?></p>
+
+                          <br>
+                          <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['jam'] ;  ?></a></h3>
+                          <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['kode'].') '; ?></p>
+                      </div>
+                      <?php } ?>
+                          </div>
+                          <div class="column is-8 ">                            
+                              <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['pro']['perjalanan']['detail']) ; $j++) { ?>                    
+                        <div class="mcard-content">
+                          <?php foreach ($this->db->select('nama_bandara')->from('bandara')->where('kode_bandara',
+                        $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['berangkat']['kode']
+                      )->get()->result() as $key ) {?>
+                            
+                              <p class="mcard-description"><?= $key->nama_bandara  ?></p>
+                              <?php } ?>
+                            <br>
+
+                            <?php foreach ($this->db->select('nama_bandara')->from('bandara')->where('kode_bandara',
+                        $data[0][$maskapai][$i]['pro']['perjalanan']['detail'][$j]['sampai']['kode']
+                      )->get()->result() as $key ) {?>
+                            
+                              <p class="mcard-description"><?= $key->nama_bandara  ?></p>
+                              <?php } ?>
+
+                      </div>
+                      <?php } ?>
+                              
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column is-5 is-pulled-right">
+                      <div class="mcard-content">
+                          <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
+                          <p class="mcard-description is-hidden-touch">Pesawat Boeing <span class="has-text-black">737<span></p>
+                          <p class="mcard-description is-hidden-touch ">Tata Kursi ---</p>
+                          <p class="mcard-description is-hidden-touch">Jarak Antar --- inci</p>
+                          <p class="mcard-description is-hidden-touch mb-10">Bagasi Kabin <?php if( isset($data['bagasi'])) {echo $data['bagasi'];} ?> kg</p>
+                          <br>
+                          <a href="<?=base_url('BookingPesawat')?>" class="button button-cta info-btn">Pilih</a>
+                      </div>
+                  </div>
+              </div>
+              <!-- End of Detail -->
             </div>
-            <!-- End of Detail -->
           </div>
-        </div>
-          <?php } ?>
+            <?php } ?>
 
         <!-- End of Card -->
           <?php
@@ -511,7 +418,7 @@
             <div class="columns is-desktop is-centered is-vcentered trigger">
                 <div class="column is-2 has-text-centered ">
                     <div class="mcard-content">
-                        <figure class="image is-64x64 container">
+                        <figure class="image is-48x48 container">
 
                            <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
                            <img src="<?php echo base_url($key->logo_maskapai) ?>">
@@ -552,13 +459,7 @@
                     </div>
                 </div>
 
-                <div class="column is-1 has-text-centered">
-                    <div class="mcard-content">
-                        <div class="mcard-actions ml-auto">
-                            <span><i class="material-icons">work</i></span>
-                        </div>
-                    </div>
-                </div>     
+                   
                 <div class="column is-2 has-text-centered">
                     <div class="mcard-content">
                         <h2>Ekonomi</h2>
@@ -573,7 +474,9 @@
                 </div>
             
                   
-                        <a href="#"><i class="im im-icon-Add"></i></a>
+                <div class="column is-2 has-text-centered">
+                  <a href="#"><i class="im im-icon-Add"></i></a>
+                </div>
               
          
             </div>
@@ -631,7 +534,7 @@
                        $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kode']
                      )->get()->result() as $key ) {?>
                            
-                            <p class="mcard-tittle"><?= $key->nama_bandara  ?></p>
+                            <p class="mcard-description"><?= $key->nama_bandara  ?></p>
                              <?php } ?>
                           <br>
 
@@ -639,7 +542,7 @@
                        $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kode']
                      )->get()->result() as $key ) {?>
                            
-                            <p class="mcard-tittle"><?= $key->nama_bandara  ?></p>
+                            <p class="mcard-description"><?= $key->nama_bandara  ?></p>
                              <?php } ?>
 
                     </div>
@@ -647,22 +550,8 @@
                             
                         </div>
                     </div>
-                    <div class="columns">
-                        <div class="column is-4">
-                            <div class="mcard-content">
-                                <p class="mcard-title is-hidden-touch"></p>
-                                <p class="mcard-description is-hidden-touch"></p>
-                            </div>
-                        </div>
-                        <div class="column is-8">
-                            <div class="mcard-content">
-                                <p class="mcard-title is-hidden-touch"></p>
-                                <p class="mcard-description is-hidden-touch"></p>
-                            </div>
-                        </div>
-                  </div>
                 </div>
-                <div class="column is-4 is-pulled-right " >
+                <div class="column is-5 is-pulled-right">
                     <div class="mcard-content">
                         <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
                         <p class="mcard-description is-hidden-touch">Pesawat Boeing <span class="has-text-black">737<span></p>
@@ -689,7 +578,7 @@
             <div class="columns is-desktop is-centered is-vcentered trigger">
                 <div class="column is-2 has-text-centered ">
                     <div class="mcard-content">
-                        <figure class="image is-64x64 container">
+                        <figure class="image is-48x48 container">
 
                            <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
                            <img src="<?php echo base_url($key->logo_maskapai) ?>">
@@ -730,13 +619,7 @@
                     </div>
                 </div>
 
-                <div class="column is-1 has-text-centered">
-                    <div class="mcard-content">
-                        <div class="mcard-actions ml-auto">
-                            <span><i class="material-icons">work</i></span>
-                        </div>
-                    </div>
-                </div>     
+                    
                 <div class="column is-2 has-text-centered">
                     <div class="mcard-content">
                         <h2>Bisnis</h2>
@@ -750,8 +633,10 @@
                     </div>
                 </div>
             
-                  
-                        <a href="#"><i class="im im-icon-Add"></i></a>
+              <div class="column is-2 has-text-centered">
+                    <a href="#"><i class="im im-icon-Add"></i></a>
+              </div>    
+              
               
          
             </div>
@@ -808,7 +693,7 @@
                        $data[0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['berangkat']['kode']
                      )->get()->result() as $key ) {?>
                            
-                            <p class="mcard-tittle"><?= $key->nama_bandara  ?></p>
+                            <p class="mcard-description"><?= $key->nama_bandara  ?></p>
                              <?php } ?>
                           <br>
 
@@ -816,7 +701,7 @@
                        $data[0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['sampai']['kode']
                      )->get()->result() as $key ) {?>
                            
-                            <p class="mcard-tittle"><?= $key->nama_bandara  ?></p>
+                            <p class="mcard-description"><?= $key->nama_bandara  ?></p>
                              <?php } ?>
 
                     </div>
@@ -824,22 +709,8 @@
                             
                         </div>
                     </div>
-                    <div class="columns">
-                        <div class="column is-4">
-                            <div class="mcard-content">
-                                <p class="mcard-title is-hidden-touch"></p>
-                                <p class="mcard-description is-hidden-touch"></p>
-                            </div>
-                        </div>
-                        <div class="column is-8">
-                            <div class="mcard-content">
-                                <p class="mcard-title is-hidden-touch"></p>
-                                <p class="mcard-description is-hidden-touch"></p>
-                            </div>
-                        </div>
-                  </div>
                 </div>
-                <div class="column is-4 is-pulled-right " >
+                <div class="column is-5 is-pulled-right">
                     <div class="mcard-content">
                         <h3 class="mcard-title"><a href="#">Detail Penerbangan</a></h3>
                         <p class="mcard-description is-hidden-touch">Pesawat Boeing <span class="has-text-black">737<span></p>

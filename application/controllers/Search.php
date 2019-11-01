@@ -96,7 +96,7 @@ class Search extends CI_Controller {
         $this->load->library('curl'); 
         $api =  "http://murahtiketnya.com/affan/diskon.php";
         $data['diskon'] = json_decode($this->curl->simple_get($api));
-          var_dump($data) ;
+     
    }
 
    public function maskapai($from, $to, $go, $airlines){
@@ -189,11 +189,11 @@ class Search extends CI_Controller {
                                          $diskon = $this->diskon($total,$maskapai);
                                         
                                        $show[$i]['pro']['diskon']=$pro['id'] ;                                       
-                                       $show[$i]['pro']['diskon']=number_format( $diskon, 2, ',', '.') ;
+                                       $show[$i]['pro']['diskon']=$diskon ;
 
                  
                                        $show[$i]['pro']['total']=$pro['id'] ;     
-                                       $show[$i]['pro']['total']=number_format( $total, 2, ',', '.') ;
+                                       $show[$i]['pro']['total']=$total ;
                                         $a =$this->perjalanan($data);
                                         for ($l= 0;$l < count($a) ; $l++ ) {
                                         
@@ -210,11 +210,11 @@ class Search extends CI_Controller {
                                       $diskon = $this->diskon($total,$maskapai);
                                         
                                        $show[$i]['eco']['diskon']=$eco['id'] ;                                       
-                                       $show[$i]['eco']['diskon']=number_format( $diskon, 2, ',', '.') ;
+                                       $show[$i]['eco']['diskon']=$diskon;
                  
                                        $show[$i]['eco']['id_harga']= $eco['id'] ; 
                                       
-                                       $show[$i]['eco']['total'] =number_format( $total, 2, ',', '.')  ;
+                                       $show[$i]['eco']['total'] =$total  ;
                                         $a =$this->perjalanan($data);
                                         $show[$i]['eco']['perjalanan'] = $a[$i];
 
@@ -229,10 +229,10 @@ class Search extends CI_Controller {
                                           $diskon = $this->diskon($total,$maskapai);
                                         
                                        $show[$i]['bus']['diskon']=$bus['id'] ;                                       
-                                       $show[$i]['bus']['diskon']=number_format( $diskon, 2, ',', '.') ;
+                                       $show[$i]['bus']['diskon']=$diskon ;
                  
                                       $show[$i]['bus']['id_harga']=$bus['id'] ;     
-                                      $show[$i]['bus']['total']= number_format( $total, 2, ',', '.') ;
+                                      $show[$i]['bus']['total']= $total ;
                                       $a =$this->perjalanan($data);
                                       $show[$i]['bus']['perjalanan'] = $a[$i];
                                   }

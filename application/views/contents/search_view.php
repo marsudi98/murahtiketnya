@@ -135,104 +135,116 @@
           </div>
 
           <div class="column is-2">
-            <!-- Dropdown trigger -->
-              <button class="button" data-jq-dropdown="#maskapai" style="border: 0px;">Maskapai <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
-            <!-- /Dropdown trigger -->
-
-            <!-- Dropdown -->
-            <div id="maskapai" class="jq-dropdown">
-                <ul class="jq-dropdown-menu">
-                    <li>
-                        <label class="radio-wrap is-small is-primary">
-                            <input type="radio" class="b-radio" name="radio-group">
-                            <span></span>
-                            Citilink
-                        </label>
-                    </li>
-                    <li>
-                        <label class="radio-wrap is-small is-secondary">
-                            <input type="radio" class="b-radio" name="radio-group">
-                            <span></span>
-                            Garuda
-                        </label>
-                    </li>
-                    <li>
-                        <label class="radio-wrap is-small is-accent">
-                            <input type="radio" class="b-radio" name="radio-group">
-                            <span></span>
-                            Lion
-                        </label>
-                    </li>
-                    <li>
-                        <label class="radio-wrap is-small is-accent">
-                            <input type="radio" class="b-radio" name="radio-group">
-                            <span></span>
-                            Sriwijaya
-                        </label>
-                    </li>
-                    <li>
-                        <label class="radio-wrap is-small is-accent">
-                            <input type="radio" class="b-radio" name="radio-group">
-                            <span></span>
-                            Transnusa
-                        </label>
-                    </li>
-                    <li>
-                        <label class="radio-wrap is-small is-accent">
-                            <input type="radio" class="b-radio" name="radio-group">
-                            <span></span>
-                            Trigana
-                        </label>
-                    </li>
-                    <li>
-                        <label class="radio-wrap is-small is-accent">
-                            <input type="radio" class="b-radio" name="radio-group">
-                            <span></span>
-                            Air Asia
-                        </label>
-                    </li>
-                </ul>
+            <div class="button btn-align has-icon-right primary-btn btn-outlined is-drop" style="border: 0px;">Maskapai <i class="sl sl-icon-arrow-down is-icon-xs"></i>
+                <div class="dropContain">
+                  <div class="dropOut">
+                    <ul>
+                      <li><a href="#" style="color: #000000">Citilink</a> </li>
+                      <li><a href="#" style="color: #000000">Garuda</a></li>
+                      <li><a href="#" style="color: #000000">Lion</a></li>
+                      <li><a href="#" style="color: #000000">Sriwijaya</a></li>
+                      <li><a href="#" style="color: #000000">Transnusa</a></li>
+                      <li><a href="#" style="color: #000000">Air Asia</a></li>
+                      <li><a href="#" style="color: #000000">Trigana</a></li>
+                    </ul>
+                  </div>
+                </div>
             </div>
-            <!-- /Dropdown -->
           </div>
           <div class="column is-2">
-            <!-- Dropdown trigger -->
-              <button class="button" data-jq-dropdown="#transit" style="border: 0px;">Transit <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
-            <!-- /Dropdown trigger -->
+            <div class="button btn-align has-icon-right primary-btn btn-outlined is-drop" style="border: 0px;">Transit <i class="sl sl-icon-arrow-down is-icon-xs"></i>
+                <div class="dropContain">
+                  <div class="dropOut">
+                    <ul>
+                      <li><a href="#" style="color: #000000">Langsung</a></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
 
-            <!-- Dropdown -->
-            <div id="transit" class="jq-dropdown">
-                <ul class="jq-dropdown-menu">
-                    <li>
+          <div class="column is-2">
+          <div class="button btn-align has-icon-right primary-btn btn-outlined is-drop" style="border: 0px;">Harga<i class="sl sl-icon-arrow-down is-icon-xs"></i>
+                <div class="dropContain">
+                  <div class="dropOut">
+                    <ul>
+                      <li><input id="sliderWithValue" class="slider has-output is-fullwidth" min="4.121.163" max="20.091.060" value="100" step="1" type="range"></li>
+                      <li><output class="is-centered" for="sliderWithValue">4.121.163</output></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="column is-2">
+            <div class="button btn-align has-icon-right primary-btn btn-outlined is-drop" style="border: 0px;">Waktu <i class="sl sl-icon-arrow-down is-icon-xs"></i>
+                <div class="dropContain">
+                  <div class="dropOut" style="width: 450px;">
+                    <ul class="column is-6">
+                      <li class="is-disabled" style="color: #000000;">Waktu Takeoff</li>
+                      <li>
                         <label class="checkbox-wrap is-small">
                             <input id="check1" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
-                            <span></span>
-                            Langsung
+                            <span style="color: #000000;"></span>
+                            &nbsp;00.00 - 06.00
                         </label>
-                    </li>
-                </ul>
+                      </li>
+                      <li>
+                        <label class="checkbox-wrap is-small">
+                            <input id="check2" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
+                            <span style="color: #000000"></span>
+                            &nbsp;06.00 - 12.00
+                        </label>
+                      </li>
+                      <li>
+                        <label class="checkbox-wrap is-small">
+                            <input id="check3" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
+                            <span style="color: #000000"></span>
+                            &nbsp;12.00 - 18.00
+                        </label>
+                      </li>
+                      <li>
+                        <label class="checkbox-wrap is-small">
+                            <input id="check4" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
+                            <span style="color: #000000"></span>
+                            &nbsp;18.00 - 00.00
+                        </label>
+                      </li>
+                      </ul>
+                      <ul class="column is-6">
+                      <li class="is-disabled" style="color: #000000;">Waktu Landing</li>
+                      <li>
+                        <label class="checkbox-wrap is-small">
+                            <input id="check5" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
+                            <span style="color: #000000"></span>
+                            &nbsp;00.00 - 06.00
+                        </label>
+                      </li>
+                      <li>
+                        <label class="checkbox-wrap is-small">
+                            <input id="check6" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
+                            <span style="color: #000000"></span>
+                            &nbsp;06.00 - 12.00
+                        </label>
+                      </li>
+                      <li>
+                        <label class="checkbox-wrap is-small">
+                            <input id="check7" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
+                            <span style="color: #000000"></span>
+                            &nbsp;12.00 - 18.00
+                        </label>
+                      </li>
+                      <li>
+                        <label class="checkbox-wrap is-small">
+                            <input id="check8" type="checkbox" class="b-checkbox" onchange="console.log('changed');">
+                            <span style="color: #000000"></span>
+                            &nbsp;18.00 - 00.00
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
             </div>
-            <!-- /Dropdown -->
-          </div>
-
-          <div class="column is-2">
-            <!-- Dropdown trigger -->
-            <button class="button" data-jq-dropdown="#harga" style="border: 0px;">Harga <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
-            <!-- /Dropdown trigger -->
-            <!-- Harga -->
-            <div id="harga" class="jq-dropdown jq-dropdown-tip">
-              <ul class="jq-dropdown-menu">
-                <li><input id="sliderWithValue" class="slider has-output-tooltip is-fullwidth" min="0" max="100" value="50" step="1" type="range"></li>
-                <li><output for="sliderWithValue"><span>50</span></output></li>
-              </ul>
-            </div>
-            <!-- /Harga -->
-          </div>
-
-          <div class="column is-2">
-            <!-- Dropdown trigger -->
-            <button class="button" data-jq-dropdown="#waktu" style="border: 0px;">Waktu <i class="sl sl-icon-arrow-down is-icon-xs"></i></button>
-            <!-- /Dropdown trigger -->
           </div>
 
           <div class="column is-2">
@@ -253,6 +265,23 @@
           </div>
       </div>
       <hr>
+
+      <div class="content-wrapper">
+        <div class="columns">
+          <div class="column">
+            <div class="flex-card light-bordered light-raised">
+              <div class="card-body">
+                  <div class="content">
+                    <p class="text-bold">Filtering by : &nbsp;&nbsp;<p>
+                    <p><button class="button is-white">Waktu Landing : 00.00 - 06.00 &nbsp;<i class="sl sl-icon-close is-icon-xs"></i></button>
+                    <button class="button is-info">Reset All</button></p>
+                   
+                  </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+      </div>
         
       <div class="content-wrapper">
           <!-- Card -->

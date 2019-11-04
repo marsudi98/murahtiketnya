@@ -25,44 +25,31 @@
                   <!-- Pill content -->
                   <div id="step-1" class="navtab-content pt-50 pb-50 is-active">
                      <div class="columns is-vcentered">
-                        <div class="column is-8 is-offset-2">
+                        <div class="column is-10 is-offset-1">
                            <div class="flex-card light-bordered light-raised">
                               <div class="card-body">
                                  <h2 class="title is-4 text-bold mb-20">Cari Tiket Pesawat Terbang</h2>
                                  <form action="<?=base_url('Search') ?>"  method="post">
-                                    <div class="columns mt-50">
+                                    <div class="columns mt-20">
                                        <div class="column">
                                           <div class="control">
                                              <label>Asal</label>
                                              <input class="input is-secondary-focus is-medium mt-5" id="asal" name="from" type="text" value="AMQ">
                                           </div>
-                                          <!-- <div class="control">
-                                             <select class="chosen-select" data-placeholder="Project category">
-                                                <option label="App category"></option>
-                                                <option>Document management</option>
-                                                <option>HR management</option>
-                                                <option>ERP</option>
-                                                <option>Invoicing</option>
-                                                <option>Email marketing</option>
-                                                <option>CRM</option>
-                                                <option disabled>Helpdesk</option>
-                                                <option>Corporate chat</option>
-                                             </select>
-                                          </div> -->
                                           <div class="control">
                                              <label>Tanggal Berangkat</label>
                                              <input data-toggle="datepicker" value="2019-12-22" dateFormat="Y-M-D" name="go"  class="input is-secondary-focus is-medium mt-5">
                                           </div>
                                        </div>
-                                       <div class="column">
+                                       <div class="column has-text-centered">
                                           <br>
                                           <a type="button" class="button button-cta primary-btn rounded"  id="go" onclick="swapValues()"><i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Swap Jadwal</a>
-                                          <div class="control">
+                                          <div class="control ml-80">
                                              <label class="checkbox-wrap is-medium" style="line-height: 6.8;">
                                              <input id="myCheck" type="checkbox" class="d-checkbox" onclick="myKereta()">
                                              <span></span>
                                              Pulang-Pergi
-                                             </label>
+                                             </label> 
                                           </div>
                                        </div>
                                        <div class="column">
@@ -70,59 +57,12 @@
                                              <label>Berangkat</label>
                                              <input class="input is-secondary-focus is-medium mt-5" id="berangkat" name="to" type="text" value="SUB">
                                           </div>
-                                          <div class="control" id="show" style="display: none;">
+                                          <div class="control" id="show">
                                              <label>Pulang Pergi</label>
-                                             <input data-toggle="datepicker" class="input is-secondary-focus is-medium mt-5">
+                                             <input data-toggle="datepicker" id="myInput" class="input is-secondary-focus is-medium mt-5" disabled>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="columns">
-                                       <div class="column">
-                                          <div class="control">
-                                             <label>Dewasa</label>
-                                             <div class="select is-fullwidth">
-                                                <select class="is-hovered" name="adult">
-                                                   <option  value="1">1</option>
-                                                   <option value="2">2</option>
-                                                   <option value="3">3</option>
-                                                   <option value="4">4</option>
-                                                </select>
-                                             </div>
-                                             <small style="color: #bdbdbd;">12 tahun ke atas*</small>
-                                          </div>
-                                       </div>
-                                    </div>
-
-                                    <div class="columns">
-                                       <div class="column">
-                                          <div class="control">
-                                             <label>Anak</label>
-                                             <div class="select is-fullwidth">
-                                                <select class="is-hovered" name='child'>
-                                                   <option value="0">0</option>
-                                                   <option value="1">1</option>
-                                                   <option value="2">2</option>
-                                                </select>
-                                             </div>
-                                             <small style="color: #bdbdbd;">2 - 11 tahun *</small>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="columns">
-                                       <div class="column">
-                                          <div class="control">
-                                             <label>Bayi</label>
-                                             <div class="select is-fullwidth">
-                                                <select class="is-hovered" name='infant'>
-                                                   <option value ="0">0</option>
-                                                   <option value ="1">1</option>
-                                                </select>
-                                             </div>
-                                             <small style="color: #bdbdbd;">Bawah 2 tahun*</small>
-                                          </div>
-                                       </div>
-                                    </div>
-
                                     <div class="columns">
                                        <div class="column">
                                           <div class="control">
@@ -141,10 +81,52 @@
                                           </div>
                                        </div>
                                     </div>
+                                    <!-- type of passengers -->
+                                    <div class="columns">
+                                       <div class="column">
+                                          <div class="control">
+                                             <label>Dewasa</label>
+                                             <div class="select is-fullwidth">
+                                                <select class="is-hovered" name="adult">
+                                                   <option  value="1">1</option>
+                                                   <option value="2">2</option>
+                                                   <option value="3">3</option>
+                                                   <option value="4">4</option>
+                                                </select>
+                                             </div>
+                                             <small style="color: #bdbdbd;">12 tahun ke atas*</small>
+                                          </div>
+                                       </div>
+                                       <div class="column">
+                                          <div class="control">
+                                             <label>Anak</label>
+                                             <div class="select is-fullwidth">
+                                                <select class="is-hovered" name='child'>
+                                                   <option value="0">0</option>
+                                                   <option value="1">1</option>
+                                                   <option value="2">2</option>
+                                                </select>
+                                             </div>
+                                             <small style="color: #bdbdbd;">2 - 11 tahun *</small>
+                                          </div>
+                                       </div>
+                                       <div class="column">
+                                          <div class="control">
+                                             <label>Bayi</label>
+                                             <div class="select is-fullwidth">
+                                                <select class="is-hovered" name='infant'>
+                                                   <option value ="0">0</option>
+                                                   <option value ="1">1</option>
+                                                </select>
+                                             </div>
+                                             <small style="color: #bdbdbd;">Bawah 2 tahun*</small>
+                                          </div>
+                                       </div>
+                                    </div>
 
-                                    <div class="mt-30">  
+                                    <div class="mt-20">  
                                        <button class="button btn-align no-lh raised primary-btn">Search</button>
-                                       <button class="button is-link no-lh">Cancel</button>
+                                       <button class="button no-lh">Cancel</button>
                                     </div>
                                  </form>
                               </div>

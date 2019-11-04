@@ -64,7 +64,7 @@
     <div class="pageloader"></div>
     <div class="infraloader is-active"></div>
     <!-- Hero (Parallax) and nav -->
-    <div class="hero parallax is-cover is-relative is-default is-bold" data-background="https://images.unsplash.com/photo-1520779708000-dfd7d8f7f9d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=626&q=80" data-color="#66bb6a" data-color-opacity="0.93">
+    <div class="hero parallax is-cover is-relative is-default is-bold" data-background="https://pbs.twimg.com/media/Cr7vDzjUsAA-xAn.jpg" data-color="#66bb6a" data-color-opacity="0.93">
         <div class="navbar-wrapper navbar-fade navbar-light">
             <div class="hero-head">
             <!-- Nav -->
@@ -77,7 +77,7 @@
                             </a>
                             <a href="#home" class="nav-item is-tab nav-inner is-not-mobile">Home</a>
                             <a href="#booking" class="nav-item is-tab nav-inner is-not-mobile">Booking</a>
-                            <a href="#adventage" class="nav-item is-tab nav-inner is-not-mobile">Adventage</a>
+                            <a href="#adventage" class="nav-item is-tab nav-inner is-not-mobile">Advantage</a>
                             <a href="#jadwal" class="nav-item is-tab nav-inner is-not-mobile">Jadwal</a>
                             <a href="#testimoni" class="nav-item is-tab nav-inner is-not-mobile">Testimoni</a>
                             
@@ -114,17 +114,17 @@
                         Murah Tiketnya.
                     </h1>
                     <div class="subtitle is-5 light-text no-margin">
-                        Beli tiket murah, ya disini tempatnya !!
+                        Beli tiket murah, ya disini tempatnya!
                     </div>
                     <div class="cta-wrapper has-text-left">
-                        <a href="#product" class="button button-cta btn-align btn-outlined is-bold light-btn">
-                            Get Started
+                        <a href="#booking" class="button button-cta btn-align btn-outlined is-bold light-btn">
+                            Cari Tiket
                         </a>
                     </div>
                 </div>
                 <div class="column is-9 is-offset-1">
                     <figure class="image is-3by2">
-                        <img class="clean-hero-mockup mt-80 z-index-2" src="<?php echo base_url() ?>assets/img/macbook-app.png" alt="">
+                        <img class="clean-hero-mockup z-index-2" style="margin-top: 400px;" src="<?php echo base_url() ?>assets/img/plane.png" alt="">
                     </figure>
                 </div>
 
@@ -206,16 +206,16 @@
 
     <div id="backtotop"><a href="#"></a></div>
     <script>
-        function myKereta() {
-            var checkBox = document.getElementById("myCheck");
-            var show = document.getElementById("show");
-            if (checkBox.checked == true){
-                show.style.display = "block";
-            } else {
-                show.style.display = "none";
-            }
-        }
-
+        $(document).ready(function() {
+            $('#myCheck').change(function(){    
+                if(this.checked){
+                    $('#myInput').prop("disabled",false);   
+                } else {
+                    $('#myInput').prop("disabled",true);
+                }
+            });
+        });
+        
         function myPesawat() {
             var checkBox = document.getElementById("myPswt");
             var showPswt = document.getElementById("showPswt");

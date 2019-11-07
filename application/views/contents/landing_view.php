@@ -38,7 +38,7 @@
                                           </div>
                                           <div class="control">
                                              <label>Tanggal Berangkat</label>
-                                             <input data-toggle="datepicker" value="2019-12-22" dateFormat="Y-M-D" name="go"  class="input is-secondary-focus is-medium mt-5">
+                                             <input data-toggle="datepicker" value="2019-12-29" dateFormat="Y-M-D" name="go"  class="input is-secondary-focus is-medium mt-5">
                                           </div>
                                        </div>
                                        <div class="column has-text-centered">

@@ -78,7 +78,7 @@ class Search extends CI_Controller {
               $result['to'] = $to;
               $result['tanggal_pergi'] = $go;
               $result['bagasi']= $this->bagasi($airlines);
-//          print_r($result)  or die();
+         print_r($result)  or die();
             $data=[
                'title'=>"Search Murahtiketnya",
                'ctrlname' => $this->ctrlname,
@@ -189,6 +189,7 @@ class Search extends CI_Controller {
                                          $diskon = $this->diskon($total,$maskapai);
                                         
                                        $show[$i]['pro']['diskon']=$pro['id'] ;                                       
+                                        
                                        $show[$i]['pro']['diskon']=$diskon ;
 
                  
@@ -363,6 +364,9 @@ class Search extends CI_Controller {
         $hasil = '10';
         }
 
+        else {
+          $hasil = null;
+        }
         return $hasil;
       }
 }

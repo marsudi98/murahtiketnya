@@ -100,6 +100,28 @@ define('MP_DB_DEBUG', false);
 
         $this->load->view('layouts/template-tiketnya',$data);
    }
+    public function filter()
+    {
+      $group =$this->input->post('group');
+      $from =$this->input->post('from');
+      $to =$this->input->post('to');
+      $return = $this->input->post('return');
+      $go = $this->input->post('go');
+      $back = $this->input->post('back');
+      $adult = $this->input->post('adult');
+      $child = $this->input->post('child');
+      $infant = $this->input->post('infant');        
+      $airlines = $this->input->post('maskapai');
+
+      $data = $this->maskapai($from, $to, $go, $airlines);
+
+     if(!is_null($data['progress'][0]['data']) && isset($data['progress'][0]['data']) )
+      {
+        $result[0][$airlines] =  $this->show($data,$airlines) ;
+      }
+
+        $this->load->view('contents/filter', array('data' => $result));
+    }
 
    public function diskonApi(){
         $this->load->library('curl'); 

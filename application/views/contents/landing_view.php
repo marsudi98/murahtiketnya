@@ -18,8 +18,8 @@
                <div class="navigation-tabs outlined-pills animated-tabs mb-40">
                   <!-- <div class="tabs is-centered">
                      <ul>
-                             <li class="tab-link is-active" data-tab="step-1"><a>Kereta Api</a></li>
-                             <li class="tab-link" data-tab="step-2"><a>Pesawat Terbang</a></li>
+                        <li class="tab-link is-active" data-tab="step-1"><a>Kereta Api</a></li>
+                        <li class="tab-link" data-tab="step-2"><a>Pesawat Terbang</a></li>
                      </ul>
                      </div> -->
                   <!-- Pill content -->
@@ -34,7 +34,7 @@
                                        <div class="column">
                                           <div class="control">
                                              <label>Asal</label>
-                                             <input class="input is-secondary-focus is-medium mt-5" id="asal" name="from" type="text" value="AMQ">
+                                             <input class="input is-secondary-focus is-medium mt-5" id="asal" name="from" type="text" value="CGK">
                                           </div>
                                           <div class="control">
                                              <label>Tanggal Berangkat</label>

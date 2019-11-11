@@ -78,7 +78,7 @@ class Search extends CI_Controller {
               $result['to'] = $to;
               $result['tanggal_pergi'] = $go;
               $result['bagasi']= $this->bagasi($airlines);
-//          print_r($result)  or die();
+        print_r($result)  or die();
             $data=[
                'title'=>"Search Murahtiketnya",
                'ctrlname' => $this->ctrlname,
@@ -110,16 +110,16 @@ class Search extends CI_Controller {
 
             // atur permintaan untuk mengirim json melalui POST 
             $data  = array( 
-                    "group" => null,
-                  "from_code" => $from,
-                  "to_code" => $to,
-                  "is_return" => 0,
-                  "go_date" => $go,
-                  "back_date" => null,
-                  "adult_count" => "1",
-                  "child_count" => "0",
-                  "infant_count" => "0",
-                  "airlines" => $airlines 
+              "group" => null,
+              "from_code" => $from,
+              "to_code" => $to,
+              "is_return" => 0,
+              "go_date" => $go,
+              "back_date" => null,
+              "adult_count" => "1",
+              "child_count" => "0",
+              "infant_count" => "0",
+              "airlines" => $airlines 
             );
 
             $payload  =  json_encode ( $data );

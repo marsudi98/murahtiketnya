@@ -176,13 +176,27 @@
 
     <div id="backtotop"><a href="#"></a></div>
     <script>
-                function myKereta() {
-            var checkBox = document.getElementById("myCheck");
-            var show = document.getElementById("show");
+        $(document).ready(function() {
+            $('#myCheck').change(function(){    
+                if(this.checked){
+                    $('#myInput').prop("disabled",false);   
+                } else {
+                    $('#myInput').prop("disabled",true);
+                }
+            });
+        });
+        
+        function change($) {
+            
+        }
+
+        function transit() {
+            var checkBox = document.getElementById("myPswt");
+            var showPswt = document.getElementById("showPswt");
             if (checkBox.checked == true){
-                show.style.display = "block";
+                showPswt.style.display = "block";
             } else {
-                show.style.display = "none";
+                showPswt.style.display = "none";
             }
         }
 
@@ -263,7 +277,41 @@
 
         $(document).ready(function(){
             $('[data-toggle="datepicker"]').datepicker();
-        });    
+        });
+
+        function myPesawat(){
+
+            if($('#checkLangsung').is(':checked')){
+               
+                var tipetransit = "Langsung";
+ 
+                document.getElementById('#checkTransit').checked = false;
+            }
+            else if($('#checkTransit').is(':checked')){
+                
+                var tipetransit = "Transit";
+                document.getElementById('#checkLangsung').checked = false;
+            }
+
+            // var harga = $('#sliderWithValue').val();
+
+            // var takeoff = [];
+            // var landing = [];
+            
+            // $('.cbTakeOff:checkbox:checked').each(function (){
+            //         takeoff.push($(this).val());
+            // });
+
+            // $('.cbLanding:checkbox:checked').each(function (){
+            //         landing.push($(this).val());
+            // }); ,harga, takeoff,landing
+
+            console.log(tipetransit);
+        }
+
+        $(document).ready(function(){
+            
+        }); 
 
     </script>
 

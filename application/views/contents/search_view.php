@@ -374,9 +374,12 @@
                         <?php } if(isset($data[0][$maskapai][$i]['pro']['diskon'])){ 
                             $diskon = $data[0][$maskapai][$i]['pro']['diskon'];
                             $total = $data[0][$maskapai][$i]['pro']['total'];
+                            $total = number_format( $total, 2, ',', '.');
+                            $diskon = number_format( $diskon, 2, ',', '.');
+
                           ?>
-                        <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><strike><?= number_format( $total, 2, ',', '.') ?></strike></a></h4>
-                        <h3 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= number_format( $diskon, 2, ',', '.') ?></a></h3>
+                        <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><strike><?=  $total ?></strike></a></h4>
+                        <h3 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= $diskon ?></a></h3>
                         <?php } ?>
 
                     </div>
@@ -541,10 +544,25 @@
                 </div>
             
                   
-                <div class="column is-2 has-text-centered">
-                  <a href="#"><i class="im im-icon-Add"></i></a>
-                </div>
-              
+              <div class="column is-2 has-text-centered">
+                  <div class="mcard-content">
+                      <h2>Ekonomi</h2>
+                      <?php if(!isset($data[0][$maskapai][$i]['eco']['diskon'])){ ?>
+                        <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= $data[0][$maskapai][$i]['eco']['total'] ?></a></h4>
+                        <?php } if(isset($data[0][$maskapai][$i]['eco']['diskon'])){ 
+                            $diskon = $data[0][$maskapai][$i]['eco']['diskon'];
+                            $total = $data[0][$maskapai][$i]['eco']['total'];
+                            $total = number_format( $total, 2, ',', '.');
+                            $diskon = number_format( $diskon, 2, ',', '.');
+
+
+                          ?>
+                        <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><strike><?= $total ?></strike></a></h4>
+                        <h3 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?=  $diskon ?></a></h3>
+                        <?php } ?>
+
+                  </div>
+              </div>
           
             </div>
             <!-- Detail -->
@@ -695,9 +713,13 @@
                         <?php } if(isset($data[0][$maskapai][$i]['bus']['diskon'])){ 
                             $diskon = $data[0][$maskapai][$i]['bus']['diskon'];
                             $total = $data[0][$maskapai][$i]['bus']['total'];
+                            $total = number_format( $total, 2, ',', '.');
+                            $diskon = number_format( $diskon, 2, ',', '.');
+
+
                           ?>
-                        <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><strike><?= number_format( $total, 2, ',', '.') ?></strike></a></h4>
-                        <h3 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= number_format( $diskon, 2, ',', '.') ?></a></h3>
+                        <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><strike><?=  $total ?></strike></a></h4>
+                        <h3 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= $diskon ?></a></h3>
                         <?php } ?>
 
                   </div>
@@ -800,7 +822,11 @@
         <?php } ?>
       <?php } ?>
       <!-- End of Card -->
-      <?php } else {?>
+      <?php } 
+      else if(isset($data['status'])){
+        echo $data['status'];
+      }
+      else {?>
         <h2> Tiket habis</h2>
       <?php } ?>
       </div>

@@ -27,10 +27,19 @@ class Search extends CI_Controller {
       $airlines = $this->input->post('maskapai');
 
       $data = $this->maskapai($from, $to, $go, $airlines);
-              
-      if(!is_null($data['progress'][0]['data']) ){
+      //print_r($data ) or die;    
+      if($data['status'] == 'failed' && !isset($data['progress'][0]['data']))
+      {
+        $result['status'] = 'Tanggal Yang anda masukkan harus setelah hari ini';
+        ini_set('display_errors', 'Off');
+        error_reporting(0);
+define('MP_DB_DEBUG', false); 
+      }
+      if(!is_null($data['progress'][0]['data']) && isset($data['progress'][0]['data']) )
+      {
         $result[0][$airlines] =  $this->show($data,$airlines) ;
       }
+
 
               // $airlines = 'GAR';  
               // $data = $this->maskapai($from, $to, $go, $airlines);
@@ -78,7 +87,7 @@ class Search extends CI_Controller {
               $result['to'] = $to;
               $result['tanggal_pergi'] = $go;
               $result['bagasi']= $this->bagasi($airlines);
-        print_r($result)  or die();
+      //   print_r($result)  or die();
             $data=[
                'title'=>"Search Murahtiketnya",
                'ctrlname' => $this->ctrlname,
@@ -91,6 +100,28 @@ class Search extends CI_Controller {
 
         $this->load->view('layouts/template-tiketnya',$data);
    }
+    public function filter()
+    {
+      $group =$this->input->post('group');
+      $from =$this->input->post('from');
+      $to =$this->input->post('to');
+      $return = $this->input->post('return');
+      $go = $this->input->post('go');
+      $back = $this->input->post('back');
+      $adult = $this->input->post('adult');
+      $child = $this->input->post('child');
+      $infant = $this->input->post('infant');        
+      $airlines = $this->input->post('maskapai');
+
+      $data = $this->maskapai($from, $to, $go, $airlines);
+
+     if(!is_null($data['progress'][0]['data']) && isset($data['progress'][0]['data']) )
+      {
+        $result[0][$airlines] =  $this->show($data,$airlines) ;
+      }
+
+        $this->load->view('contents/filter', array('data' => $result));
+    }
 
    public function diskonApi(){
         $this->load->library('curl'); 
@@ -189,6 +220,7 @@ class Search extends CI_Controller {
                                          $diskon = $this->diskon($total,$maskapai);
                                         
                                        $show[$i]['pro']['diskon']=$pro['id'] ;                                       
+                                        
                                        $show[$i]['pro']['diskon']=$diskon ;
 
                  
@@ -346,23 +378,26 @@ class Search extends CI_Controller {
 
         $hasil = '20' ;
         }
-        if($maskapai == 'CIT'){
+        else if($maskapai == 'CIT'){
         $hasil = '20';
         }
-        if($maskapai == 'SRI'){
+        else if($maskapai == 'SRI'){
         $hasil = '15';
         }
-        if($maskapai == 'TRI'){
+        else if($maskapai == 'TRI'){
         $hasil = '20';
         }
-         if($maskapai == 'AIR'){
+         else if($maskapai == 'AIR'){
         $hasil = '15';
         }
 
-        if($maskapai == 'TRA'){
+        else if($maskapai == 'TRA'){
         $hasil = '10';
         }
 
+        else {
+          $hasil = null;
+        }
         return $hasil;
       }
 }

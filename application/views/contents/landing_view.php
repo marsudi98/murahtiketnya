@@ -29,7 +29,7 @@
                            <div class="flex-card light-bordered light-raised">
                               <div class="card-body">
                                  <h2 class="title is-4 text-bold mb-20">Cari Tiket Pesawat Terbang</h2>
-                                 <form action="<?=base_url('Search') ?>"  method="post">
+                                 <form action="<?=base_url('Search/filter') ?>"  method="post">
                                     <div class="columns mt-20">
                                        <div class="column">
                                           <div class="control">
@@ -69,10 +69,10 @@
                                              <label>Maskapai</label>
                                              <div class="select is-fullwidth">
                                                 <select class="is-hovered" name="maskapai">
+                                                   <option value="SRI">Sriwijaya</option>
                                                    <option value="CIT">Citilink</option>
                                                    <option value="GAR">Garuda</option>
                                                    <option value="LIO">Lion</option>
-                                                   <option value="SRI">Sriwijaya</option>
                                                    <option value="TRA">TransNusa</option>
                                                    <option value="TRI">Trigana</option>
                                                    <option value="AIR">Air Asia</option>
@@ -568,4 +568,4 @@
    </div>
 </section>
 <!-- /Testimonials section -->
-</div>
+</div>  

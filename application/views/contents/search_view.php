@@ -15,8 +15,6 @@
 
     <?php // print_r($data) ?>
 
-
-
     <div class="content-wrapper">
       
     </div>
@@ -526,23 +524,6 @@
                         <p class="mcard-description is-hidden-touch">langsung</p>
                     </div>
                 </div>
-  
-                <div class="column is-2 has-text-centered">
-                    <div class="mcard-content">
-                        <h2>Ekonomi</h2>
-                        <?php if(!isset($data[0][$maskapai][$i]['eco']['diskon'])){ ?>
-                          <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= $data[0][$maskapai][$i]['eco']['total'] ?></a></h4>
-                          <?php } if(isset($data[0][$maskapai][$i]['eco']['diskon'])){ 
-                              $diskon = $data[0][$maskapai][$i]['eco']['diskon'];
-                              $total = $data[0][$maskapai][$i]['eco']['total'];
-                            ?>
-                          <h4 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><strike><?= number_format( $total, 2, ',', '.') ?></strike></a></h4>
-                          <h3 class="mcard-title"><a href="#" style="color: blue; font-size: 16px;"><?= number_format( $diskon, 2, ',', '.') ?></a></h3>
-                          <?php } ?>
-
-                    </div>
-                </div>
-            
                   
               <div class="column is-2 has-text-centered">
                   <div class="mcard-content">

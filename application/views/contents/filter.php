@@ -47,45 +47,40 @@
   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
   <button class="btn" onclick="filterSelection('transit')"> transit</button>
   <button class="btn" onclick="filterSelection('langsung')"> langsung</button>
-    
 </div>
 
+  <label class="checkbox-wrap is-medium">
+    <input id="checkLangsung" type="radio" class="d-checkbox" name="status" onclick="filterSelection('langsung')">
+    <span></span>
+    Langsung
+    <input id="checkTransit" type="radio" class="d-checkbox" name="status" onclick="filterSelection('transit')">
+    <span></span>
+    Transit
+  </label>
+
 <div class="container">
-<!--   <div class="filterDiv cars">BMW</div>
-  <div class="filterDiv colors fruits">Orange</div>
-  <div class="filterDiv cars">Volvo</div>
-  <div class="filterDiv colors">Red</div>
-  <div class="filterDiv cars animals">Mustang</div>
-  <div class="filterDiv colors">Blue</div>
-  <div class="filterDiv animals">Cat</div>
-  <div class="filterDiv animals">Dog</div>
-  <div class="filterDiv fruits">Melon</div>
-  <div class="filterDiv fruits animals">Kiwi</div>
-  <div class="filterDiv fruits">Banana</div>
-  <div class="filterDiv fruits">Lemon</div>
-  <div class="filterDiv animals">Cow</div> -->
-   <?php
+  <?php
    $maskapai = 'SRI';
      for($i = 0 ;$i < count($data[0][$maskapai]) ; $i++){ ?>
 
-  <?php       if (isset($data[0][$maskapai][$i]['eco']) ){ ?> 
+  <?php if (isset($data[0][$maskapai][$i]['eco']) ){ ?> 
+      <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) ; $j++) { ?>                    
+        <?php if(count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1) {?>
+          <div class="mcard-content langsung">
+        <?php } else { ?>
+          <div class="mcard-content transit ">
+          <?php } ?>
+          <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['jam'];  ?></a></h3>
+          <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kode'].') '; ?></p>
 
-       <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) ; $j++) { ?>                    
-                    <?php if(count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1) {?>
-                      <div class="mcard-content langsung">
-                    <?php } else { ?>
-                      <div class="mcard-content transit ">
-                      <?php } ?>
-                      <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['jam'];  ?></a></h3>
-                      <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kode'].') '; ?></p>
-
-                       <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['jam'] ;  ?></a></h3>
-                      <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kode'].') '; ?></p>
-                  </div>
-                  <?php } }}?>
+            <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['jam'] ;  ?></a></h3>
+          <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kode'].') '; ?></p>
+      </div>
+  <?php } }}?>
 </div>
 
 <script>
+
 filterSelection("all")
 function filterSelection(c) {
   var x, i;
@@ -129,6 +124,5 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 </script>
-
 </body>
 </html>

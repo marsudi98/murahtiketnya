@@ -176,13 +176,71 @@
 
     <div id="backtotop"><a href="#"></a></div>
     <script>
-                function myKereta() {
-            var checkBox = document.getElementById("myCheck");
-            var show = document.getElementById("show");
+        filterSelection("all")
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("mcard-content");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+        }
+        }
+
+        function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);     
+            }
+        }
+        element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+        //////////////////////////////////////
+
+        $(document).ready(function() {
+            $('#myCheck').change(function(){    
+                if(this.checked){
+                    $('#myInput').prop("disabled",false);   
+                } else {
+                    $('#myInput').prop("disabled",true);
+                }
+            });
+        });
+        
+        function change($) {
+            
+        }
+
+        function transit() {
+            var checkBox = document.getElementById("myPswt");
+            var showPswt = document.getElementById("showPswt");
             if (checkBox.checked == true){
-                show.style.display = "block";
+                showPswt.style.display = "block";
             } else {
-                show.style.display = "none";
+                showPswt.style.display = "none";
             }
         }
 
@@ -263,7 +321,41 @@
 
         $(document).ready(function(){
             $('[data-toggle="datepicker"]').datepicker();
-        });    
+        });
+
+        function myPesawat(){
+
+            if($('#checkLangsung').is(':checked')){
+               
+                var tipetransit = "Langsung";
+ 
+                document.getElementById('#checkTransit').checked = false;
+            }
+            else if($('#checkTransit').is(':checked')){
+                
+                var tipetransit = "Transit";
+                document.getElementById('#checkLangsung').checked = false;
+            }
+
+            // var harga = $('#sliderWithValue').val();
+
+            // var takeoff = [];
+            // var landing = [];
+            
+            // $('.cbTakeOff:checkbox:checked').each(function (){
+            //         takeoff.push($(this).val());
+            // });
+
+            // $('.cbLanding:checkbox:checked').each(function (){
+            //         landing.push($(this).val());
+            // }); ,harga, takeoff,landing
+
+            console.log(tipetransit);
+        }
+
+        $(document).ready(function(){
+            
+        }); 
 
     </script>
 

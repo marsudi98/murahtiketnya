@@ -6,13 +6,13 @@ class Landing extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        //Do your magic here
+        $this->load->model('Landing_model');
     }
     
     var $ctrlname = 'Landing';
 
     public function index()
-    {
+    {   
         $data=[
 			'title'=>"SAI Maintenance",
 			'ctrlname' => $this->ctrlname,
@@ -20,7 +20,8 @@ class Landing extends CI_Controller {
 			'contents' => "landing_view",
 			// 'footers' => "dashboard/footer",
 			'data' => array()
-		];
+        ];
+        $data['select_airport']= $this->Landing_model->get_data_airport();
 		$this->load->view('layouts/template',$data);
     }
 

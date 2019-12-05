@@ -32,14 +32,34 @@
                                  <form action="<?=base_url('Search') ?>"  method="post">
                                     <div class="columns mt-20">
                                        <div class="column">
+                                          
                                           <div class="control">
                                              <label>Asal</label>
-                                             <input class="input is-secondary-focus is-medium mt-5" id="asal" name="from" type="text" value="CGK">
+                                             <select id="asal" name="from" class="chosen-select" data-placeholder="Pilih Asal">
+                                                <option label="App category"></option>
+                                                <?php foreach ($select_airport as $key => $value):?>
+                                                   <option value="<?php echo $value->kode_bandara ?>"><?php echo $value->lokasi_bandara ." - "; echo "\n";  echo $value->kode_bandara ." - "; echo $value->nama_bandara ?></option>
+                                                <?php endforeach ?> 
+                                             </select>
+                                             <!-- <label>Asal</label>
+                                             <input class="input is-secondary-focus is-medium mt-5" id="asal" name="from" type="text" value="CGK"> -->
                                           </div>
-                                          <div class="control">
+                                          <div class="field mb-20">
                                              <label>Tanggal Berangkat</label>
-                                             <input data-toggle="datepicker" value="2019-12-29" dateFormat="Y-M-D" name="go"  class="input is-secondary-focus is-medium mt-5">
+                                             <div class="control has-icons-right">
+                                                <input data-toggle="datepicker" type="text" class="input is-medium" name="go" autocomplete="off" placeholder="Pilih Tanggal...">
+                                                <span class="icon is-right is-medium">
+                                                   <i class="im im-icon-Calendar-4"></i>
+                                                </span>
+                                             </div>
                                           </div>
+                                          <!-- <div class="control has-icons-right">
+                                             <label>Tanggal Berangkat</label>
+                                             <input id="datepicker1" data-toggle="datepicker" value="2019-12-29" dateFormat="Y-M-D" name="go"  class="input is-secondary-focus is-medium mt-5">
+                                             <span class="icon is-right is-medium">
+                                                <i class="im im-icon-Calendar-4"></i>
+                                             </span>
+                                          </div> -->
                                        </div>
                                        <div class="column has-text-centered">
                                           <br>
@@ -57,9 +77,14 @@
                                              <label>Berangkat</label>
                                              <input class="input is-secondary-focus is-medium mt-5" id="berangkat" name="to" type="text" value="SUB">
                                           </div>
-                                          <div class="control" id="show">
+                                          <div class="field mb-20" id="show">
                                              <label>Pulang Pergi</label>
-                                             <input data-toggle="datepicker" id="myInput" class="input is-secondary-focus is-medium mt-5" disabled>
+                                             <div class="control has-icons-right">
+                                                <input data-toggle="datepicker"  id="myInput" type="text" class="input is-medium" name="back" autocomplete="off" placeholder="Pilih Tanggal..." disabled>
+                                                <span class="icon is-right is-medium">
+                                                   <i class="im im-icon-Calendar-4"></i>
+                                                </span>
+                                             </div>
                                           </div>
                                        </div>
                                     </div>
@@ -126,7 +151,7 @@
 
                                     <div class="mt-20">  
                                        <button class="button btn-align no-lh raised primary-btn">Search</button>
-                                       <button class="button no-lh">Cancel</button>
+                                       <input type="reset" class="button no-lh" value="Cancel">
                                     </div>
                                  </form>
                               </div>
@@ -134,98 +159,6 @@
                         </div>
                      </div>
                   </div>
-                  <!--                                         
-                     <div id="step-2" class="navtab-content pt-20 pb-20">
-                             <div class="columns is-vcentered">
-                                     <div class="column is-8 is-offset-2">
-                                             <div class="flex-card light-bordered light-raised">
-                                                     <div class="card-body">
-                                                             <h2 class="title is-4 text-bold mb-20">Cari Tiket Pesawat Terbang</h2>
-                                                             <form action="<?=base_url('Search')?>">
-                                                                     <div class="columns mt-50">
-                                                                             <div class="column">
-                                                                                     <div class="control">
-                                                                                             <label>Asal</label>
-                                                                                             <input class="input is-secondary-focus is-medium mt-5" id="asalPesawat" name="berangkatPesawat" type="text">
-                                                                                     </div>
-                                                                                     <div class="control">
-                                                                                             <label>Tanggal Berangkat</label>
-                                                                                             <input type="date" class="input is-secondary-focus is-medium mt-5">
-                                                                                     </div>
-                                                                             </div>
-                                                                             <div class="column">
-                                                                                         <br>
-                                                                                         <a type="button" class="button button-cta primary-btn rounded"  id="go" onclick="swapPesawat()"><i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Swap Jadwal</a>
-                                                                                     <div class="control">
-                                                                                             <label class="checkbox-wrap is-medium" style="line-height: 6.8;">
-                                                                                                     <input id="myPswt" type="checkbox" class="d-checkbox" onclick="myPesawat()">
-                                                                                                     <span></span>
-                                                                                                     Pulang-Pergi
-                                                                                             </label>
-                                                                                     </div>
-                                                                             </div>
-                                                                             <div class="column">
-                                                                                     <div class="control">
-                                                                                             <label>Berangkat</label>
-                                                                                             <input class="input is-secondary-focus is-medium mt-5" id="berangkatPesawat" name="berangkatPesawat" type="text">
-                                                                                     </div>
-                                                                                     <div class="control" id="showPswt" style="display: none;">
-                                                                                             <label>Pulang Pergi</label>
-                                                                                             <input type="date" class="input is-secondary-focus is-medium mt-5">
-                                                                                     </div>
-                                                                             </div>
-                                                                     </div>
-                                                                     <div class="columns">
-                                                                             <div class="column">
-                                                                                     <div class="control">
-                                                                                             <label>Dewasa</label>
-                                                                                             <div class="select is-fullwidth">
-                                                                                             <select class="is-hovered">
-                                                                                                         <option name="1">1</option>
-                                                                                                         <option name="2">2</option>
-                                                                                                         <option name="3">3</option>
-                                                                                                         <option name="4">4</option>
-                                                                                             </select>
-                                                                                             </div>
-                                                                                             <small style="color: #bdbdbd;">3 tahun ke atas*</small>
-                                                                                     </div> 
-                                                                             </div>   
-                                                                     </div>
-                                                                     <div class="columns">
-                                                                             <div class="column">
-                                                                                     <div class="control">
-                                                                                             <label>Anak</label>
-                                                                                             <div class="select is-fullwidth">
-                                                                                             <select class="is-hovered">
-                                                                                                         <option name="0">0</option>
-                                                                                                         <option name="1">1</option>
-                                                                                                         <option name="2">2</option>
-                                                                                                         <option name="3">3</option>
-                                                                                             </select>
-                                                                                             </div>
-                                                                                             <small style="color: #bdbdbd;">2 - 11 tahun *</small>
-                                                                                     </div>
-                                                                             </div>   
-                                                                     </div>
-                                                                     <div class="columns">
-                                                                             <div class="column">
-                                                                                     <div class="control">
-                                                                                             <label>Bayi</label>
-                                                                                             <div class="select is-fullwidth">
-                                                                                             <select class="is-hovered">
-                                                                                                         <option name="0">0</option>
-                                                                                                         <option name="1">1</option>
-                                                                                             </select>
-                                                                                             </div>
-                                                                                             <small style="color: #bdbdbd;">Bawah 3 tahun*</small>
-                                                                                     </div>
-                                                                             </div>   
-                                                                     </div>
-                                                                     <div class="mt-30">  
-                                                                             <button class="button btn-align no-lh raised primary-btn">Search</button>
-                                                                             <button class="button is-link no-lh">Cancel</button>
-                                                                     </div>
-                                                             </form>  -->
                </div>
             </div>
          </div>

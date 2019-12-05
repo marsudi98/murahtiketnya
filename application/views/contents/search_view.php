@@ -13,23 +13,23 @@
       </div>
     </div>
 
-    <?php // print_r($data) ?>
-
     <div class="content-wrapper">
-      
-    </div>
-
-    <div class="content-wrapper">
-        <h3 class="title text-bold is-5"><?= '( '.$data['from'].' )' ; ?> →  <?= '( '.$data['to'].' )';  ?> </h3>
+        
         <div class="columns">
+          
           <div class="column is-6">
+          <h3 class="title text-bold is-5"><?= '( '.$data['from'].' )' ; ?> →  <?= '( '.$data['to'].' )';  ?> </h3>
             <h3 class="subtitle is-6 pt-10">
-              <p class="text-bold" style="color: #757575;"><?= $data['tanggal_pergi']  ?></p>
+              <?php
+                $originalDate = $data['tanggal_pergi'];
+                $newDate = date("l, d F Y", strtotime($originalDate));
+              ?>
+              <p class="text-bold" style="color: #757575;"><?= $newDate  ?></p>
               <br/>
               <p class="text-bold" style="font-size: 13px; color: #757575;">1 Dewasa | Ekonomi </p>
             </h3>
           </div>
-          <div class="column is-6">
+          <div class="column is-6 mt-40">
               <a id="button_search" class="button button-cta primary-btn is-pulled-right">Ganti Pencarian</a>
           </div>
         </div>
@@ -43,8 +43,21 @@
                       <div class="columns mt-20">
                         <div class="column">
                             <div class="control">
-                              <label>Asal</label>
-                              <input class="input is-secondary-focus is-medium mt-5" id="asal" name="from" type="text" value="CGK">
+                              <div class="select is-fullwidth">
+                                <select id="asal" name="from" class="chosen-select" data-placeholder="Project category">
+                                  <option label="App category"></option>
+                                  <option>Document management</option>
+                                  <option>HR management</option>
+                                  <option>ERP</option>
+                                  <option>Invoicing</option>
+                                  <option>Email marketing</option>
+                                  <option>CRM</option>
+                                  <option disabled>Helpdesk</option>
+                                  <option>Corporate chat</option>
+                                </select>
+                              </div>
+                              <!-- <label>Asal</label>
+                              <input class="input is-secondary-focus is-medium mt-5" id="asal" name="from" type="text" value="CGK"> -->
                             </div>
                             <div class="control">
                               <label>Tanggal Berangkat</label>
@@ -173,20 +186,26 @@
                     <div class="dropOut">
                       <ul>
                         <li>
-                        <label class="checkbox-wrap is-medium">
-                          <input id="checkLangsung" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('langsung')">
-                          <span></span>
-                          Langsung
-                        </label>
+                          <label class="checkbox-wrap is-medium" for="checkAll">
+                            <input id="checkAll" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('all')" checked>
+                            <span></span>
+                            Show All
+                          </label>
                         </li>
                         <li>
-                        <label class="checkbox-wrap is-medium">
-                          <input id="checkTransit" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('transit')">
-                          <span></span>
-                          Transit
-                        </label>
+                          <label class="checkbox-wrap is-medium" for="checkLangsung">
+                            <input id="checkLangsung" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('langsung')">
+                            <span></span>
+                            Langsung
+                          </label>
                         </li>
-
+                        <li>
+                          <label class="checkbox-wrap is-medium" for="checkTransit">
+                            <input id="checkTransit" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('transit')">
+                            <span></span>
+                            Transit
+                          </label>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -294,30 +313,15 @@
               </div>
             </div>
           </div>
-        <hr class="mb-20">
-        <!-- filter end -->
-        <!-- detail filter -->
-        <!-- <div class="columns">
-          <div class="column">
-            <div class="flex-card light-bordered hover-inset">
-              <div class="card-body">
-                  <div class="content">
-                    <p class="text-bold">Filtering by : &nbsp;&nbsp;<p>
-                    <p><button class="button is-white">Waktu Landing : 00.00 - 06.00 &nbsp;<i class="sl sl-icon-close is-icon-xs"></i></button>
-                    <button class="button is-info">Reset All</button></p>
-                    
-                  </div>
-              </div>  
-            </div>
-          </div>
-        </div>  -->
-        <!-- detail filter end -->
-      
-
+        <hr class="mb-20">      
+        
+        <!-- ul start -->
+        <ul>
         <!-- Card -->
         <?php 
-          if(isset($data[0])){        
-        for($i = 0 ;$i < count($data[0][$maskapai]) ; $i++){ ?>
+       // var_dump($data);
+          if(isset($data['go'][0])){        
+        for($i = 0 ;$i < count($data['go'][0][$maskapai]) ; $i++){ ?>
         
           <?php if (isset($data[0][$maskapai][$i]['pro']) ){ ?>
         <div class="single-toggle-wrapper">
@@ -477,14 +481,17 @@
           <?php } ?>
                                   
       <!-- End of Card -->
+
+      <li>
         <?php
-          if (isset($data[0][$maskapai][$i]['eco']) ){
-          if(count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1) {
-            ?>
-        <div class="single-toggle-wrapper langsung">
-          <?php }else { ?>
-            <div class="single-toggle-wrapper transit">
-          <?php } ?>
+          if (isset($data[0][$maskapai][$i]['eco']) ){ ?>
+          
+          <div class="single-toggle-wrapper 
+          <?php if(count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1 )
+           {  echo "langsung"; $a = 'Langsung ';}
+           if(count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) == 2 )
+           {  echo "transit"; $a ='transit';}
+            ?> ">
           <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
             <div class="columns is-desktop is-centered is-vcentered trigger">
                 <div class="column is-2 has-text-centered ">
@@ -512,7 +519,6 @@
                     <?php for ($j = 0; $j < count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) ; $j++) {
                                           ?>                    
                       <?php 
-                        
                         if($j == count($data[0][$maskapai][$i]['eco']['perjalanan']['detail'])-1){
                       ?>  
                     <div class="mcard-content" >
@@ -525,7 +531,7 @@
                 <div class="column is-2 has-text-centered">
                     <div class="mcard-content">
                         <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['total_perjalanan']  ?></a></h3>
-                        <p class="mcard-description is-hidden-touch">langsung</p>
+                        <p class="mcard-description is-hidden-touch"><?= $a ?></p>
                     </div>
                 </div>
                   
@@ -548,6 +554,10 @@
 
                   </div>
               </div>
+
+              <div class="column is-2 has-text-centered">
+                  <a href="#"><i class="im im-icon-Add"></i></a>
+              </div>  
           
             </div>
             <!-- Detail -->
@@ -639,11 +649,18 @@
           </div>
         </div>
         <?php } ?>
+      </li>
 
       <!-- End of Card -->
-
+      <li>
         <?php if (isset($data[0][$maskapai][$i]['bus']) ){ ?>
-      <div class="single-toggle-wrapper">
+      <div class="single-toggle-wrapper
+      <?php if(count($data[0][$maskapai][$i]['bus']['perjalanan']['detail']) == 1 )
+           {  echo "langsung"; $a = 'Langsung ';}
+           if(count($data[0][$maskapai][$i]['bus']['perjalanan']['detail']) == 2 )
+           {  echo "transit"; $a ='transit';}
+            ?>
+      ">
         <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
           <div class="columns is-desktop is-centered is-vcentered trigger">
               <div class="column is-2 has-text-centered ">
@@ -685,7 +702,7 @@
               <div class="column is-2 has-text-centered">
                   <div class="mcard-content">
                       <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['bus']['perjalanan']['total_perjalanan']  ?></a></h3>
-                      <p class="mcard-description is-hidden-touch">langsung</p>
+                      <p class="mcard-description is-hidden-touch"> <?= $a ?> </p>
                   </div>
               </div>
 
@@ -806,6 +823,8 @@
       </div>
         <?php } ?>
       <?php } ?>
+      </li>
+      <ul> <!-- end ul -->
       <!-- End of Card -->
       <?php } 
       else if(isset($data['status'])){
@@ -814,6 +833,7 @@
       else {?>
         <h2> Tiket habis</h2>
       <?php } ?>
+      
       </div>
     </div>
 

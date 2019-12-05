@@ -11,22 +11,29 @@ class Search extends CI_Controller {
     
     var $ctrlname = 'Search';
 
-
-
     public function index()
     {
       $group =$this->input->post('group');
       $from =$this->input->post('from');
       $to =$this->input->post('to');
       $return = $this->input->post('return');
-      $go = $this->input->post('go');
-      $back = $this->input->post('back');
-      $adult = $this->input->post('adult');
+      // $go = $this->input->post('go');
+      $date = $this->input->post('back');
+
+      $back = date("Y-m-d", strtotime($date));
+      
+      if($back == "1970-01-01")
+        {$back = null;}
+ 
+       $adult = $this->input->post('adult');
       $child = $this->input->post('child');
       $infant = $this->input->post('infant');        
       $airlines = $this->input->post('maskapai');
 
-      $data = $this->maskapai($from, $to, $go, $airlines);
+      $date = $this->input->post('go');;
+      $go = date("Y-m-d", strtotime($date));
+      
+      $data = $this->maskapai($from, $to, $go,$back , $airlines);
       //print_r($data ) or die;    
       if($data['status'] == 'failed' && !isset($data['progress'][0]['data']))
       {
@@ -37,7 +44,7 @@ define('MP_DB_DEBUG', false);
       }
       if(!is_null($data['progress'][0]['data']) && isset($data['progress'][0]['data']) )
       {
-        $result[0][$airlines] =  $this->show($data,$airlines) ;
+        $result=  $this->show($data,$airlines) ;
       }
 
 
@@ -87,7 +94,7 @@ define('MP_DB_DEBUG', false);
               $result['to'] = $to;
               $result['tanggal_pergi'] = $go;
               $result['bagasi']= $this->bagasi($airlines);
-      //   print_r($result)  or die();
+      // print_r($result)  or die();
             $data=[
                'title'=>"Search Murahtiketnya",
                'ctrlname' => $this->ctrlname,
@@ -106,7 +113,10 @@ define('MP_DB_DEBUG', false);
       $from =$this->input->post('from');
       $to =$this->input->post('to');
       $return = $this->input->post('return');
-      $go = $this->input->post('go');
+    
+      $date = $this->input->post('go');;
+      $go = date("Y-m-d", strtotime($date));
+
       $back = $this->input->post('back');
       $adult = $this->input->post('adult');
       $child = $this->input->post('child');
@@ -130,8 +140,13 @@ define('MP_DB_DEBUG', false);
      
    }
 
-   public function maskapai($from, $to, $go, $airlines){
-
+   public function maskapai($from, $to, $go, $back = null ,$airlines){
+            if($back != null){
+              $return = 1;
+            }
+            else {
+              $return = 0;
+            }
           $this->load->library('curl');
             // URL API 
             $url  =  'http://193.168.195.29/demo/find.php' ; 
@@ -144,9 +159,9 @@ define('MP_DB_DEBUG', false);
               "group" => null,
               "from_code" => $from,
               "to_code" => $to,
-              "is_return" => 0,
+              "is_return" => $return,
               "go_date" => $go,
-              "back_date" => null,
+              "back_date" => $back,
               "adult_count" => "1",
               "child_count" => "0",
               "infant_count" => "0",
@@ -173,7 +188,7 @@ define('MP_DB_DEBUG', false);
             curl_close ($ch);
             
             $result= json_decode($result, true);
-
+      //      var_dump($result) or die();
             return $result;
    }
 
@@ -272,28 +287,103 @@ define('MP_DB_DEBUG', false);
  
 
           }
-
-          // $show['go'] = array([$data['progress'][0]['airline_code'] => $show]);
           
 
-          // for($a=0;$a<count($data['progress'][0]['data']['go']) ; $a++){
-          //   unset($show[$a]);   
+           $show['go'] = array([$data['progress'][0]['airline_code'] => $show]);
+          
 
-          // }
+           for($a=0;$a<count($data['progress'][0]['data']['go']) ; $a++){
+             unset($show[$a]);   
+
+           }
+
+           //back
+           for ($a = 0; $a< count($data['progress'][0]['data']['back']); $a++) {
+            $back[$a] = [  ];
+          }
+
+         for($i=0;$i<count($data['progress'][0]['data']['back']);$i++){
+//harga
+                        //fares
+                            $pro = isset($data['progress'][0]['data']['back'][$i]['fares']['pro']) 
+                            ? $data['progress'][0]['data']['back'][$i]['fares']['pro']  : 1 ;
+                            $eco = isset($data['progress'][0]['data']['back'][$i]['fares']['eco']) ?  
+                            $data['progress'][0]['data']['back'][$i]['fares']['eco']
+                            : 1;
+                            $bus = isset($data['progress'][0]['data']['back'][$i]['fares']['bus']) ? 
+                            $data['progress'][0]['data']['back'][$i]['fares']['bus']
+                             : 1;
+
+
+                                 if ($pro =! 1 ){
+                                    $fares = $data['progress'][0]['data']['back'][$i]['fares']['pro'];
+                                    $total = $fares['by_ages']['adult']['total'];
+                                    $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
+                                     $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
+               
+                                       $diskon = $this->diskon($total,$maskapai);
+                                      
+                                     $back[$i]['pro']['diskon']=$pro['id'] ;                                       
+                                      
+                                     $back[$i]['pro']['diskon']=$diskon ;
+
+               
+                                     $back[$i]['pro']['total']=$pro['id'] ;     
+                                     $back[$i]['pro']['total']=$total ;
+                                      $a =$this->perjalanan($data);
+                                      for ($l= 0;$l < count($a) ; $l++ ) {
+                                      
+                                        $back[$i]['pro']['perjalanan'] =$a[$i];
+                                      }
+                                }
+
+                                if($eco != 1){
+                                    $fares = $data['progress'][0]['data']['back'][$i]['fares']['eco'];
+                                    $total = $fares['by_ages']['adult']['total'];
+                                    $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
+                                     $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
+               
+                                    $diskon = $this->diskon($total,$maskapai);
+                                      
+                                     $back[$i]['eco']['diskon']=$eco['id'] ;                                       
+                                     $back[$i]['eco']['diskon']=$diskon;
+               
+                                     $back[$i]['eco']['id_harga']= $eco['id'] ; 
+                                    
+                                     $back[$i]['eco']['total'] =$total  ;
+                                      $a =$this->perjalanan($data);
+                                      $back[$i]['eco']['perjalanan'] = $a[$i];
+
+                                }
+
+                                if($bus != 1){
+                                    $fares = $data['progress'][0]['data']['back'][$i]['fares']['bus'];
+                                    $total = $fares['by_ages']['adult']['total'];
+                                    $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
+                                     $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
+               
+                                        $diskon = $this->diskon($total,$maskapai);
+                                      
+                                     $back[$i]['bus']['diskon']=$bus['id'] ;                                       
+                                     $back[$i]['bus']['diskon']=$diskon ;
+               
+                                    $back[$i]['bus']['id_harga']=$bus['id'] ;     
+                                    $back[$i]['bus']['total']= $total ;
+                                    $a =$this->perjalanan($data);
+                                    $back[$i]['bus']['perjalanan'] = $a[$i];
+                                }
 
 
 
+        }
+
+        
          
-          // $show['back'] = [];
-          // for($a=0;$a<count($data['progress'][0]['data']['back']) ; $a++){
-          // array_push($show['back'],  $show[$a]);
-          // }
-          // for($a=0;$a<count($data['progress'][0]['data']['back']) ; $a++){
+           $show['back'] = $back;
           
-          //   unset($show[$a]);
-          // }
-
+          
           return $show ;
+
     }
 
 

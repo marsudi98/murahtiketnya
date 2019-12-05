@@ -14,12 +14,11 @@
     <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/easy-autocomplete.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/chosen/chosen.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/slick-carousel/slick.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/datepicker/datepicker.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/easyAutocomplete/easy-autocomplete.css"> 
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/datepicker/datepicker.css">  
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/slick-carousel/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/ggpopover/ggtooltip.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/chosen/chosen.css">
     <!-- Icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/icons.min.css">
@@ -248,43 +247,13 @@
             $('.timer').startTimer();
         });
 
-        $(document).ready(function() {
-			var options = {
-				data: ["Jakarta - Cengkareng", "Jakarta - Halim Perdana Kusuma", "Malang - Abdurahman Saleh"],
-                list: {
-                    match: {
-                        enabled: true
-                    }
-                }
-
-			};
-
-			$("#asal").easyAutocomplete(options);
-		});
-
-        $(document).ready(function() {
-			var options = {
-				url: "assets/js/asalberangkatpesawat.json",
-
-				categories: [{
-					listLocation: "cengkareng",
-					header: "Jakarta - Cengkareng"
-				}, {
-					listLocation: "halim",
-					header: "Jakarta - Halim"
-			    }, {
-					listLocation: "malang",
-					header: "Malang"
-			    }]
-
-			};
-
-			$("#berangkat").easyAutocomplete(options);
-		});
-
         $(document).ready(function(){
-            $('[data-toggle="datepicker"]').datepicker();
+            $('[data-toggle="datepicker"]').datepicker({ 
+
+                dateFormat: 'yy-mm-dd' 
+            });
         });
+
 
     </script>
 
@@ -297,9 +266,10 @@
     <script src="<?php echo base_url() ?>assets/js/ggpopover/ggtooltip.js"></script>
     <script src="<?php echo base_url() ?>assets/js/scrollreveal/scrollreveal.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/datepicker/datepicker.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/easyAutocomplete/jquery.easy-autocomplete.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/jquery.simple.timer.js"></script>
+  
     <script src="<?php echo base_url() ?>assets/js/chosen/chosen.jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/jquery.simple.timer.js"></script>
+    
     <!-- Bulkit js -->
     <script src="<?php echo base_url() ?>assets/js/main.js"></script>
     <!-- Page specific JS -->

@@ -148,10 +148,9 @@
         <hr>
           <div class="columns is-centered">
             <div class="column is-2">
-              <p>Filter : </p>
-            </div>
-
-            <div class="column is-2">
+              <div class="button btn-align primary-btn btn-outlined" style="border: 0px;" onclick="filterSelection('all')">Show all</div>
+            </div>      
+            <!-- <div class="column is-2">
               <div class="button btn-align has-icon-right primary-btn btn-outlined is-drop" style="border: 0px;">Maskapai <i class="sl sl-icon-arrow-down is-icon-xs"></i>
                   <div class="dropContain">
                     <div class="dropOut">
@@ -167,7 +166,7 @@
                     </div>
                   </div>
               </div>
-            </div>
+            </div> -->
             <div class="column is-2">
               <div class="button btn-align has-icon-right primary-btn btn-outlined is-drop" style="border: 0px;">Transit <i class="sl sl-icon-arrow-down is-icon-xs"></i>
                   <div class="dropContain">
@@ -175,14 +174,14 @@
                       <ul>
                         <li>
                         <label class="checkbox-wrap is-medium">
-                          <input id="checkLangsung" type="checkbox" class="d-checkbox"  onclick="myPesawat()">
+                          <input id="checkLangsung" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('langsung')">
                           <span></span>
                           Langsung
                         </label>
                         </li>
                         <li>
                         <label class="checkbox-wrap is-medium">
-                          <input id="checkTransit" type="checkbox" class="d-checkbox"  onclick="myPesawat()">
+                          <input id="checkTransit" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('transit')">
                           <span></span>
                           Transit
                         </label>
@@ -298,7 +297,7 @@
         <hr class="mb-20">
         <!-- filter end -->
         <!-- detail filter -->
-        <div class="columns">
+        <!-- <div class="columns">
           <div class="column">
             <div class="flex-card light-bordered hover-inset">
               <div class="card-body">
@@ -311,8 +310,10 @@
               </div>  
             </div>
           </div>
-        </div>
+        </div>  -->
         <!-- detail filter end -->
+      
+
         <!-- Card -->
         <?php 
           if(isset($data[0])){        
@@ -474,13 +475,16 @@
           </div>
         </div>
           <?php } ?>
-
+                                  
       <!-- End of Card -->
         <?php
           if (isset($data[0][$maskapai][$i]['eco']) ){
-
+          if(count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1) {
             ?>
-        <div class="single-toggle-wrapper" >
+        <div class="single-toggle-wrapper langsung">
+          <?php }else { ?>
+            <div class="single-toggle-wrapper transit">
+          <?php } ?>
           <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
             <div class="columns is-desktop is-centered is-vcentered trigger">
                 <div class="column is-2 has-text-centered ">

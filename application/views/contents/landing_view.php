@@ -29,7 +29,7 @@
                            <div class="flex-card light-bordered light-raised">
                               <div class="card-body">
                                  <h2 class="title is-4 text-bold mb-20">Cari Tiket Pesawat Terbang</h2>
-                                 <form action="<?=base_url('Search/filter') ?>"  method="post">
+                                 <form action="<?=base_url('Search') ?>"  method="post">
                                     <div class="columns mt-20">
                                        <div class="column">
                                           <div class="control">

@@ -68,7 +68,7 @@
         <?php if(count($data[0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1) {?>
           <div class="mcard-content langsung">
         <?php } else { ?>
-          <div class="mcard-content transit ">
+          <div class="mcard-content transit">
           <?php } ?>
           <h3 class="mcard-title"><a href="#"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['jam'];  ?></a></h3>
           <p class="mcard-description is-hidden-touch"><?= $data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data[0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kode'].') '; ?></p>

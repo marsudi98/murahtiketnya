@@ -189,7 +189,9 @@ define('MP_DB_DEBUG', false);
             
             $result= json_decode($result, true);
       //      var_dump($result) or die();
+            
             return $result;
+
    }
 
 //     public function a(){
@@ -207,7 +209,7 @@ define('MP_DB_DEBUG', false);
  
     public function show($data,$maskapai)
     { 
-
+          $awal = $data;
             //pergi
            for ($a = 0; $a< count($data['progress'][0]['data']['go']); $a++) {
               $show[$a] = [  ];
@@ -241,7 +243,7 @@ define('MP_DB_DEBUG', false);
                  
                                        $show[$i]['pro']['total']=$pro['id'] ;     
                                        $show[$i]['pro']['total']=$total ;
-                                        $a =$this->perjalanan($data);
+                                        $a =$this->perjalanan($data,'go');
                                         for ($l= 0;$l < count($a) ; $l++ ) {
                                         
                                           $show[$i]['pro']['perjalanan'] =$a[$i];
@@ -262,7 +264,7 @@ define('MP_DB_DEBUG', false);
                                        $show[$i]['eco']['id_harga']= $eco['id'] ; 
                                       
                                        $show[$i]['eco']['total'] =$total  ;
-                                        $a =$this->perjalanan($data);
+                                        $a =$this->perjalanan($data,'go');
                                         $show[$i]['eco']['perjalanan'] = $a[$i];
 
                                   }
@@ -280,7 +282,7 @@ define('MP_DB_DEBUG', false);
                  
                                       $show[$i]['bus']['id_harga']=$bus['id'] ;     
                                       $show[$i]['bus']['total']= $total ;
-                                      $a =$this->perjalanan($data);
+                                      $a =$this->perjalanan($data,'go');
                                       $show[$i]['bus']['perjalanan'] = $a[$i];
                                   }
 
@@ -298,25 +300,26 @@ define('MP_DB_DEBUG', false);
            }
 
            //back
-           for ($a = 0; $a< count($data['progress'][0]['data']['back']); $a++) {
+          if($data['progress'][0]['data']['back'] != null){
+                       for ($a = 0; $a< count($awal['progress'][0]['data']['back']); $a++) {
             $back[$a] = [  ];
           }
 
-         for($i=0;$i<count($data['progress'][0]['data']['back']);$i++){
-//harga
+         for($i=0;$i<count($awal['progress'][0]['data']['back']);$i++){
+          //harga
                         //fares
-                            $pro = isset($data['progress'][0]['data']['back'][$i]['fares']['pro']) 
-                            ? $data['progress'][0]['data']['back'][$i]['fares']['pro']  : 1 ;
-                            $eco = isset($data['progress'][0]['data']['back'][$i]['fares']['eco']) ?  
-                            $data['progress'][0]['data']['back'][$i]['fares']['eco']
+                            $pro = isset($awal['progress'][0]['data']['back'][$i]['fares']['pro']) 
+                            ? $awal['progress'][0]['data']['back'][$i]['fares']['pro']  : 1 ;
+                            $eco = isset($awal['progress'][0]['data']['back'][$i]['fares']['eco']) ?  
+                            $awal['progress'][0]['data']['back'][$i]['fares']['eco']
                             : 1;
-                            $bus = isset($data['progress'][0]['data']['back'][$i]['fares']['bus']) ? 
-                            $data['progress'][0]['data']['back'][$i]['fares']['bus']
+                            $bus = isset($awal['progress'][0]['data']['back'][$i]['fares']['bus']) ? 
+                            $awal['progress'][0]['data']['back'][$i]['fares']['bus']
                              : 1;
 
 
                                  if ($pro =! 1 ){
-                                    $fares = $data['progress'][0]['data']['back'][$i]['fares']['pro'];
+                                    $fares = $awal['progress'][0]['data']['back'][$i]['fares']['pro'];
                                     $total = $fares['by_ages']['adult']['total'];
                                     $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                      $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
@@ -330,7 +333,7 @@ define('MP_DB_DEBUG', false);
                
                                      $back[$i]['pro']['total']=$pro['id'] ;     
                                      $back[$i]['pro']['total']=$total ;
-                                      $a =$this->perjalanan($data);
+                                      $a =$this->perjalanan($awal,'back');
                                       for ($l= 0;$l < count($a) ; $l++ ) {
                                       
                                         $back[$i]['pro']['perjalanan'] =$a[$i];
@@ -338,7 +341,7 @@ define('MP_DB_DEBUG', false);
                                 }
 
                                 if($eco != 1){
-                                    $fares = $data['progress'][0]['data']['back'][$i]['fares']['eco'];
+                                    $fares = $awal['progress'][0]['data']['back'][$i]['fares']['eco'];
                                     $total = $fares['by_ages']['adult']['total'];
                                     $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                      $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
@@ -351,13 +354,13 @@ define('MP_DB_DEBUG', false);
                                      $back[$i]['eco']['id_harga']= $eco['id'] ; 
                                     
                                      $back[$i]['eco']['total'] =$total  ;
-                                      $a =$this->perjalanan($data);
+                                      $a =$this->perjalanan($awal,'back');
                                       $back[$i]['eco']['perjalanan'] = $a[$i];
 
                                 }
 
                                 if($bus != 1){
-                                    $fares = $data['progress'][0]['data']['back'][$i]['fares']['bus'];
+                                    $fares = $awal['progress'][0]['data']['back'][$i]['fares']['bus'];
                                     $total = $fares['by_ages']['adult']['total'];
                                     $total += (!empty($fares['by_ages']['child']['total']) ?  $fares['by_ages']['child']['total'] :  0);
                                      $total += (!empty($fares['by_ages']['infant']['total']) ?  $fares['by_ages']['infant']['total'] :  0);
@@ -369,7 +372,7 @@ define('MP_DB_DEBUG', false);
                
                                     $back[$i]['bus']['id_harga']=$bus['id'] ;     
                                     $back[$i]['bus']['total']= $total ;
-                                    $a =$this->perjalanan($data);
+                                    $a =$this->perjalanan($awal,'back');
                                     $back[$i]['bus']['perjalanan'] = $a[$i];
                                 }
 
@@ -380,35 +383,36 @@ define('MP_DB_DEBUG', false);
         
          
            $show['back'] = $back;
-          
-          
+
+          }          
+          //print_r($show) or die;
           return $show ;
 
     }
 
 
-    private function perjalanan($data){
+    private function perjalanan($data,$tipe){
 
         //flight
                            // total total_perjalanan
-                    for($i=0;$i<count($data['progress'][0]['data']['go']);$i++){
-                            for($j=0;$j<count($data['progress'][0]['data']['go'][$i]['flights']);$j++){
+                    for($i=0;$i<count($data['progress'][0]['data'][$tipe]);$i++){
+                            for($j=0;$j<count($data['progress'][0]['data'][$tipe][$i]['flights']);$j++){
                                     if($j ==0){
                  
                                          $berangkat = new DateTime($data['progress'][0]['data']
-                                            ['go'][$i]['flights'][0]['depart_datetime'], 
-                                            new DateTimeZone($data['progress'][0]['data']['go'][$i]['flights'][0]['depart_timezone'])); 
+                                            [$tipe][$i]['flights'][0]['depart_datetime'], 
+                                            new DateTimeZone($data['progress'][0]['data'][$tipe][$i]['flights'][0]['depart_timezone'])); 
 
                                     }
-                                    if($j == count($data['progress'][0]['data']['go'][$i]['flights']) - 1){
+                                    if($j == count($data['progress'][0]['data'][$tipe][$i]['flights']) - 1){
                                         $sampai = new DateTime(
                                              $data['progress'][0]['data']
-                                            ['go'][$i]
-                                            ['flights'][count($data['progress'][0]['data']['go'][$i]['flights']) - 1]
+                                            [$tipe][$i]
+                                            ['flights'][count($data['progress'][0]['data'][$tipe][$i]['flights']) - 1]
                                              ['arrive_datetime'], new DateTimeZone(
                                              $data['progress'][0]['data']
-                                            ['go'][$i]
-                                             ['flights'][count($data['progress'][0]['data']['go'][$i]['flights'])-1]
+                                            [$tipe][$i]
+                                             ['flights'][count($data['progress'][0]['data'][$tipe][$i]['flights'])-1]
                                             ['arrive_timezone']));
                                         
                                          // echo $berangkat->format('H:i:s') . "<br>";
@@ -420,19 +424,19 @@ define('MP_DB_DEBUG', false);
                                 }
 
                                   $a =[];
-                          for($j=0;$j<count($data['progress'][0]['data']['go'][$i]['flights']);$j++){
+                          for($j=0;$j<count($data['progress'][0]['data'][$tipe][$i]['flights']);$j++){
 //pesawat
-                                $a[$j]['id_penerbangan'] = $data['progress'][0]['data']['go'][$i]['flights'][$j]['id'];
-                                $a[$j]['kode_pesawat'] = $data['progress'][0]['data']['go'][$i]['flights'][$j]['flight_num'];                          
+                                $a[$j]['id_penerbangan'] = $data['progress'][0]['data'][$tipe][$i]['flights'][$j]['id'];
+                                $a[$j]['kode_pesawat'] = $data['progress'][0]['data'][$tipe][$i]['flights'][$j]['flight_num'];                          
 //total_perjalanan           
                                
-                                  $a[$j]['berangkat']['jam'] = $data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_time'];
-                                   $a[$j]['berangkat']['kota'] = $data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_city'];
-                                   $a[$j]['berangkat']['kode'] =$data['progress'][0]['data']['go'][$i]['flights'][$j]['depart_port'];
+                                  $a[$j]['berangkat']['jam'] = $data['progress'][0]['data'][$tipe][$i]['flights'][$j]['depart_time'];
+                                   $a[$j]['berangkat']['kota'] = $data['progress'][0]['data'][$tipe][$i]['flights'][$j]['depart_city'];
+                                   $a[$j]['berangkat']['kode'] =$data['progress'][0]['data'][$tipe][$i]['flights'][$j]['depart_port'];
                               
-                                   $a[$j]['sampai']['jam']=$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_time'];
-                                   $a[$j]['sampai']['kota']=$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_city'];
-                                   $a[$j]['sampai']['kode']=$data['progress'][0]['data']['go'][$i]['flights'][$j]['arrive_port'];
+                                   $a[$j]['sampai']['jam']=$data['progress'][0]['data'][$tipe][$i]['flights'][$j]['arrive_time'];
+                                   $a[$j]['sampai']['kota']=$data['progress'][0]['data'][$tipe][$i]['flights'][$j]['arrive_city'];
+                                   $a[$j]['sampai']['kode']=$data['progress'][0]['data'][$tipe][$i]['flights'][$j]['arrive_port'];
 
                               
                               

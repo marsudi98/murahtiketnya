@@ -233,29 +233,29 @@
                         <li class="is-disabled" style="color: #000000;">Waktu Takeoff</li>
                         <li>
                           <label class="checkbox-wrap is-small">
-
-                              <input type="checkbox" value="takeoff1" id="takeoff1" type="checkbox" class="b-checkbox cbTakeoff"  >
+                                  <input type="checkbox" value="takeoff1" id="takeoff1" type="checkbox" class="b-checkbox cbTakeoff"  >
                               <span style="color: #000000;"></span>
                               &nbsp;00.00 - 06.00
                           </label>
                         </li>
                         <li>
                           <label class="checkbox-wrap is-small">
-                              <input type="checkbox" value="takeoff2" id="takeoff2" type="checkbox" class="b-checkbox cbTakeoff">
+                                 <input type="checkbox" value="takeoff2" id="takeoff2" type="checkbox" class="b-checkbox cbTakeoff"  >
                               <span style="color: #000000"></span>
                               &nbsp;06.00 - 12.00
                           </label>
                         </li>
                         <li>
                           <label class="checkbox-wrap is-small">
-                              <input type="checkbox" value="takeoff3" id="takeoff3" type="checkbox" class="b-checkbox cbTakeoff"  >
+                                   <input type="checkbox" value="takeoff3" id="takeoff3" type="checkbox" class="b-checkbox cbTakeoff" >
                               <span style="color: #000000"></span>
                               &nbsp;12.00 - 18.00
                           </label>
                         </li>
                         <li>
                           <label class="checkbox-wrap is-small">
-                          <input type="checkbox" value="takeoff4" id="takeoff4" type="checkbox" class="b-checkbox cbTakeoff">
+                               <input type="checkbox" value="takeoff4" id="takeoff4" type="checkbox" class="b-checkbox cbTakeoff"  >
+
                               <span style="color: #000000"></span>
                               &nbsp;18.00 - 00.00
                           </label>
@@ -272,21 +272,21 @@
                         </li>
                         <li>
                           <label class="checkbox-wrap is-small">
-                          <input type="checkbox" value="landing2" id="landing2" type="checkbox" class="b-checkbox cbLanding" >
+                              <input type="checkbox" value="landing2" id="landing2" type="checkbox" class="b-checkbox cbLanding" >
                               <span style="color: #000000"></span>
                               &nbsp;06.00 - 12.00
                           </label>
                         </li>
                         <li>
                           <label class="checkbox-wrap is-small">
-                          <input type="checkbox" value="landing3" id="landing3"  type="checkbox" class="b-checkbox cbLanding" >
+                          <input type="checkbox" value="landing3" id="landing3" type="checkbox" class="b-checkbox cbLanding" >
                               <span style="color: #000000"></span>
                               &nbsp;12.00 - 18.00
                           </label>
                         </li>
                         <li>
                           <label class="checkbox-wrap is-small">
-                          <input type="checkbox" value="landing4" id="landing4" type="checkbox" class="b-checkbox cbLanding" >
+                              <input type="checkbox" value="landing4" id="landing4" type="checkbox" class="b-checkbox cbLanding" >
                               <span style="color: #000000"></span>
                               &nbsp;18.00 - 00.00
                           </label>
@@ -484,20 +484,17 @@
           </li>                      
           <!-- End of Card -->
 
-      <li>
-        <?php
-          if (isset($data['go'][0][$maskapai][$i]['eco']) ){ ?>
-          
-          <div class="single-toggle-wrapper 
-          <?php if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1 )
-           {  echo "langsung "; $a = 'Langsung ';}
-           if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 2 )
-           {  echo "transit "; $a ='transit';}
-           if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 2 )
-           {  echo "transit "; $a ='transit';}
-          
-           
-            ?> " data-category="<?php 
+          <li>
+            <?php
+              if (isset($data['go'][0][$maskapai][$i]['eco']) ){ ?>
+              
+              <div class="single-toggle-wrapper 
+              <?php if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1 )
+              {  echo "langsung"; $a = 'Langsung ';}
+              if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 2 )
+              {  echo "transit"; $a ='transit';}
+                ?> "
+                data-category="<?php 
             for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['eco']['perjalanan']) ; $j++) {
               if($j == 0){ 
                 $start[1] =$data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['jam'];
@@ -508,72 +505,68 @@
                 $end[2]= $data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') ';
               }
             }
-
             if($start[1] >= '00:00' &&  $start[1] <= '05:59'){
               echo 'takeoff1 ';
             } 
-
             if($start[1] >= '06:00' &&  $start[1] <= '11:59'){
               echo 'takeoff2 ';
             } 
-
             if($start[1] >= '12:00' &&  $start[1] <= '18:59'){
               echo 'takeoff3 ';
             } 
-
             if($start[1] >= '19:00' &&  $start[1] <= '23:59'){
               echo 'takeoff4 ';
             } 
-
-
             if($end[1] >= '00:00' &&  $end[1] <= '05:59'){
               echo 'landing1 ';
             } 
-
             if($end[1] >= '06:00' &&  $end[1] <= '11:59'){
               echo 'landing2 ';
             } 
-
             if($end[1] >= '12:00' &&  $end[1] <= '18:59'){
               echo 'landing3 ';
             } 
-
             if($end[1] >= '19:00' &&  $end[1] <= '23:59'){
               echo 'landing4 ';
             } 
-
-
              ?>"
 
-             >
-          <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
-            <div class="columns is-desktop is-centered is-vcentered trigger">
-                <div class="column is-2 has-text-centered ">
-                    <div class="mcard-content">
-                        <figure class="image is-48x48 container">
-                            <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
-                            <img src="<?php echo base_url($key->logo_maskapai) ?>">
-                              <?php } ?>
-                        </figure>
-                        <h3 class="mcard-title is-centered"><a href="#"> <?= $maskapai  ?> </a></h3>
+                >
+              <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
+                <div class="columns is-desktop is-centered is-vcentered trigger">
+                    <div class="column is-2 has-text-centered ">
+                        <div class="mcard-content">
+                            <figure class="image is-48x48 container">
+                                <?php foreach ($this->db->select('logo_maskapai')->from('maskapai')->where('kode_maskapai',$maskapai)->get()->result() as $key ) {?>
+                                <img src="<?php echo base_url($key->logo_maskapai) ?>">
+                                  <?php } ?>
+                            </figure>
+                            <h3 class="mcard-title is-centered"><a href="#"> <?= $maskapai  ?> </a></h3>
+                        </div>
                     </div>
-                </div>
-                <div class="column is-2 has-text-centered">
-
-                    <div class="mcard-content">
-                      <h3 class="mcard-title"><a href="#"><?= $start[1]   ; ?></a></h3>
-                        <p class="mcard-description is-hidden-touch"><?= $start[2]; ?></p>
-                    </div> 
-               
-                </div>
-
-                <div class="column is-2 has-text-centered">
-                    <div class="mcard-content" >
-                        <h3 class="mcard-title"><a href="#"><?= $end[1] ;  ?></a></h3>
-                        <p class="mcard-description is-hidden-touch"><?= $end[2]; ?></p>
+                    <div class="column is-2 has-text-centered">
+                        <?php for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['eco']['perjalanan']) ; $j++) {
+                          if($j == 0){ 
+                        ?>                    
+                        <div class="mcard-content">
+                          <h3 class="mcard-title"><a href="#"><?= $data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['jam']    ?></a></h3>
+                            <p class="mcard-description is-hidden-touch"><?= $data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') '; ?></p>
+                        </div> 
+                        <?php }  } ?>
                     </div>
-               
-                </div>
+
+                    <div class="column is-2 has-text-centered">
+                        <?php for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) ; $j++) {
+                                              ?>                    
+                          <?php 
+                            if($j == count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'])-1){
+                          ?>  
+                        <div class="mcard-content" >
+                            <h3 class="mcard-title"><a href="#"><?= $data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['jam'] ;  ?></a></h3>
+                            <p class="mcard-description is-hidden-touch"><?= $data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') '; ?></p>
+                        </div>
+                        <?php } } ?>
+                    </div>
 
                     <div class="column is-2 has-text-centered">
                         <div class="mcard-content">
@@ -860,6 +853,7 @@
                             <p class="mcard-description is-hidden-touch mb-10">Bagasi Kabin 
                                   <?php if( isset($data['bagasi'])) {echo $data['bagasi'];} ?>
                               kg</p>
+
                             <br>
                             <a href="<?=base_url('BookingPesawat')?>" class="button button-cta danger-btn">Pilih</a>
                         </div>
@@ -886,57 +880,44 @@
 
     </div>
   </div>
+
     <script type="text/javascript"> 
       var $filterCheckboxes = $('input[type="checkbox"]');
       var filterFunc = function() {
         
         var selectedFilters = {};
-
         $filterCheckboxes.filter(':checked').each(function() {
-
           if (!selectedFilters.hasOwnProperty(this.name)) {
             selectedFilters[this.name] = [];
           }
-
           selectedFilters[this.name].push(this.value);
         });
-
         // create a collection containing all of the filterable elements
         var $filteredResults = $('.single-toggle-wrapper');
-
         // loop over the selected filter name -> (array) values pairs
         $.each(selectedFilters, function(name, filterValues) {
-
           // filter each .animal element
           $filteredResults = $filteredResults.filter(function() {
-
             var matched = false,
               currentFilterValues = $(this).data('category').split(' ');
-
             // loop over each category value in the current .animal's data-category
             $.each(currentFilterValues, function(_, currentFilterValue) {
-
               // if the current category exists in the selected filters array
               // set matched to true, and stop looping. as we're ORing in each
               // set of filters, we only need to match once
-
               if ($.inArray(currentFilterValue, filterValues) != -1) {
                 matched = true;
                 return false;
               }
             });
-
             // if matched is true the current .animal element is returned
             return matched;
-
           });
         });
-
         $('.single-toggle-wrapper').hide().filter($filteredResults).show();
       }
-
       $filterCheckboxes.on('change', filterFunc);  
-
     </script>
+
 
 </section>

@@ -33,7 +33,7 @@ class Search extends CI_Controller {
       $date = $this->input->post('go');;
       $go = date("Y-m-d", strtotime($date));
       
-      $data = $this->maskapai($from, $to, $go,$back , $airlines);
+      $data = $this->maskapai($adult,$child,$infant,$from, $to, $go,$back , $airlines);
       //print_r($data ) or die;    
       if($data['status'] == 'failed' && !isset($data['progress'][0]['data']))
       {
@@ -140,7 +140,7 @@ define('MP_DB_DEBUG', false);
      
    }
 
-   public function maskapai($from, $to, $go, $back = null ,$airlines){
+   public function maskapai($adult,$child,$infant ,$from, $to, $go, $back = null ,$airlines){
             if($back != null){
               $return = 1;
             }
@@ -162,9 +162,9 @@ define('MP_DB_DEBUG', false);
               "is_return" => $return,
               "go_date" => $go,
               "back_date" => $back,
-              "adult_count" => "1",
-              "child_count" => "0",
-              "infant_count" => "0",
+              "adult_count" => $adult,
+              "child_count" => $child,
+              "infant_count" => $infant,
               "airlines" => $airlines 
             );
 

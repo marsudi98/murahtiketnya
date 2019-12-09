@@ -32,7 +32,6 @@
                                  <form action="<?=base_url('Search') ?>"  method="post">
                                     <div class="columns mt-20">
                                        <div class="column">
-                                          
                                           <div class="control">
                                              <label>Asal</label>
                                              <select id="asal" name="from" class="chosen-select" data-placeholder="Pilih Asal">
@@ -41,13 +40,11 @@
                                                    <option value="<?php echo $value->kode_bandara ?>"><?php echo $value->lokasi_bandara ." - "; echo "\n";  echo $value->kode_bandara ." - "; echo $value->nama_bandara ?></option>
                                                 <?php endforeach ?> 
                                              </select>
-                                             <!-- <label>Asal</label>
-                                             <input class="input is-secondary-focus is-medium mt-5" id="asal" name="from" type="text" value="CGK"> -->
                                           </div>
                                           <div class="field mb-20">
                                              <label>Tanggal Berangkat</label>
                                              <div class="control has-icons-right">
-                                                <input data-toggle="datepicker" type="text" class="input is-medium" name="go" autocomplete="off" placeholder="Pilih Tanggal...">
+                                                <input data-toggle="datepicker" type="text" class="input is-medium" name="go" autocomplete="off" placeholder="Pilih Tanggal">
                                                 <span class="icon is-right is-medium">
                                                    <i class="im im-icon-Calendar-4"></i>
                                                 </span>
@@ -74,13 +71,18 @@
                                        </div>
                                        <div class="column">
                                           <div class="control">
-                                             <label>Berangkat</label>
-                                             <input class="input is-secondary-focus is-medium mt-5" id="berangkat" name="to" type="text" value="SUB">
+                                             <label>Tujuan</label>
+                                             <select id="tujuan" name="to" class="chosen-select" data-placeholder="Pilih Tujuan">
+                                                <option label="App category"></option>
+                                                <?php foreach ($select_airport as $key => $value):?>
+                                                   <option value="<?php echo $value->kode_bandara ?>"><?php echo $value->lokasi_bandara ." - "; echo "\n";  echo $value->kode_bandara ." - "; echo $value->nama_bandara ?></option>
+                                                <?php endforeach ?> 
+                                             </select>
                                           </div>
                                           <div class="field mb-20" id="show">
                                              <label>Pulang Pergi</label>
                                              <div class="control has-icons-right">
-                                                <input data-toggle="datepicker"  id="myInput" type="text" class="input is-medium" name="back" autocomplete="off" placeholder="Pilih Tanggal..." disabled>
+                                                <input data-toggle="datepicker"  id="myInput" type="text" class="input is-medium" name="back" autocomplete="off" placeholder="Pilih Tanggal" disabled>
                                                 <span class="icon is-right is-medium">
                                                    <i class="im im-icon-Calendar-4"></i>
                                                 </span>
@@ -94,6 +96,7 @@
                                              <label>Maskapai</label>
                                              <div class="select is-fullwidth">
                                                 <select class="is-hovered" name="maskapai">
+                                                   <option value="" selected disabled hidden>Pilih Maskapai</option>
                                                    <option value="SRI">Sriwijaya</option>
                                                    <option value="CIT">Citilink</option>
                                                    <option value="GAR">Garuda</option>
@@ -113,7 +116,7 @@
                                              <label>Dewasa</label>
                                              <div class="select is-fullwidth">
                                                 <select class="is-hovered" name="adult">
-                                                   <option  value="1">1</option>
+                                                   <option value="1">1</option>
                                                    <option value="2">2</option>
                                                    <option value="3">3</option>
                                                    <option value="4">4</option>

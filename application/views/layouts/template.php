@@ -227,8 +227,8 @@
 
         function swapValues(){
             var tmp = document.getElementById("asal").value;
-            document.getElementById("asal").value = document.getElementById("berangkat").value;
-            document.getElementById("berangkat").value = tmp;     
+            document.getElementById("asal").value = document.getElementById("tujuan").value;
+            document.getElementById("tujuan").value = tmp;     
         }
 
         function swapPesawat(){

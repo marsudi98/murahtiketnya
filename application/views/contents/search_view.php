@@ -217,8 +217,10 @@
                   <div class="dropContain">
                     <div class="dropOut">
                       <ul>
-                        <li><input id="sliderWithValue" class="slider has-output is-fullwidth" min="4.121.163" max="20.091.060" value="100" step="1" type="range" onchange="myPesawat()"></li>
-                        <li><output class="is-centered" for="sliderWithValue">4.121.163</output></li>
+                        <li>
+                          <div id="slider-range"></div>
+                        </li>
+                        <li><output class="is-centered" type="text" id="amount" readonly ></output></li>
                       </ul>
                     </div>
                   </div>

@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/ggpopover/ggtooltip.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/jqdropdown/jquery.dropdown.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/js/chosen/chosen.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/icons.min.css">
@@ -392,6 +393,19 @@
             element.className = arr1.join(" ");
         }
 
+        $( function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [ 75, 300 ],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+                " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+	    } );
     </script>
 
 
@@ -407,6 +421,8 @@
     <script src="<?php echo base_url() ?>assets/js/jquery.simple.timer.js"></script>
     <script src="<?php echo base_url() ?>assets/js/jqdropdown/jquery.dropdown.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/chosen/chosen.jquery.min.js"></script>
+   
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Bulkit js -->
     <script src="<?php echo base_url() ?>assets/js/main.js"></script>
     <!-- Page specific JS -->

@@ -3878,7 +3878,7 @@ TABLE OF CONTENTS
   overflow: hidden; }
   .navigation-tabs .navtab-content {
     display: none;
-    padding: 15px;
+    padding: 0;
     min-height: 190px; }
     .navigation-tabs .navtab-content.navtab-modal {
       max-height: 350px;

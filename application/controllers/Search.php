@@ -99,7 +99,7 @@ define('MP_DB_DEBUG', false);
                'title'=>"Search Murahtiketnya",
                'ctrlname' => $this->ctrlname,
                'headers' => "dashboard/header",
-               'contents' => "search_view",
+               'contents' => "search_view2",
                'footers' => "dashboard/footer",
                'data' =>  $result,
                'maskapai' => $airlines

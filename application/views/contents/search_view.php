@@ -319,7 +319,7 @@
         <hr class="mb-20">      
         
         <!-- ul start -->
-        <ul>
+        <ul id='jadwal'>
           <!-- Card -->
           <?php 
           // var_dump($data);
@@ -486,9 +486,9 @@
           </li>                      
           <!-- End of Card -->
 
-          <li>
             <?php
               if (isset($data['go'][0][$maskapai][$i]['eco']) ){ ?>
+          <li data-price = "<?= $data['go'][0][$maskapai][$i]['eco']['diskon'] ?>">
               
               <div class="single-toggle-wrapper 
               <?php if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1 )
@@ -690,19 +690,58 @@
                 <!-- End of Detail -->
               </div>
             </div>
-            <?php } ?>
           </li>
+            <?php } ?>
 
           <!-- End of Card -->
-          <li>
+          
             <?php if (isset($data['go'][0][$maskapai][$i]['bus']) ){ ?>
-            <div class="single-toggle-wrapper
-            <?php if(count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail']) == 1 )
-                {  echo "langsung"; $a = 'Langsung ';}
-                if(count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail']) == 2 )
-                {  echo "transit"; $a ='transit';}
-                  ?>
-            ">
+              <li data-price = "<?= $data['go'][0][$maskapai][$i]['bus']['diskon'] ?>">
+                  
+                  <div class="single-toggle-wrapper 
+                  <?php if(count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail']) == 1 )
+                  {  echo "langsung"; $a = 'Langsung ';}
+                  if(count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail']) == 2 )
+                  {  echo "transit"; $a ='transit';}
+                    ?> "
+                    data-category="<?php 
+                for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['bus']['perjalanan']) ; $j++) {
+                  if($j == 0){ 
+                    $start[1] =$data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['berangkat']['jam'];
+                    $start[2] = $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') ';
+                  }
+                  if($j == count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'])-1){
+                    $end[1]= $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['sampai']['jam'] ; 
+                    $end[2]= $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') ';
+                  }
+                }
+                if($start[1] >= '00:00' &&  $start[1] <= '05:59'){
+                  echo 'takeoff1 ';
+                } 
+                if($start[1] >= '06:00' &&  $start[1] <= '11:59'){
+                  echo 'takeoff2 ';
+                } 
+                if($start[1] >= '12:00' &&  $start[1] <= '18:59'){
+                  echo 'takeoff3 ';
+                } 
+                if($start[1] >= '19:00' &&  $start[1] <= '23:59'){
+                  echo 'takeoff4 ';
+                } 
+                if($end[1] >= '00:00' &&  $end[1] <= '05:59'){
+                  echo 'landing1 ';
+                } 
+                if($end[1] >= '06:00' &&  $end[1] <= '11:59'){
+                  echo 'landing2 ';
+                } 
+                if($end[1] >= '12:00' &&  $end[1] <= '18:59'){
+                  echo 'landing3 ';
+                } 
+                if($end[1] >= '19:00' &&  $end[1] <= '23:59'){
+                  echo 'landing4 ';
+                } 
+                 ?>"
+
+                    >
               <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
                 <div class="columns is-desktop is-centered is-vcentered trigger">
                     <div class="column is-2 has-text-centered ">
@@ -864,9 +903,9 @@
                 <!-- End of Detail -->
               </div>
             </div>
+          </li>
               <?php } ?>
             <?php } ?>
-          </li>
         <ul> <!-- end ul -->
         <!-- End of Card -->
         <?php } 
@@ -919,6 +958,8 @@
         $('.single-toggle-wrapper').hide().filter($filteredResults).show();
       }
       $filterCheckboxes.on('change', filterFunc);  
+    
+
     </script>
 
 

@@ -154,7 +154,6 @@
 
                                     <div class="mt-20">  
                                        <button class="button btn-align no-lh raised primary-btn">Search</button>
-                                       <input type="reset" class="button no-lh" value="Cancel">
                                     </div>
                                  </form>
                               </div>

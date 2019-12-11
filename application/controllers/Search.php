@@ -95,15 +95,28 @@ define('MP_DB_DEBUG', false);
               $result['tanggal_pergi'] = $go;
               $result['bagasi']= $this->bagasi($airlines);
       // print_r($result)  or die();
-            $data=[
-               'title'=>"Search Murahtiketnya",
-               'ctrlname' => $this->ctrlname,
-               'headers' => "dashboard/header",
-               'contents' => "search_view2",
-               'footers' => "dashboard/footer",
-               'data' =>  $result,
-               'maskapai' => $airlines
-             ];
+              if($back == null){
+                  $data=[
+                   'title'=>"Search Murahtiketnya",
+                   'ctrlname' => $this->ctrlname,
+                   'headers' => "dashboard/header",
+                   'contents' => "search_view",
+                   'footers' => "dashboard/footer",
+                   'data' =>  $result,
+                   'maskapai' => $airlines
+                 ];
+              }
+              else {
+                  $data=[
+                   'title'=>"Search Murahtiketnya",
+                   'ctrlname' => $this->ctrlname,
+                   'headers' => "dashboard/header",
+                   'contents' => "search_view2",
+                   'footers' => "dashboard/footer",
+                   'data' =>  $result,
+                   'maskapai' => $airlines
+                 ];
+              }
 
         $this->load->view('layouts/template-tiketnya',$data);
    }
@@ -382,7 +395,7 @@ define('MP_DB_DEBUG', false);
 
         
          
-           $show['back'] = $back;
+           $show['back'] = array([$data['progress'][0]['airline_code'] => $back]);
 
           }          
           //print_r($show) or die;
@@ -394,7 +407,7 @@ define('MP_DB_DEBUG', false);
     private function perjalanan($data,$tipe){
 
         //flight
-                           // total total_perjalanan
+                     // total total_perjalanan
                     for($i=0;$i<count($data['progress'][0]['data'][$tipe]);$i++){
                             for($j=0;$j<count($data['progress'][0]['data'][$tipe][$i]['flights']);$j++){
                                     if($j ==0){

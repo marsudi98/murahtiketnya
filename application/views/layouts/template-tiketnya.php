@@ -238,16 +238,6 @@
             
         }
 
-        function transit() {
-            var checkBox = document.getElementById("myPswt");
-            var showPswt = document.getElementById("showPswt");
-            if (checkBox.checked == true){
-                showPswt.style.display = "block";
-            } else {
-                showPswt.style.display = "none";
-            }
-        }
-
         function myPesawat() {
             var checkBox = document.getElementById("myPswt");
             var showPswt = document.getElementById("showPswt");
@@ -289,39 +279,14 @@
             }
         });
 
-        $(document).ready(function() {
-			var options = {
-				data: ["Jakarta - Cengkareng", "Jakarta - Halim Perdana Kusuma", "Malang - Abdurahman Saleh"],
-                list: {
-                    match: {
-                        enabled: true
-                    }
-                }
-
-			};
-
-			$("#asal").easyAutocomplete(options);
-		});
-
-        $(document).ready(function() {
-			var options = {
-				url: "assets/js/asalberangkatpesawat.json",
-
-				categories: [{
-					listLocation: "cengkareng",
-					header: "Jakarta - Cengkareng"
-				}, {
-					listLocation: "halim",
-					header: "Jakarta - Halim"
-			    }, {
-					listLocation: "malang",
-					header: "Malang"
-			    }]
-
-			};
-
-			$("#berangkat").easyAutocomplete(options);
-		});
+        document.addEventListener('DOMContentLoaded', function() {
+            let cardToggles = document.getElementsByClassName('card-toggle2');
+            for (let i = 0; i < cardToggles.length; i++) {
+                cardToggles[i].addEventListener('click', e => {
+                    e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden');
+                });
+            }
+        });
 
         $(document).ready(function(){
             $('[data-toggle="datepicker"]').datepicker({ dateFormat: 'yy-mm-dd' });
@@ -340,19 +305,6 @@
                 var tipetransit = "Transit";
                 document.getElementById('#checkLangsung').checked = false;
             }
-
-            // var harga = $('#sliderWithValue').val();
-
-            // var takeoff = [];
-            // var landing = [];
-            
-            // $('.cbTakeOff:checkbox:checked').each(function (){
-            //         takeoff.push($(this).val());
-            // });
-
-            // $('.cbLanding:checkbox:checked').each(function (){
-            //         landing.push($(this).val());
-            // }); ,harga, takeoff,landing
 
             console.log(tipetransit);
         }

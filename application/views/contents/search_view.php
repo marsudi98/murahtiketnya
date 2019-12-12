@@ -149,7 +149,6 @@
 
                       <div class="mt-20">  
                         <button class="button btn-align no-lh raised primary-btn">Search</button>
-                        <button class="button no-lh">Cancel</button>
                       </div>
                   </form>
                 </div>
@@ -161,7 +160,7 @@
         <hr>
           <div class="columns is-centered">
             <div class="column is-2">
-              <div class="button btn-align primary-btn btn-outlined" style="border: 0px;" onclick="filterSelection('all')">Show all</div>
+              <p>Filter : </p>
             </div>      
             <!-- <div class="column is-2">
               <div class="button btn-align has-icon-right primary-btn btn-outlined is-drop" style="border: 0px;">Maskapai <i class="sl sl-icon-arrow-down is-icon-xs"></i>
@@ -186,24 +185,17 @@
                     <div class="dropOut">
                       <ul>
                         <li>
-                          <label class="checkbox-wrap is-medium" for="checkAll">
-                            <input id="checkAll" type="checkbox" name="transit-status" class="d-checkbox"  onclick="filterSelection('all')" checked>
-                            <span></span>
-                            Show All
+                          <label class="checkbox-wrap is-medium">
+                                <input type="checkbox" value="langsung" id="langsung" type="checkbox" class="b-checkbox cbLangsung">
+                                <span style="color: #000000"></span>
+                                &nbsp;Langsung
                           </label>
                         </li>
                         <li>
-                          <label class="checkbox-wrap is-medium" for="checkLangsung">
-                            <input id="checkLangsung" type="checkbox" name="transit-status" class="d-checkbox"  onclick="filterSelection('langsung')">
-                            <span></span>
-                            Langsung
-                          </label>
-                        </li>
-                        <li>
-                          <label class="checkbox-wrap is-medium" for="checkTransit">
-                            <input id="checkTransit" type="checkbox" name="transit-status" class="d-checkbox"  onclick="filterSelection('transit')">
-                            <span></span>
-                            Transit
+                          <label class="checkbox-wrap is-medium">
+                              <input type="checkbox" value="transit" id="transit" type="checkbox" class="b-checkbox cbTransit">
+                              <span style="color: #000000"></span>
+                              &nbsp;Transit
                           </label>
                         </li>
                       </ul>
@@ -235,14 +227,14 @@
                         <li class="is-disabled" style="color: #000000;">Waktu Takeoff</li>
                         <li>
                           <label class="checkbox-wrap is-small">
-                                  <input type="checkbox" value="takeoff1" id="takeoff1" type="checkbox" class="b-checkbox cbTakeoff"  >
+                              <input type="checkbox" value="takeoff1" id="takeoff1" type="checkbox" class="b-checkbox cbTakeoff"  >
                               <span style="color: #000000;"></span>
                               &nbsp;00.00 - 06.00
                           </label>
                         </li>
                         <li>
                           <label class="checkbox-wrap is-small">
-                                 <input type="checkbox" value="takeoff2" id="takeoff2" type="checkbox" class="b-checkbox cbTakeoff"  >
+                              <input type="checkbox" value="takeoff2" id="takeoff2" type="checkbox" class="b-checkbox cbTakeoff"  >
                               <span style="color: #000000"></span>
                               &nbsp;06.00 - 12.00
                           </label>
@@ -490,12 +482,7 @@
               if (isset($data['go'][0][$maskapai][$i]['eco']) ){ ?>
           <li data-price = "<?= $data['go'][0][$maskapai][$i]['eco']['diskon'] ?>">
               
-              <div class="single-toggle-wrapper 
-              <?php if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1 )
-              {  echo "langsung"; $a = 'Langsung ';}
-              if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 2 )
-              {  echo "transit"; $a ='transit';}
-                ?> "
+              <div class="single-toggle-wrapper  "
                 data-category="<?php 
             for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['eco']['perjalanan']) ; $j++) {
               if($j == 0){ 
@@ -531,6 +518,10 @@
             if($end[1] >= '19:00' &&  $end[1] <= '23:59'){
               echo 'landing4 ';
             } 
+            if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1 )
+              {  echo "langsung"; $a = 'langsung';}
+              if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 2 )
+              {  echo "transit"; $a ='transit';}
              ?>"
 
                 >
@@ -698,12 +689,7 @@
             <?php if (isset($data['go'][0][$maskapai][$i]['bus']) ){ ?>
               <li data-price = "<?= $data['go'][0][$maskapai][$i]['bus']['diskon'] ?>">
                   
-                  <div class="single-toggle-wrapper 
-                  <?php if(count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail']) == 1 )
-                  {  echo "langsung"; $a = 'Langsung ';}
-                  if(count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail']) == 2 )
-                  {  echo "transit"; $a ='transit';}
-                    ?> "
+                  <div class="single-toggle-wrapper "
                     data-category="<?php 
                 for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['bus']['perjalanan']) ; $j++) {
                   if($j == 0){ 
@@ -739,6 +725,11 @@
                 if($end[1] >= '19:00' &&  $end[1] <= '23:59'){
                   echo 'landing4 ';
                 } 
+                if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1 )
+                {  echo "langsung"; $a = 'langsung';}
+                if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 2 )
+                {  echo "transit"; $a ='transit';}
+        
                  ?>"
 
                     >

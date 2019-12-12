@@ -23,6 +23,8 @@
                 $originalDate = $data['tanggal_pergi'];
                 $newDate = date("l, d F Y", strtotime($originalDate));
               ?>
+              
+              
               <p class="text-bold" style="color: #757575;"><?= $newDate  ?></p>
               <br/>
               <p class="text-bold" style="font-size: 13px; color: #757575;">1 Dewasa | Ekonomi </p>
@@ -177,8 +179,8 @@
                         <ul>
                           <li>
                             <label class="checkbox-wrap is-medium" for="checkAll">
-                              <input id="checkAll" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('all')" checked>
                               <span></span>
+                              <input id="checkAll" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('all')" checked>
                               Show All
                             </label>
                           </li>

@@ -307,11 +307,7 @@
             }
 
             console.log(tipetransit);
-        }
-
-        $(document).ready(function(){
-            
-        }); 
+        } 
 
         filterSelection("all")
         function filterSelection(c) {
@@ -372,7 +368,7 @@
                 min = $("#slider-range").slider("values", 0);
                 max = $("#slider-range").slider("values", 1);
 
-                $("#amount").val("$" + min + " - $" + max);
+                $("#amount").val("Rp." + min + " - Rp." + max);
 
                 showProducts(min, max);
             });

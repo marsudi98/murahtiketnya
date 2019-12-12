@@ -93,6 +93,7 @@ define('MP_DB_DEBUG', false);
               $result['from'] = $from;
               $result['to'] = $to;
               $result['tanggal_pergi'] = $go;
+              $result['tanggal_pulang'] = $back;
               $result['bagasi']= $this->bagasi($airlines);
       // print_r($result)  or die();
               if($back == null){

@@ -920,22 +920,15 @@
                         <div class="dropOut">
                           <ul>
                             <li>
-                              <label class="checkbox-wrap is-medium" for="checkAll">
-                                <input id="checkAll" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('all')" checked>
-                                <span></span>
-                                Show All
-                              </label>
-                            </li>
-                            <li>
                               <label class="checkbox-wrap is-medium" for="checkLangsung">
-                                <input id="checkLangsung" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('langsung')">
+                                <input id="checkLangsung" type="checkbox" name="transit-status" class="d-checkbox"  onclick="filterSelection('langsung')">
                                 <span></span>
                                 Langsung
                               </label>
                             </li>
                             <li>
                               <label class="checkbox-wrap is-medium" for="checkTransit">
-                                <input id="checkTransit" type="radio" name="transit-status" class="d-checkbox"  onclick="filterSelection('transit')">
+                                <input id="checkTransit" type="checkbox" name="transit-status" class="d-checkbox"  onclick="filterSelection('transit')">
                                 <span></span>
                                 Transit
                               </label>

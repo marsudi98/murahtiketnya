@@ -9,6 +9,7 @@
         <h2 class="clean-section-title">Tiket Pesawat</h2>
         <h3 class="subtitle is-5 pt-10">
             <i>Hasil pencarian tiket anda.</i>
+
         </h3>
       </div>
     </div>
@@ -296,12 +297,13 @@
                   <div class="dropContain">
                     <div class="dropOut">
                       <ul>
-                        <li><a href="#" style="color: #000000">Harga Terendah</a> </li>
-                        <li><a href="#" style="color: #000000">Waktu Berangkat Awal</a></li>
-                        <li><a href="#" style="color: #000000">Waktu Berangkat Akhir</a></li>
-                        <li><a href="#" style="color: #000000">Waktu Tiba Awal</a></li>
-                        <li><a href="#" style="color: #000000">Waktu Tiba Akhir</a></li>
-                        <li><a href="#" style="color: #000000">Durasi Tercepat</a></li>
+                        <li><button id="tes2">Tes</button></li>
+                        <li class="btn_harga ac"><a style="color: #000000">Harga Terendah</a></li>
+                        <li  class="btn_berangkat ac"><a  style="color: #000000">Waktu Berangkat Awal</a></li>
+                        <li class="btn_berangkat dec"><a  style="color: #000000">Waktu Berangkat Akhir</a></li>
+                        <li class='btn_tiba ac'><a   style="color: #000000">Waktu Tiba Awal</a></li>
+                        <li class='btn_tiba dec'><a   style="color: #000000">Waktu Tiba Akhir</a></li>
+                        <li class="btn_durasi ac"><a   style="color: #000000">Durasi Tercepat</a></li>
                       </ul>
                     </div>
                   </div>
@@ -311,15 +313,15 @@
         <hr class="mb-20">      
         
         <!-- ul start -->
-        <ul id='jadwal'>
+        <ul id="jadwal">
           <!-- Card -->
           <?php 
           // var_dump($data);
           if(isset($data['go'][0])){        
           for($i = 0 ;$i < count($data['go'][0][$maskapai]) ; $i++){ ?>
           
-          <li>
             <?php if (isset($data['go'][0][$maskapai][$i]['pro']) ){ ?>
+          <li>
             <div class="single-toggle-wrapper">
               <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
                 <div class="columns is-desktop is-centered is-vcentered trigger">
@@ -474,17 +476,15 @@
                 <!-- End of Detail -->
               </div>
             </div>
-            <?php } ?>
           </li>                      
+            <?php } ?>
           <!-- End of Card -->
 
             <?php
               if (isset($data['go'][0][$maskapai][$i]['eco']) ){ ?>
-          <li data-price = "<?= $data['go'][0][$maskapai][$i]['eco']['diskon'] ?>">
-              
-              <div class="single-toggle-wrapper  "
-                data-category="<?php 
+          <?php 
             for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['eco']['perjalanan']) ; $j++) {
+              
               if($j == 0){ 
                 $start[1] =$data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['jam'];
                 $start[2] = $data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') ';
@@ -494,6 +494,15 @@
                 $end[2]= $data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') ';
               }
             }
+
+           ?>
+
+          <li data-price = "<?= $data['go'][0][$maskapai][$i]['eco']['diskon'] ?>" tiba="<?= $end[1] 
+                      ?>" berangkat="<?= $start[1] ?>" durasi="<?= $data['go'][0][$maskapai][$i]['eco']['perjalanan']['total_perjalanan']  ?>">
+              
+            
+              <div class="single-toggle-wrapper  "
+                data-category="<?php 
             if($start[1] >= '00:00' &&  $start[1] <= '05:59'){
               echo 'takeoff1 ';
             } 
@@ -687,52 +696,58 @@
           <!-- End of Card -->
           
             <?php if (isset($data['go'][0][$maskapai][$i]['bus']) ){ ?>
-              <li data-price = "<?= $data['go'][0][$maskapai][$i]['bus']['diskon'] ?>">
-                  
-                  <div class="single-toggle-wrapper "
-                    data-category="<?php 
-                for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['bus']['perjalanan']) ; $j++) {
-                  if($j == 0){ 
-                    $start[1] =$data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['berangkat']['jam'];
-                    $start[2] = $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') ';
-                  }
-                  if($j == count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'])-1){
-                    $end[1]= $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['sampai']['jam'] ; 
-                    $end[2]= $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') ';
-                  }
-                }
-                if($start[1] >= '00:00' &&  $start[1] <= '05:59'){
-                  echo 'takeoff1 ';
-                } 
-                if($start[1] >= '06:00' &&  $start[1] <= '11:59'){
-                  echo 'takeoff2 ';
-                } 
-                if($start[1] >= '12:00' &&  $start[1] <= '18:59'){
-                  echo 'takeoff3 ';
-                } 
-                if($start[1] >= '19:00' &&  $start[1] <= '23:59'){
-                  echo 'takeoff4 ';
-                } 
-                if($end[1] >= '00:00' &&  $end[1] <= '05:59'){
-                  echo 'landing1 ';
-                } 
-                if($end[1] >= '06:00' &&  $end[1] <= '11:59'){
-                  echo 'landing2 ';
-                } 
-                if($end[1] >= '12:00' &&  $end[1] <= '18:59'){
-                  echo 'landing3 ';
-                } 
-                if($end[1] >= '19:00' &&  $end[1] <= '23:59'){
-                  echo 'landing4 ';
-                } 
-                if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 1 )
-                {  echo "langsung"; $a = 'langsung';}
-                if(count($data['go'][0][$maskapai][$i]['eco']['perjalanan']['detail']) == 2 )
-                {  echo "transit"; $a ='transit';}
-        
-                 ?>"
+              <?php 
+            for ($j = 0; $j < count($data['go'][0][$maskapai][$i]['bus']['perjalanan']) ; $j++) {
+              
+              if($j == 0){ 
+                $start[1] =$data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['berangkat']['jam'];
+                $start[2] = $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['berangkat']['kota'].' ('.$data['from'].') ';
+              }
+              if($j == count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'])-1){
+                $end[1]= $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['sampai']['jam'] ; 
+                $end[2]= $data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail'][$j]['sampai']['kota'].' ('.$data['to'].') ';
+              }
+            }
 
-                    >
+           ?>
+
+          <li data-price = "<?= $data['go'][0][$maskapai][$i]['bus']['diskon'] ?>" tiba="<?= $end[1] 
+                      ?>" berangkat="<?= $start[1] ?>" durasi="<?= $data['go'][0][$maskapai][$i]['bus']['perjalanan']['total_perjalanan']  ?>">
+              
+            
+              <div class="single-toggle-wrapper  "
+                data-category="<?php 
+            if($start[1] >= '00:00' &&  $start[1] <= '05:59'){
+              echo 'takeoff1 ';
+            } 
+            if($start[1] >= '06:00' &&  $start[1] <= '11:59'){
+              echo 'takeoff2 ';
+            } 
+            if($start[1] >= '12:00' &&  $start[1] <= '18:59'){
+              echo 'takeoff3 ';
+            } 
+            if($start[1] >= '19:00' &&  $start[1] <= '23:59'){
+              echo 'takeoff4 ';
+            } 
+            if($end[1] >= '00:00' &&  $end[1] <= '05:59'){
+              echo 'landing1 ';
+            } 
+            if($end[1] >= '06:00' &&  $end[1] <= '11:59'){
+              echo 'landing2 ';
+            } 
+            if($end[1] >= '12:00' &&  $end[1] <= '18:59'){
+              echo 'landing3 ';
+            } 
+            if($end[1] >= '19:00' &&  $end[1] <= '23:59'){
+              echo 'landing4 ';
+            } 
+            if(count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail']) == 1 )
+              {  echo "langsung"; $a = 'langsung';}
+              if(count($data['go'][0][$maskapai][$i]['bus']['perjalanan']['detail']) == 2 )
+              {  echo "transit"; $a ='transit';}
+             ?>"
+
+                >
               <div class="flex-card media-card light-bordered hover-inset pertama toggle-wrap">
                 <div class="columns is-desktop is-centered is-vcentered trigger">
                     <div class="column is-2 has-text-centered ">
@@ -897,7 +912,7 @@
           </li>
               <?php } ?>
             <?php } ?>
-        <ul> <!-- end ul -->
+        </ul> <!-- end ul -->
         <!-- End of Card -->
         <?php } 
         else if(isset($data['status'])){
@@ -913,7 +928,9 @@
     </div>
   </div>
 
-    <script type="text/javascript"> 
+
+  <script type="text/javascript">
+     $(document).ready(function() { 
       var $filterCheckboxes = $('input[type="checkbox"]');
       var filterFunc = function() {
         
@@ -951,7 +968,173 @@
       $filterCheckboxes.on('change', filterFunc);  
     
 
-    </script>
+
+//sort
+$('.btn_harga').click(function(event) {
+      /* Act on the event */
+        var myThis = $(this);
+        var item = $('#jadwal');
+        var itemSort = $('li', item);
+
+        itemSort.sort(function(a, b){
+
+            // var checkA = $(a).text();
+            // var checkB = $(b).text();
+
+            var checkA = $(a).attr("data-price");
+            var checkB = $(b).attr("data-price");
+
+          //Covert to lowercase for checking letters.
+
+            lowerCaseA = Number(checkA);
+            lowerCaseB = Number(checkB);
+
+          //Check what button was clicked
+          
+          if(myThis.hasClass('ac')){
+           
+           return (lowerCaseA > lowerCaseB) ? 1 : (lowerCaseA < lowerCaseB) ? -1 : 0; // ascending sort
+            
+
+          }
+        });
+        //loop through items
+        $.each(itemSort, function(index, val){
+
+            $(item).append(val);
+      
+        });
+     
+  });
+
+
+  $('.btn_tiba').click(function(event) {
+      /* Act on the event */
+        var myThis = $(this);
+        var item = $('#jadwal');
+        var itemSort = $('li', item);
+
+        itemSort.sort(function(a, b){
+
+            // var checkA = $(a).text();
+            // var checkB = $(b).text();
+
+            var checkA = $(a).attr("tiba").replace(':','');
+
+            var checkB = $(b).attr("tiba").replace(':','');
+            
+
+          //Covert to lowercase for checking letters.
+
+            lowerCaseA = Number(checkA);
+            lowerCaseB = Number(checkB);
+
+          //Check what button was clicked
+          
+          if(myThis.hasClass('ac')){
+           
+           return (lowerCaseA > lowerCaseB) ? 1 : (lowerCaseA < lowerCaseB) ? -1 : 0; // ascending sort
+            
+
+          }else if(myThis.hasClass('dec')){ 
+
+           return (lowerCaseA < lowerCaseB) ? 1 :  (lowerCaseA > lowerCaseB) ? -1 : 0; // descending sort
+
+          }
+        });
+        //loop through items
+        $.each(itemSort, function(index, val){
+
+            $(item).append(val);
+    
+        });
+        
+  });
+
+  $('.btn_berangkat').click(function(event) {
+      /* Act on the event */
+        var myThis = $(this);
+        var item = $('#jadwal');
+        var itemSort = $('li', item);
+
+        itemSort.sort(function(a, b){
+
+            // var checkA = $(a).text();
+            // var checkB = $(b).text();
+
+            var checkA = $(a).attr("berangkat").replace(':','');
+
+            var checkB = $(b).attr("berangkat").replace(':','');
+            
+
+          //Covert to lowercase for checking letters.
+
+            lowerCaseA = Number(checkA);
+            lowerCaseB = Number(checkB);
+
+          //Check what button was clicked
+          
+          if(myThis.hasClass('ac')){
+           
+           return (lowerCaseA > lowerCaseB) ? 1 : (lowerCaseA < lowerCaseB) ? -1 : 0; // ascending sort
+            
+
+          }else if(myThis.hasClass('dec')){ 
+
+           return (lowerCaseA < lowerCaseB) ? 1 :  (lowerCaseA > lowerCaseB) ? -1 : 0; // descending sort
+
+          }
+        });
+        //loop through items
+        $.each(itemSort, function(index, val){
+
+            $(item).append(val);
+    
+        });
+        
+  });
+  
+    $('.btn_durasi').click(function(event) {
+      /* Act on the event */
+        var myThis = $(this);
+        var item = $('#jadwal');
+        var itemSort = $('li', item);
+
+        itemSort.sort(function(a, b){
+
+            // var checkA = $(a).text();
+            // var checkB = $(b).text();
+
+            var checkA = $(a).attr("durasi").replace(':','');
+            var checkB = $(b).attr("durasi").replace(':','');
+            
+
+          //Covert to lowercase for checking letters.
+
+            lowerCaseA = Number(checkA);
+            lowerCaseB = Number(checkB);
+
+          //Check what button was clicked
+          
+          if(myThis.hasClass('ac')){
+           
+           return (lowerCaseA > lowerCaseB) ? 1 : (lowerCaseA < lowerCaseB) ? -1 : 0; // ascending sort
+            
+
+          }
+        });
+        //loop through items
+        $.each(itemSort, function(index, val){
+
+            $(item).append(val);
+    
+        });
+        
+  });
+
+    
+});
+</script>
 
 
 </section>
